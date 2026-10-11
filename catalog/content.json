@@ -20,8 +20,8 @@
       }
     },
     "com.zynthec.zLoader": {
-      "ipaFile": "zLoader-0.7.53-resignable.ipa",
-      "releaseTag": "app-zloader-v0.7.53-20261011T110546Z-0070b4a3",
+      "ipaFile": "zLoader-0.7.54-resignable.ipa",
+      "releaseTag": "app-zloader-v0.7.54-20261011T141105Z-1af1e07b",
       "name": "zLoader",
       "developerName": "zynthec-dev",
       "subtitle": "Independent SideStore fork for iPhone and iPad.",
@@ -29,13 +29,13 @@
       "category": "utilities",
       "tintColor": "#147D60",
       "iconFile": "catalog/assets/zloader-icon.png",
-      "versionDescription": "Running installations are published to the launcher before tunnel preparation and endpoint checks. Pending entries are delivered as snapshots on the main queue. Failed or cancelled preparation clears the tile. Shared-grid rendering and transition to an installed entry were verified in the simulator.",
+      "versionDescription": "External WireGuard local tunnel: configuration export in onboarding and Connection Settings, matching EMProxy loopback receiver, and missing-tunnel status. Integrated VPN extension and recovery payload removed. Keep the external WireGuard tunnel enabled during operations; device testing is still required.",
       "screenshots": [],
-      "marketingVersion": "0.7.53",
+      "marketingVersion": "0.7.54",
       "releaseAsset": {
-        "size": 32724554,
-        "sha256": "0070b4a3d25adb23dc97ee0891c28e5a25e725478d18ee7e7414540973bef54b",
-        "updatedAt": "2026-10-11T11:05:46Z"
+        "size": 32638640,
+        "sha256": "1af1e07bb1e72422e4b4f6fd747622e14146bc7282f3b2a7f1fb4561f42a7bf9",
+        "updatedAt": "2026-10-11T14:11:05Z"
       }
     }
   },
