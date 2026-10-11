@@ -20,8 +20,8 @@
       }
     },
     "com.zynthec.zLoader": {
-      "ipaFile": "zLoader-0.7.52-resignable.ipa",
-      "releaseTag": "app-zloader-v0.7.52-20261011T104715Z-e18667a6",
+      "ipaFile": "zLoader-0.7.53-resignable.ipa",
+      "releaseTag": "app-zloader-v0.7.53-20261011T110546Z-0070b4a3",
       "name": "zLoader",
       "developerName": "zynthec-dev",
       "subtitle": "Independent SideStore fork for iPhone and iPad.",
@@ -29,13 +29,13 @@
       "category": "utilities",
       "tintColor": "#147D60",
       "iconFile": "catalog/assets/zloader-icon.png",
-      "versionDescription": "Pending installs share the installed-app grid and fill available row slots. Installed records are saved before completion and progress removal; database save failures are reported. Remaining validity includes the current partial day while retaining actual profile/extension/certificate expiry.",
+      "versionDescription": "Running installations are published to the launcher before tunnel preparation and endpoint checks. Pending entries are delivered as snapshots on the main queue. Failed or cancelled preparation clears the tile. Shared-grid rendering and transition to an installed entry were verified in the simulator.",
       "screenshots": [],
-      "marketingVersion": "0.7.52",
+      "marketingVersion": "0.7.53",
       "releaseAsset": {
-        "size": 32723881,
-        "sha256": "e18667a6eb0743ecfdca97158b7f1ff8be1922121d95512780ccad194c256272",
-        "updatedAt": "2026-10-11T10:47:15Z"
+        "size": 32724554,
+        "sha256": "0070b4a3d25adb23dc97ee0891c28e5a25e725478d18ee7e7414540973bef54b",
+        "updatedAt": "2026-10-11T11:05:46Z"
       }
     }
   },
