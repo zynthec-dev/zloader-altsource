@@ -20,8 +20,8 @@
       }
     },
     "com.zynthec.zLoader": {
-      "ipaFile": "zLoader-0.7.50-resignable.ipa",
-      "releaseTag": "app-zloader-v0.7.50-20261011T055131Z-bc5419ad",
+      "ipaFile": "zLoader-0.7.51-resignable.ipa",
+      "releaseTag": "app-zloader-v0.7.51-20261011T062725Z-9368f3b9",
       "name": "zLoader",
       "developerName": "zynthec-dev",
       "subtitle": "Independent SideStore fork for iPhone and iPad.",
@@ -29,13 +29,13 @@
       "category": "utilities",
       "tintColor": "#147D60",
       "iconFile": "catalog/assets/zloader-icon.png",
-      "versionDescription": "Remaining days use the earliest expiry of the host profile, installed extension profiles and known signing certificate. Refresh uses the correct host profile instead of an arbitrary extension; cellular batch refresh now persists renewed expiry dates. A new self-update no longer restores stale dates from the previous build.",
+      "versionDescription": "The fixed zLoader source now uses https://zynthec.com/zloader/source.json. Existing entries at either former domain migrate in place, retaining app/news links. Website, fallback icon, add-source placeholder and release documentation use the new location.",
       "screenshots": [],
-      "marketingVersion": "0.7.50",
+      "marketingVersion": "0.7.51",
       "releaseAsset": {
-        "size": 32719154,
-        "sha256": "bc5419ad8b20c4efea4b4f9f5fe4542b6ea8823c261ade4eb66b266d149642ac",
-        "updatedAt": "2026-10-11T05:51:31Z"
+        "size": 32718005,
+        "sha256": "9368f3b99c5886a4d1ecd934bae23345a1c3c3e15351540a4d3a5fc4729c9dae",
+        "updatedAt": "2026-10-11T06:27:25Z"
       }
     }
   },
