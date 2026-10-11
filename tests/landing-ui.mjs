@@ -34,7 +34,9 @@ try {
   await page.goto(base);
   await page.getByRole('heading',{name:'Deine Apps. Dein iPhone.'}).waitFor();
   assert.equal(await page.getByRole('link',{name:'Auf GitHub',exact:true}).getAttribute('href'),'https://github.com/zynthec-dev/zloader-app');
-  assert.equal(await page.getByRole('link',{name:'Source',exact:true}).getAttribute('href'),'/zloader/source.json');
+  assert.equal(await page.getByRole('link',{name:'Source',exact:true}).count(),0);
+  assert.equal(await page.getByRole('navigation',{name:'Hauptnavigation'}).getByRole('link').count(),1);
+  assert.equal(await page.locator('#source-url').inputValue(),'zynthec.com/zloader/source.json');
   // Playwright APIRequestContext bypasses route interception; read the build for isolated QA.
   const source = process.env.LANDING_TEST_ROOT ? JSON.parse(await readFile(process.env.LANDING_TEST_ROOT+'/source.json','utf8')) : await page.evaluate(async()=>await (await fetch('/zloader/source.json')).json());
   const app = source.apps.find(app=>app.bundleIdentifier==='com.zynthec.zLoader');

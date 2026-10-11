@@ -107,7 +107,8 @@ class BuildTests(unittest.TestCase):
     def test_landing_page_links_current_release_and_public_app_repo(self):
         page = (DIST / "zloader/index.html").read_text()
         self.assertIn('https://github.com/zynthec-dev/zloader-app', page)
-        self.assertIn('href="/zloader/source.json"', page)
+        self.assertNotIn('href="/zloader/source.json"', page)
+        self.assertIn('value="zynthec.com/zloader/source.json"', page)
         self.assertIn('src="/zloader/site.js"', page)
         self.assertNotIn('{{ZLOADER_', page)
         app = next((app for app in self.source["apps"] if app["bundleIdentifier"] == "com.zynthec.zLoader"), None)
