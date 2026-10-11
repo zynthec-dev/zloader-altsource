@@ -13,7 +13,8 @@ const env = { ASSETS: { fetch: async request => {
     headers: { 'Content-Type': 'application/octet-stream' },
   });
   if (path === '/admin/') return new Response('<html>Admin</html>');
-  if (path === '/zloader/index.html') return new Response('<html>zLoader</html>');
+  if (path === '/zloader/index.html') return Response.redirect('https://zynthec.com/zloader/',308);
+  if (path === '/zloader/') return new Response('<html>zLoader</html>');
   if (path === '/zloader/site.css' || path === '/zloader/site.js' || path.startsWith('/assets/')) return new Response('asset');
   return new Response('Not found', { status: 404 });
 } } };
@@ -49,7 +50,7 @@ assert.equal(response.status, 404);
 for (const path of ['', '/']) {
   response = await worker.fetch(request(path), env);
   assert.equal(await response.text(), '<html>zLoader</html>');
-  assert.equal(new URL(calls.at(-1).url).pathname, '/zloader/index.html');
+  assert.equal(new URL(calls.at(-1).url).pathname, '/zloader/');
 }
 for (const path of ['/site.css', '/site.js', '/assets/source-icon.png', '/assets/apps/com.zynthec.zLoader.png']) {
   response = await worker.fetch(request(path), env);
@@ -59,4 +60,9 @@ for (const path of ['/', '/admin/', '/source.json', '/zloader/source', '/zloader
   response = await worker.fetch(new Request('https://zynthec.com' + path), env);
   assert.equal(response.status,404,`Retired or unrelated path ${path} must not serve the Source`);
 }
-console.log('Cloudflare routing: landing page/assets, source.json, HEAD, CORS, admin redirect/API and retired paths passed.');
+for (const [path,target] of [['/','/source.json'],['/source.json','/source.json'],['/assets/source-icon.png','/assets/source-icon.png'],['/admin','/admin']]) {
+  response = await worker.fetch(new Request('https://zloader.zynthec.com'+path),env);
+  assert.equal(response.status,308);
+  assert.equal(response.headers.get('location'),base+target);
+}
+console.log('Cloudflare routing: landing page/assets, source.json, HEAD, CORS, admin redirect/API, compatibility and retired paths passed.');

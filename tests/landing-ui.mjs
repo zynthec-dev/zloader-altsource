@@ -6,7 +6,8 @@ const base = process.env.LANDING_TEST_URL || 'https://zynthec.com/zloader';
 const origin = new URL(base).origin;
 const screenshots = process.env.LANDING_SCREENSHOTS || '/tmp/zloader-landing-qa';
 await mkdir(screenshots, { recursive:true });
-const browser = await chromium.launch({ executablePath:process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', headless:true });
+const browser = await chromium.launch({ executablePath:process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', headless:true,
+  args:process.env.CHROME_RESOLVE ? ['--host-resolver-rules='+process.env.CHROME_RESOLVE] : [] });
 try {
   const context = await browser.newContext({ viewport:{width:1536,height:1024}, permissions:['clipboard-read','clipboard-write'] });
   if (process.env.LANDING_TEST_ROOT) {
@@ -35,7 +36,7 @@ try {
   assert.equal(await page.getByRole('link',{name:'Auf GitHub',exact:true}).getAttribute('href'),'https://github.com/zynthec-dev/zloader-app');
   assert.equal(await page.getByRole('link',{name:'Source',exact:true}).getAttribute('href'),'/zloader/source.json');
   // Playwright APIRequestContext bypasses route interception; read the build for isolated QA.
-  const source = process.env.LANDING_TEST_ROOT ? JSON.parse(await readFile(process.env.LANDING_TEST_ROOT+'/source.json','utf8')) : await (await context.request.get(origin+'/zloader/source.json')).json();
+  const source = process.env.LANDING_TEST_ROOT ? JSON.parse(await readFile(process.env.LANDING_TEST_ROOT+'/source.json','utf8')) : await page.evaluate(async()=>await (await fetch('/zloader/source.json')).json());
   const app = source.apps.find(app=>app.bundleIdentifier==='com.zynthec.zLoader');
   assert.equal(await page.locator('#download').getAttribute('href'),app.versions[0].downloadURL);
   assert.ok(await page.locator('.app-icon').evaluate(image=>image.complete && image.naturalWidth>0));

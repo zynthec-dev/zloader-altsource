@@ -80,7 +80,7 @@ Der Pages Worker in `site/_worker.js` liefert die Website unter `/zloader`, den 
 - Website: `https://zynthec.com/zloader`
 - Source: `https://zynthec.com/zloader/source.json`
 - Admin: `https://zynthec.com/zloader/admin`
-- Frühere Source-Domains (`zloader.zynthec.com`, `altsource.zynthec.com`, `source.zynthec.com`) werden nicht mehr bereitgestellt. Die technische Pages-Domain bleibt als Deployment-Ursprung erhalten.
+- `altsource.zynthec.com` und `source.zynthec.com` sind nicht mehr zugeordnet. `zloader.zynthec.com` leitet vorübergehend auf die neue Source und ihre Assets um, weil zLoader 0.7.50 diese Adresse noch eingebettet hat; die Zuordnung kann nach einem App-Update entfernt werden. Die technische Pages-Domain bleibt als Deployment-Ursprung erhalten.
 - Die Source-ID `com.zynthec.source` bleibt für bereits hinzugefügte Sources stabil.
 
 
