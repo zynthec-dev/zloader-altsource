@@ -73,15 +73,14 @@ class BuildTests(unittest.TestCase):
     def test_feed_has_no_private_origin_metadata(self):
         self.assertTrue(all("_origin" not in app for app in self.source["apps"]))
 
-    def test_public_source_uses_canonical_domain_root(self):
+    def test_public_source_uses_canonical_path(self):
         for key in ("name", "subtitle", "description", "tintColor"):
             self.assertEqual(self.source[key], self.settings[key])
         self.assertEqual(self.source["identifier"], "com.zynthec.source")
-        self.assertEqual(self.source["website"], "https://zloader.zynthec.com")
-        self.assertEqual(self.source["sourceURL"], "https://zloader.zynthec.com")
-        self.assertNotIn("source.json", self.source["sourceURL"])
-        self.assertEqual(self.source["iconURL"], "https://zloader.zynthec.com/assets/source-icon.png")
-        self.assertTrue(all(app["iconURL"].startswith("https://zloader.zynthec.com/") for app in self.source["apps"]))
+        self.assertEqual(self.source["website"], "https://zynthec.com/zloader")
+        self.assertEqual(self.source["sourceURL"], "https://zynthec.com/zloader/source.json")
+        self.assertEqual(self.source["iconURL"], "https://zynthec.com/zloader/assets/source-icon.png")
+        self.assertTrue(all(app["iconURL"].startswith("https://zynthec.com/zloader/assets/") for app in self.source["apps"]))
 
     def test_custom_source_settings_and_icon_reach_feed_and_admin(self):
         spec = importlib.util.spec_from_file_location("source_settings_build", ROOT / "scripts/build.py")
@@ -104,6 +103,26 @@ class BuildTests(unittest.TestCase):
                 self.assertEqual(feed[key], settings[key])
             self.assertEqual((root / "dist/assets/source-icon.png").read_bytes(), icon)
             self.assertIn("Meine Source &lt;&amp;&gt;", (root / "dist/admin/index.html").read_text())
+
+    def test_landing_page_links_current_release_and_public_app_repo(self):
+        page = (DIST / "zloader/index.html").read_text()
+        self.assertIn('https://github.com/zynthec-dev/zloader-app', page)
+        self.assertIn('href="/zloader/source.json"', page)
+        self.assertIn('src="/zloader/site.js"', page)
+        self.assertNotIn('{{ZLOADER_', page)
+        app = next((app for app in self.source["apps"] if app["bundleIdentifier"] == "com.zynthec.zLoader"), None)
+        if app:
+            self.assertIn(app["versions"][0]["downloadURL"], page)
+        self.assertTrue((DIST / "zloader/site.css").is_file())
+
+    def test_asset_base_supports_json_and_legacy_root_urls(self):
+        spec = importlib.util.spec_from_file_location("source_asset_build", ROOT / "scripts/build.py")
+        builder = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(builder)
+        for url, expected in (("https://example.com/zloader/source.json", "https://example.com/zloader/"),
+                              ("https://example.com", "https://example.com/"),
+                              ("https://example.com/source/", "https://example.com/source/")):
+            self.assertEqual(builder.asset_base({"sourceURL": url}), expected)
 
     def test_configured_apps_have_valid_release_filenames(self):
         apps = [*self.content.get("localApps", {}).values(), *self.content.get("uploadedApps", [])]

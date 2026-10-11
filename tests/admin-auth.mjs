@@ -29,7 +29,7 @@ class Statement {
 }
 const db = { prepare: sql => new Statement(sql), batch: async statements => execute(statements) };
 const env = { ADMIN_DB: db, ADMIN_ENCRYPTION_KEY: 'ab'.repeat(32) };
-const origin = 'https://zloader.zynthec.com';
+const origin = 'https://zynthec.com';
 const request = (route, body, sessionCookie, headers={}) => new Request(`${origin}/admin/api/${route}`, {
   method:body===undefined?'GET':'POST',
   headers:{'Content-Type':'application/json','X-Admin-Request':'1', Origin:origin,

@@ -13,12 +13,18 @@ import re
 import shutil
 import sys
 import zipfile
+from urllib.parse import urljoin
 from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "catalog"
 DIST = ROOT / "dist"
+
+
+def asset_base(settings: dict[str, Any]) -> str:
+    source_url = settings["sourceURL"].rstrip("/")
+    return urljoin(source_url, "./") if source_url.endswith(".json") else source_url + "/"
 
 
 def read_json(path: Path) -> Any:
@@ -109,7 +115,7 @@ def ipa_app(ipa: Path, settings: dict[str, Any], content: dict[str, Any]) -> dic
         "developerName": override.get("developerName", "zynthec"),
         "subtitle": override.get("subtitle", "Eine App von zynthec."),
         "localizedDescription": override.get("localizedDescription", "Direkt von zynthec veröffentlicht."),
-        "iconURL": f"{settings['sourceURL'].rstrip('/')}/assets/apps/{bundle_id}.png",
+        "iconURL": f"{asset_base(settings)}assets/apps/{bundle_id}.png",
         "tintColor": override.get("tintColor", settings["tintColor"]),
         "category": override.get("category", "other"),
         "screenshots": override.get("screenshots", []),
@@ -137,7 +143,7 @@ def normalize_app(app: dict[str, Any], origin: dict[str, str]) -> dict[str, Any]
     result = dict(app)
     result.setdefault("subtitle", f"Von {result.get('developerName', origin['name'])}")
     result.setdefault("localizedDescription", result["subtitle"])
-    result.setdefault("iconURL", origin["url"].rstrip("/") + "/assets/source-icon.png")
+    result.setdefault("iconURL", asset_base({"sourceURL": origin["url"]}) + "assets/source-icon.png")
     result.setdefault("category", "other")
     result.setdefault("screenshots", result.pop("screenshotURLs", []))
     result.setdefault("appPermissions", {"entitlements": [], "privacy": {}})
@@ -203,6 +209,18 @@ def build() -> None:
         "apps": feed_apps, "news": content.get("news", [])
     }
     write_json(DIST / "source.json", feed)
+    landing_page = DIST / "zloader" / "index.html"
+    if landing_page.is_file():
+        zloader = next((app for app in feed_apps if app["bundleIdentifier"] == "com.zynthec.zLoader"), None)
+        latest = zloader["versions"][0] if zloader else {}
+        download = latest.get("downloadURL", "https://github.com/zynthec-dev/zloader-app/releases")
+        label = "zLoader " + latest.get("marketingVersion", latest.get("version", ""))
+        if latest.get("minOSVersion"):
+            label += " — iOS " + latest["minOSVersion"] + "+"
+        landing_page.write_text(landing_page.read_text(encoding="utf-8")
+                                .replace("{{ZLOADER_DOWNLOAD_URL}}", html.escape(download, quote=True))
+                                .replace("{{ZLOADER_ICON_URL}}", html.escape(zloader["iconURL"] if zloader else settings["iconURL"], quote=True))
+                                .replace("{{ZLOADER_DOWNLOAD_LABEL}}", html.escape(label, quote=True)), encoding="utf-8")
     print(f"Built {len(apps)} apps ({len(local)} local, {len(manual)} manual) into {DIST}")
 
 

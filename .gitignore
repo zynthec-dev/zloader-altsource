@@ -1,5 +1,6 @@
 .DS_Store
 dist/
 .wrangler/
+__pycache__/
 *.ipa
 !fixtures/*.ipa

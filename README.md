@@ -4,12 +4,13 @@ Eine schlanke AltStore-/SideStore-Source für eigene IPA-Dateien mit browserbasi
 
 ## Enthalten
 
-- `https://zloader.zynthec.com`: kompatibler AltSource-Feed direkt an der Domainwurzel.
-- `https://zloader.zynthec.com/admin/`: Apps hochladen, entfernen und ihre Metadaten gestalten.
+- `https://zynthec.com/zloader`: öffentliche zLoader-Website mit aktueller IPA, Anleitung und Link zum App-Repository.
+- `https://zynthec.com/zloader/source.json`: kompatibler AltSource-Feed.
+- `https://zynthec.com/zloader/admin/`: Apps hochladen, entfernen und ihre Metadaten gestalten.
 - Automatische Metadaten- und Icon-Erkennung für im Katalog ausgewählte IPA-Dateien.
 - GitHub Releases mit eigenem Tag und Änderungstext für jede neue IPA-Version.
 
-Es gibt bewusst keine Installationsseite, keine Loader-Downloads, kein Konfigurationsprofil und keine Zusammenführung fremder Sources.
+Die Website verlinkt die jeweils veröffentlichte zLoader-IPA. Der erste Download muss mit einem Sideloading-Tool signiert und installiert werden; es gibt keine Profil-basierte Direktinstallation und keine Zusammenführung fremder Sources.
 
 ## Lokal bauen
 
@@ -17,7 +18,7 @@ Es gibt bewusst keine Installationsseite, keine Loader-Downloads, kein Konfigura
 python3 scripts/release_pipeline.py download
 python3 scripts/build.py
 python3 -m unittest discover -s tests -v
-# Mit Cloudflare-Routing (JSON an / und Admin unter /admin/):
+# Mit Cloudflare-Routing unter /zloader:
 npx wrangler pages dev dist
 ```
 
@@ -38,7 +39,7 @@ Neue Versionen erhalten beim Upload aus `/admin/` automatisch einen eigenen Rele
 
 ## Admin-Zugang
 
-Der Zugang zu `/admin/` erfolgt ausschließlich mit einem Passwort. Über **Passwort ändern** im Panel kannst du es nach Eingabe des aktuellen Passworts ändern. Alle anderen Sitzungen werden dabei ungültig. Es gibt weder Token-Felder noch eine GitHub-Verbindungseinrichtung im Browser.
+Der Zugang zu `/zloader/admin/` erfolgt ausschließlich mit einem Passwort. Über **Passwort ändern** im Panel kannst du es nach Eingabe des aktuellen Passworts ändern. Alle anderen Sitzungen werden dabei ungültig. Es gibt weder Token-Felder noch eine GitHub-Verbindungseinrichtung im Browser.
 
 Das initiale oder temporäre Passwort wird serverseitig als gesalzener PBKDF2-Hash in D1 eingerichtet. Nach der Anmeldung kann es sofort im Panel ersetzt werden. Ohne serverseitige Repository-Verbindung sind Katalogansicht und Passwortwechsel möglich; Änderungen an Apps/Source sowie Uploads bleiben gesperrt.
 
@@ -67,7 +68,7 @@ Cloudflare Pages ist direkt mit `zynthec-dev/zynthec-altstore-source` verbunden.
 
 GitHub Actions veröffentlicht vorgemerkte IPAs als versionierte Releases und committet den fertigen Katalog. Dieser Commit löst den nächsten Cloudflare-Build aus. Solange eine IPA noch nicht als Release verfügbar ist, schlägt der Build fehl; der letzte erfolgreiche Stand bleibt online. Nach erfolgreicher Veröffentlichung wird der aktualisierte Katalog automatisch gebaut.
 
-Der Pages Worker in `site/_worker.js` liefert an der Domainwurzel das intern erzeugte `source.json` mit JSON-Content-Type und CORS aus. `/source.json` leitet auf `/` um. Das Admin-Panel und Icons werden als statische Pages-Dateien ausgeliefert, `/admin/api/*` übernimmt Anmeldung und geschützte GitHub-Zugriffe. GitHub Pages wird nicht mehr zum Deployment verwendet.
+Der Pages Worker in `site/_worker.js` liefert die Website unter `/zloader`, den Feed unter `/zloader/source.json` mit JSON-Content-Type und CORS sowie Icons unter `/zloader/assets/*`. `/zloader/admin/api/*` übernimmt Anmeldung und geschützte GitHub-Zugriffe. `/zloader/admin` wird für relative Assets auf `/zloader/admin/` umgeleitet. Interne Worker-Module und andere Webpfade bleiben unzugänglich. GitHub Pages wird nicht mehr zum Deployment verwendet. Der Download-Button wird bei jedem Build aus dem neuesten zLoader-Eintrag des Katalogs erzeugt.
 
 - Cloudflare account: `7624241f771550ac62dd106ba6b0b749`
 - Pages project: `zynthec-altstore-source`
@@ -75,8 +76,11 @@ Der Pages Worker in `site/_worker.js` liefert an der Domainwurzel das intern erz
 - Production branch: `main`
 - Build command: `python3 scripts/cloudflare_build.py`
 - Output directory: `dist`
-- Custom domain: `zloader.zynthec.com`
-- Admin: `https://zloader.zynthec.com/admin`
+- Custom domain: `zynthec.com`
+- Website: `https://zynthec.com/zloader`
+- Source: `https://zynthec.com/zloader/source.json`
+- Admin: `https://zynthec.com/zloader/admin`
+- Frühere Source-Domains (`zloader.zynthec.com`, `altsource.zynthec.com`, `source.zynthec.com`) werden nicht mehr bereitgestellt. Die technische Pages-Domain bleibt als Deployment-Ursprung erhalten.
 - Die Source-ID `com.zynthec.source` bleibt für bereits hinzugefügte Sources stabil.
 
 
@@ -87,4 +91,6 @@ Das Admin-Panel unterstützt System/Hell/Dunkel, speichert ausschließlich die D
 
 Der isolierte Browsertest `tests/admin-ui.mjs` benötigt Playwright und Chrome. Mit `ADMIN_TEST_URL` lässt sich eine lokale Preview auswählen; `ADMIN_TEST_ROOT` kann alternativ die generierten `dist`-Dateien direkt bereitstellen. `PLAYWRIGHT_MODULE`, `CHROME_PATH` und `ADMIN_SCREENSHOTS` sind optional konfigurierbar. Der Test fängt sämtliche Backend-Anfragen ab und verwendet ausschließlich Testdaten. Er prüft Passwortanmeldung und -wechsel, Reihenfolge, Tastaturbedienung, Abbrechen ohne Schreibzugriff, Theme-Persistenz, mobile Breite und Reduce Motion. `node tests/admin-auth.mjs` prüft die serverseitige Authentifizierung mit echter isolierter SQLite-Datenbank und benötigt Python 3, aber keine zusätzlichen Pakete.
 
-Apps werden alphabetisch aufgeführt. Alte IPA-Dateien im lokalen Projektordner oder in historischen Releases erscheinen nicht erneut, solange sie nicht im Katalog ausgewählt sind.
+Der Website-Test `tests/landing-ui.mjs` prüft Download-/GitHub-/Source-Links, Kopieren mit Berechtigungs-Fallback, echte Icons und responsive Layouts. `LANDING_TEST_ROOT` bedient isoliert den Build über den echten Worker; ohne diese Option prüft `LANDING_TEST_URL` (standardmäßig die Live-Website) rein lesend. `LANDING_SCREENSHOTS` wählt den Screenshot-Ordner.
+
+Apps werden mit angehefteten Einträgen zuerst, ansonsten alphabetisch aufgeführt. Alte IPA-Dateien im lokalen Projektordner oder in historischen Releases erscheinen nicht erneut, solange sie nicht im Katalog ausgewählt sind.

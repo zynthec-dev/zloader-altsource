@@ -4,6 +4,7 @@ const escapeHTML = value => String(value ?? "").replace(/[&<>'"]/g, character =>
 })[character]);
 
 const BRANCH = "main";
+const API_ROOT = new URL("./api/", import.meta.url).pathname.replace(/\/$/, "");
 const state = { content: null, file: null, edit: null, settings: null, settingsFile: null, sourceSaving: false, iconPreview: null, sourceDraftPreview: null };
 const sourceFields = [
   ["name", "Anzeigename", "text"],
@@ -28,7 +29,7 @@ class ApiError extends Error {
 }
 
 async function api(path, options = {}) {
-  const response = await fetch(`/admin/api/github${path}`, {
+  const response = await fetch(`${API_ROOT}/github${path}`, {
     ...options,
     headers: {
       Accept: "application/vnd.github+json",
@@ -307,7 +308,7 @@ function toast(message) {
 }
 
 async function auth(action, body) {
-  const response = await fetch(`/admin/api/${action}`, {
+  const response = await fetch(`${API_ROOT}/${action}`, {
     method: body === undefined ? "GET" : "POST", credentials: "same-origin",
     headers: { "Content-Type": "application/json", "X-Admin-Request": "1" },
     ...(body === undefined ? {} : { body: JSON.stringify(body) })

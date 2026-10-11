@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#091e18">
+  <meta name="description" content="zLoader: Apps auf iPhone und iPad installieren und aktualisieren. Ein unabhängiger SideStore-Fork von zynthec.">
+  <title>zLoader — Deine Apps. Dein iPhone.</title>
+  <link rel="canonical" href="https://zynthec.com/zloader">
+  <link rel="icon" href="{{ZLOADER_ICON_URL}}">
+  <link rel="stylesheet" href="/zloader/site.css">
+  <script type="module" src="/zloader/site.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Zum Inhalt</a>
+  <header class="wrap header">
+    <a class="brand" href="/zloader" aria-label="zLoader Startseite">zLoader</a>
+    <nav aria-label="Hauptnavigation">
+      <a href="/zloader/source.json">Source</a>
+      <a href="https://github.com/zynthec-dev/zloader-app">GitHub</a>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="title">
+      <img class="app-icon" src="{{ZLOADER_ICON_URL}}" width="156" height="156" alt="zLoader App-Icon">
+      <h1 id="title">Deine Apps.<br>Dein iPhone.</h1>
+      <p class="lead">Apps installieren und aktualisieren.<br> Mit zLoader, einem unabhängigen SideStore-Fork.</p>
+      <div class="actions">
+        <a class="button primary" id="download" href="{{ZLOADER_DOWNLOAD_URL}}" title="{{ZLOADER_DOWNLOAD_LABEL}}">IPA herunterladen</a>
+        <a class="button" href="https://github.com/zynthec-dev/zloader-app">Auf GitHub</a>
+      </div>
+      <p class="note">Ersteinrichtung mit einem Sideloading-Tool erforderlich.</p>
+    </section>
+    <section class="support" aria-label="Einrichtung und Source">
+      <div class="wrap support-grid">
+        <div class="setup">
+          <h2>Einrichten</h2>
+          <p>IPA mit einem Sideloading-Tool installieren.<br>Die Anleitung erklärt die nächsten Schritte.</p>
+          <a class="guide" href="https://github.com/zynthec-dev/zloader-app/blob/zloader-development/docs/zloader/ON-DEVICE-SETUP-0.7.17.md">Zur Anleitung <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="source">
+          <h2>zLoader Source</h2>
+          <p>Für zLoader, AltStore und SideStore.</p>
+          <div class="copy-row">
+            <input id="source-url" aria-label="Source-Adresse" readonly value="zynthec.com/zloader/source.json" spellcheck="false">
+            <button class="button copy" id="copy" type="button">Kopieren</button>
+          </div>
+          <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap footer">
+    <span>zynthec</span>
+    <span>Basierend auf <a href="https://github.com/SideStore/SideStore">SideStore</a> · <a href="https://github.com/zynthec-dev/zloader-app/blob/zloader-development/LICENSE">AGPL-3.0</a></span>
+  </footer>
+</body>
+</html>

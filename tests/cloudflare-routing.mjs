@@ -13,29 +13,50 @@ const env = { ASSETS: { fetch: async request => {
     headers: { 'Content-Type': 'application/octet-stream' },
   });
   if (path === '/admin/') return new Response('<html>Admin</html>');
+  if (path === '/zloader/index.html') return new Response('<html>zLoader</html>');
+  if (path === '/zloader/site.css' || path === '/zloader/site.js' || path.startsWith('/assets/')) return new Response('asset');
   return new Response('Not found', { status: 404 });
 } } };
-const request = (path, method = 'GET') => new Request(`https://altsource.zynthec.com${path}`, { method });
+const base = 'https://zynthec.com/zloader';
+const request = (path, method = 'GET') => new Request(`${base}${path}`, { method });
 
-let response = await worker.fetch(request('/'), env);
+let response = await worker.fetch(request('/source.json'), env);
 assert.equal(response.status, 200);
 assert.equal(response.headers.get('content-type'), 'application/json; charset=utf-8');
 assert.equal(response.headers.get('access-control-allow-origin'), '*');
 assert.deepEqual(await response.json(), { apps: [] });
 assert.equal(new URL(calls.at(-1).url).pathname, '/source.json');
 
-response = await worker.fetch(request('/', 'HEAD'), env);
+response = await worker.fetch(request('/source.json', 'HEAD'), env);
 assert.equal(await response.text(), '');
-response = await worker.fetch(request('/', 'OPTIONS'), env);
+response = await worker.fetch(request('/source.json', 'OPTIONS'), env);
 assert.equal(response.status, 204);
 assert.equal(response.headers.get('access-control-allow-origin'), '*');
-response = await worker.fetch(request('/', 'POST'), env);
+response = await worker.fetch(request('/source.json', 'POST'), env);
 assert.equal(response.status, 405);
 response = await worker.fetch(request('/source.json?test=1'), env);
+assert.equal(response.status, 200);
+response = await worker.fetch(request('/admin'), env);
 assert.equal(response.status, 308);
-assert.equal(response.headers.get('location'), 'https://altsource.zynthec.com/?test=1');
+assert.equal(response.headers.get('location'), `${base}/admin/`);
 response = await worker.fetch(request('/admin/'), env);
 assert.equal(await response.text(), '<html>Admin</html>');
+assert.equal(response.headers.get('x-frame-options'), 'DENY');
+response = await worker.fetch(request('/admin/api/status'), env);
+assert.equal(response.status, 503);
 response = await worker.fetch(request('/missing'), env);
 assert.equal(response.status, 404);
-console.log('Cloudflare routing: root JSON, HEAD, CORS, redirect and static admin passed.');
+for (const path of ['', '/']) {
+  response = await worker.fetch(request(path), env);
+  assert.equal(await response.text(), '<html>zLoader</html>');
+  assert.equal(new URL(calls.at(-1).url).pathname, '/zloader/index.html');
+}
+for (const path of ['/site.css', '/site.js', '/assets/source-icon.png', '/assets/apps/com.zynthec.zLoader.png']) {
+  response = await worker.fetch(request(path), env);
+  assert.equal(response.status, 200);
+}
+for (const path of ['/', '/admin/', '/source.json', '/zloader/source', '/zloader/source/admin/', '/zloader-extra', '/zloader/admin-api.js', '/zloader/index.html']) {
+  response = await worker.fetch(new Request('https://zynthec.com' + path), env);
+  assert.equal(response.status,404,`Retired or unrelated path ${path} must not serve the Source`);
+}
+console.log('Cloudflare routing: landing page/assets, source.json, HEAD, CORS, admin redirect/API and retired paths passed.');

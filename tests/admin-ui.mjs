@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict';
 import { mkdir, readFile } from 'node:fs/promises';
 const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
-const base = process.env.ADMIN_TEST_URL || 'http://127.0.0.1:8767/admin/';
+const base = process.env.ADMIN_TEST_URL || 'http://127.0.0.1:8767/zloader/admin/';
 const screenshots = process.env.ADMIN_SCREENSHOTS || '/tmp/zynthec-altstore-source-admin-qa';
 await mkdir(screenshots, { recursive: true });
 const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', headless: true });
@@ -13,6 +13,7 @@ try {
   // Serve the exact generated site through Playwright to avoid host LAN permission prompts.
   await page.route('http://127.0.0.1:8767/**', async route => {
    let path = new URL(route.request().url()).pathname;
+   if (path.startsWith('/zloader/')) path=path.slice('/zloader'.length);
    if (path.endsWith('/')) path += 'index.html';
    const types = { html:'text/html', css:'text/css', js:'text/javascript', png:'image/png' };
    try { await route.fulfill({ body: await readFile(process.env.ADMIN_TEST_ROOT + path), contentType: types[path.split('.').pop()] || 'application/octet-stream' }); }
@@ -26,10 +27,10 @@ try {
   'example.other': { name: 'Another App', ipaFile: 'Another.ipa', marketingVersion: '1.0' },
   'de.renewitt.mipet': { name: 'miPet', ipaFile: 'miPet-0.3-beta.ipa', marketingVersion: '0.3-beta' }
  }, uploadedApps: [] };
- let settings = { name:'zLoader Source', subtitle:'iOS Apps', description:'Offizielle Source', tintColor:'#147D60', identifier:'com.zynthec.source', sourceURL:'https://zloader.zynthec.com', iconURL:'https://zloader.zynthec.com/assets/source-icon.png', githubRepository:'zynthec-dev/zynthec-altstore-source', releaseTag:'apps' };
+ let settings = { name:'zLoader Source', subtitle:'iOS Apps', description:'Offizielle Source', tintColor:'#147D60', identifier:'com.zynthec.source', sourceURL:'https://zynthec.com/zloader/source.json', iconURL:'https://zynthec.com/zloader/assets/source-icon.png', githubRepository:'zynthec-dev/zynthec-altstore-source', releaseTag:'apps' };
  let settingsSha = 'SETTINGS_SHA'; let remoteSettingsChanged = false; let rejectRef = false;
  const blobs = new Map(); const trees = new Map(); let sequence = 0; let pendingTree;
- await page.route('https://zloader.zynthec.com/assets/source-icon.png', route => route.fulfill({ contentType:'image/png', body:Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a4x8AAAAASUVORK5CYII=', 'base64') }));
+ await page.route('https://zynthec.com/zloader/assets/source-icon.png', route => route.fulfill({ contentType:'image/png', body:Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a4x8AAAAASUVORK5CYII=', 'base64') }));
  let authenticated = false; let initialized = true; let connected = true; let testPassword = 'TEST_ONLY_PASSWORD_123';
  await page.route('**/admin/api/*', async route => {
   const action = new URL(route.request().url()).pathname.split('/').at(-1);
@@ -128,7 +129,7 @@ try {
  assert.equal(settings.tintColor, '#123456');
  assert.equal(settings.identifier, 'com.zynthec.source');
  assert.equal(settings.githubRepository, 'zynthec-dev/zynthec-altstore-source');
- assert.equal(settings.sourceURL, 'https://zloader.zynthec.com');
+ assert.equal(settings.sourceURL, 'https://zynthec.com/zloader/source.json');
  const sourceTree = mutations.find(item=>item.url.endsWith('/git/trees'));
  assert.deepEqual(JSON.parse(sourceTree.body).tree.map(item=>item.path), ['catalog/settings.json','icon.png']);
  assert.equal(JSON.parse(mutations.find(item=>item.url.includes('/git/refs/heads/')).body).force, false);
