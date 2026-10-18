@@ -1,8 +1,8 @@
 {
   "localApps": {
     "de.renewitt.mipet": {
-      "ipaFile": "miPet-0.3-beta.ipa",
-      "releaseTag": "app-mipet-v0-3-beta-20261007T091156Z-d2ae1116",
+      "ipaFile": "miPet-0.1.0-resignable.ipa",
+      "releaseTag": "app-mipet-v0.1.0-20261018T132603Z-237de269",
       "name": "miPet",
       "developerName": "zynthec",
       "subtitle": "Dein kleiner Begleiter für iPhone und iPad.",
@@ -10,13 +10,13 @@
       "category": "lifestyle",
       "tintColor": "#00C7B7",
       "iconFile": "catalog/assets/mipet-icon.png",
-      "versionDescription": "IPA neu verpackt: macOS-Metadatendateien entfernt, damit SideStore und AltStore das richtige App-Bundle erkennen. App-Version unverändert.",
+      "versionDescription": "Optimierte Speicherung: zusammengehörige Änderungen werden gebündelt und außerhalb des Main Actors atomar gespeichert. Offene Änderungen werden beim Verlassen des Vordergrunds gesichert. Wiederherstellung und Zurücksetzen sind gegen ältere Schreibvorgänge abgesichert. Pet-Oberfläche und Sprachdienst wurden in kleinere Komponenten aufgeteilt. Release-Build und 46 lokale Tests erfolgreich; vier Live-API-Tests wurden im Simulator übersprungen. Resignierbare IPA für iPhone und iPad ab iOS 17. Die eingebettete App-Version bleibt 0.1.0 (Build 1); für bereits installierte Builds mit derselben Versionsnummer ist gegebenenfalls eine erneute Installation erforderlich.",
       "screenshots": [],
-      "marketingVersion": "0.3-beta",
-      "releaseAsset": {
-        "size": 14867113,
-        "sha256": "f7170f3dc1db6f332ef00a2314078176d68d0e5f3fc4141fea46054855a83945",
-        "updatedAt": "2026-10-07T09:12:00Z"
+      "marketingVersion": "0.1.0",
+      "pendingUpload": {
+        "sha": "084c3332d32f5588a3f0806a60c6e43eec7ff71f",
+        "tag": "app-mipet-v0.1.0-20261018T132603Z-237de269",
+        "size": 15284786
       }
     },
     "com.zynthec.zLoader": {
