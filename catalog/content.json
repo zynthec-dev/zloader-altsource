@@ -20,8 +20,8 @@
       }
     },
     "com.zynthec.zLoader": {
-      "ipaFile": "zLoader-0.7.56-resignable.ipa",
-      "releaseTag": "app-zloader-v0.7.56-20261018T115322Z-537ceb47",
+      "ipaFile": "zLoader-0.7.57-resignable.ipa",
+      "releaseTag": "app-zloader-v0.7.57-20261018T122520Z-3097c0b7",
       "name": "zLoader",
       "developerName": "zynthec-dev",
       "subtitle": "Independent SideStore fork for iPhone and iPad.",
@@ -29,19 +29,29 @@
       "category": "utilities",
       "tintColor": "#147D60",
       "iconFile": "catalog/assets/zloader-icon.png",
-      "versionDescription": "Updates now use https://source.zloader.de. Existing fixed sources migrate in place, preserving app and news links. Restores the missing SigningEntitlements helper and validates requested rights against the selected Apple provisioning profile.\n\nResignable IPA with host/widget App Group metadata. Apple signing and matching profiles are required before installation; use an external local VPN. Local build, signing logic and package checks passed. Physical-device signing and migration still need validation.",
+      "versionDescription": "Apple login compatibility fix for error -80045. GrandSlam requests now use the Android ADI client descriptor, while other verification endpoints retain their original anisette identity. Automatically pushed 2FA codes are supported when Apple omits the auth-type field; retries are bounded per login.\n\nAdapted from SideStore/SideSign PR #5 and SideStore commit 34f61f2. Local build, login-policy tests and package/signature checks passed. Real Apple-account login and SMS-only accounts still require physical-device validation. Apple signing and matching host/widget profiles are required; use an external local VPN.",
       "screenshots": [],
-      "marketingVersion": "0.7.56",
-      "sourceArchive": {
-        "name": "zLoader-0.7.56-source.zip",
-        "size": 49064677,
-        "sha256": "d921770406dde663100a090e95d60c536e612844b488042bee1f5f224d1c0d1f",
-        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.56-20261018T115322Z-537ceb47/zLoader-0.7.56-source.zip"
+      "marketingVersion": "0.7.57",
+      "releaseNotes": "Apple login compatibility fix for error -80045. GrandSlam requests now use the Android ADI client descriptor, while other verification endpoints retain their original anisette identity. Automatically pushed 2FA codes are supported when Apple omits the auth-type field; retries are bounded per login.\n\nAdapted from SideStore/SideSign PR #5 and SideStore commit 34f61f2. Local build, login-policy tests and package/signature checks passed. Real Apple-account login and SMS-only accounts still require physical-device validation. Apple signing and matching host/widget profiles are required; use an external local VPN.\n\nCorresponding source: https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.57-20261018T122520Z-3097c0b7/zLoader-0.7.57-source.zip",
+      "pendingUpload": {
+        "sha": "55004fe67b868c686419efdbba50d9c7e8cc0e6d",
+        "tag": "app-zloader-v0.7.57-20261018T122520Z-3097c0b7",
+        "size": 31016750
       },
-      "releaseAsset": {
-        "size": 30919949,
-        "sha256": "537ceb47635df689e5d00013905306e261596ad1a6f85e8ac10adb53fa6d2bcc",
-        "updatedAt": "2026-10-18T11:59:49.047637+00:00"
+      "pendingSourceArchive": {
+        "name": "zLoader-0.7.57-source.zip",
+        "size": 49071716,
+        "sha256": "57787d809eec0406048ea7a6cc37ed64b20f5cb062bdf1041439e2110cffb074",
+        "chunks": [
+          {
+            "sha": "4c5054e39db31b981fdb5c4a5d73fe3958fc0c40",
+            "size": 25000000
+          },
+          {
+            "sha": "de747806a6c11a4840deba70ba2218585a239312",
+            "size": 24071716
+          }
+        ]
       }
     },
     "com.zynthec.zLocalVPN": {
