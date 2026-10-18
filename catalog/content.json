@@ -20,8 +20,8 @@
       }
     },
     "com.zynthec.zLoader": {
-      "ipaFile": "zLoader-0.7.61-resignable.ipa",
-      "releaseTag": "app-zloader-v0.7.61-20261018T140133Z-e72619dc",
+      "ipaFile": "zLoader-0.7.62-resignable.ipa",
+      "releaseTag": "app-zloader-v0.7.62-20261018T150923Z-8fd25afa",
       "name": "zLoader",
       "developerName": "zynthec-dev",
       "subtitle": "Independent SideStore fork for iPhone and iPad.",
@@ -29,19 +29,29 @@
       "category": "utilities",
       "tintColor": "#147D60",
       "iconFile": "catalog/assets/zloader-icon.png",
-      "versionDescription": "Provisioning profiles are now resolved against the live portal on every Apple-account signing/install operation. Compatible remote profiles are downloaded and reused; deleted profiles are recreated as needed. Installed/local copies and assigned UUIDs no longer bypass the portal check. Replacement assignments are saved after installation. Existing certificate, team, device, entitlement and extension authorization checks remain enforced. Portal read failures do not fall back to stale local profiles. Login and certificate-revocation fixes are retained.\n\nLocal deletion/recreation/reuse regression tests, authorization/signing/transport/login tests, iPhone Release build and package checks passed. Actual portal recreation and installation still require physical-device validation. Apple-authorized signing and matching host/widget profiles are required.",
+      "versionDescription": "Account certificate recovery: valid Side Installer identities are reused when the matching private key is available and the exact certificate is active on the selected team. Foreign, revoked, expired or key-invalid identities no longer bypass account provisioning. Account setup offers repair instead of treating any stored certificate as ready, and provisioning errors are displayed. Modern Apple Development certificates are recognized in replacement selection. Automatic reinstall selection no longer restores an unusable old identity. Existing revocation confirmation and Apple authorization checks remain in place. Profile and login fixes are retained.\n\nLocal identity-policy/signing/profile/login/revocation/transport tests, iPhone Release build and package checks passed. Actual installer-key recovery and renewal still require physical-device validation. A public certificate alone cannot sign; a matching private key and authorized profiles are required.",
       "screenshots": [],
-      "marketingVersion": "0.7.61",
-      "sourceArchive": {
-        "name": "zLoader-0.7.61-source.zip",
-        "size": 49085555,
-        "sha256": "df6de665617bbab0e0ab0c104a93f19be7f8ac90f02b04fb3f09670146385c1c",
-        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.61-20261018T140133Z-e72619dc/zLoader-0.7.61-source.zip"
+      "marketingVersion": "0.7.62",
+      "releaseNotes": "Account certificate recovery: valid Side Installer identities are reused when the matching private key is available and the exact certificate is active on the selected team. Foreign, revoked, expired or key-invalid identities no longer bypass account provisioning. Account setup offers repair instead of treating any stored certificate as ready, and provisioning errors are displayed. Modern Apple Development certificates are recognized in replacement selection. Automatic reinstall selection no longer restores an unusable old identity. Existing revocation confirmation and Apple authorization checks remain in place. Profile and login fixes are retained.\n\nLocal identity-policy/signing/profile/login/revocation/transport tests, iPhone Release build and package checks passed. Actual installer-key recovery and renewal still require physical-device validation. A public certificate alone cannot sign; a matching private key and authorized profiles are required.\n\nCorresponding source: https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.62-20261018T150923Z-8fd25afa/zLoader-0.7.62-source.zip",
+      "pendingUpload": {
+        "sha": "45f2e1e1cb1de98ef5841b3052699ea22907f200",
+        "tag": "app-zloader-v0.7.62-20261018T150923Z-8fd25afa",
+        "size": 31021037
       },
-      "releaseAsset": {
-        "size": 30919112,
-        "sha256": "e72619dc93487a201fd3e704cf73071fc87de7d42de0e820d51a78334545dde6",
-        "updatedAt": "2026-10-18T14:03:12.647806+00:00"
+      "pendingSourceArchive": {
+        "name": "zLoader-0.7.62-source.zip",
+        "size": 49089570,
+        "sha256": "8a5d950cc86a074184c5dc989e80b1a4f77aff0acac72a04f46a3d2aa8594862",
+        "chunks": [
+          {
+            "sha": "5c2511e20d0b00a01b23c7c32ae31c77cfc55877",
+            "size": 25000000
+          },
+          {
+            "sha": "6a3b2ea285ff1eebfed211e708b3097cec9f8248",
+            "size": 24089570
+          }
+        ]
       }
     }
   },
