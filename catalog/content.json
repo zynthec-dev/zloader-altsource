@@ -43,25 +43,6 @@
         "sha256": "37378232b7cfafa15b42761f5adbfea9705816a1f242794fd42d3f1f66ee6bb9",
         "updatedAt": "2026-10-18T13:12:59.755749+00:00"
       }
-    },
-    "com.zynthec.zLocalVPN": {
-      "ipaFile": "zLocalVPN-0.1.0-resignable.ipa",
-      "releaseTag": "app-zlocalvpn-v0.1.0-20261011T154131Z-d9cda5b4",
-      "name": "zLocalVPN",
-      "developerName": "zynthec-dev",
-      "subtitle": "Independent local tunnel for developer apps.",
-      "localizedDescription": "A native local developer VPN based on LocalDevVPN and StosVPN. Uses 10.7.1.1/32 and 10.7.0.1/32 by default, with connection controls and configurable addresses. Requires Apple-authorized Network Extension signing for both the app and its VPN extension. Not an internet VPN.",
-      "category": "utilities",
-      "tintColor": "#147D60",
-      "iconFile": "catalog/assets/zlocalvpn-icon.png",
-      "versionDescription": "First independent zLocalVPN release: native controls, local loopback packet tunnel, connection log, English and German UI, and preserved upstream credits. Real-device VPN and developer-app compatibility still require validation.",
-      "screenshots": [],
-      "marketingVersion": "0.1.0",
-      "releaseAsset": {
-        "size": 1280758,
-        "sha256": "d9cda5b46036583b924b3b53428ec8ebc4a9e9ee1b1801601d5763db8539673a",
-        "updatedAt": "2026-10-11T15:41:31Z"
-      }
     }
   },
   "uploadedApps": [],
@@ -76,9 +57,10 @@
       "url": "https://zloader.de"
     }
   ],
-  "excludedBundleIdentifiers": [],
-  "pinnedBundleIdentifiers": [
-    "com.zynthec.zLoader",
+  "excludedBundleIdentifiers": [
     "com.zynthec.zLocalVPN"
+  ],
+  "pinnedBundleIdentifiers": [
+    "com.zynthec.zLoader"
   ]
 }
