@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#f5f4f8" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#141217" media="(prefers-color-scheme: dark)">
   <title>zynthec App-Verwaltung</title>
-  <link rel="icon" href="../assets/source-icon.png">
+  <link rel="icon" href="https://source.zloader.de/assets/source-icon.png">
   <link rel="stylesheet" href="./base.css">
   <link rel="stylesheet" href="./admin.css">
 </head>
@@ -14,7 +14,7 @@
   <div class="aurora" aria-hidden="true"></div>
   <main class="admin-shell">
     <header class="admin-header">
-      <a class="brand" href="./"><img src="../assets/source-icon.png" alt="" id="brandIcon"><span><strong id="brandName">{{SOURCE_NAME}}</strong><small>App-Verwaltung</small></span></a>
+      <a class="brand" href="/"><img src="https://source.zloader.de/assets/source-icon.png" alt="" id="brandIcon"><span><strong id="brandName">{{SOURCE_NAME}}</strong><small>App-Verwaltung</small></span></a>
       <div class="header-actions"><label class="appearance"><span>Darstellung</span><select id="appearance" aria-label="Darstellung"><option value="system">System</option><option value="light">Hell</option><option value="dark">Dunkel</option></select></label><button type="button" class="secondary-button hidden" id="changePassword">Passwort ändern</button><button class="secondary-button hidden" id="logout">Abmelden</button></div>
     </header>
 
@@ -32,7 +32,7 @@
     <section class="dashboard hidden" id="dashboard">
       <p class="form-status hidden" id="serverStatus" role="status">Speichern und Uploads sind noch nicht verfügbar: Die Repository-Verbindung muss serverseitig eingerichtet werden. Du kannst dein Passwort bereits ändern.</p>
       <section class="source-card glass" aria-label="Source">
-        <img id="sourceIcon" src="../assets/source-icon.png" alt="Source-Icon" width="64" height="64">
+        <img id="sourceIcon" src="https://source.zloader.de/assets/source-icon.png" alt="Source-Icon" width="64" height="64">
         <div class="source-copy"><p class="eyebrow">DEINE SOURCE</p><h2 id="sourceName">{{SOURCE_NAME}}</h2><p id="sourceSubtitle"></p><span id="sourceColor" class="source-color" aria-label="Akzentfarbe"></span></div>
         <button type="button" class="secondary-button" id="editSource">Source-Einstellungen</button>
       </section>
@@ -59,7 +59,7 @@
       <div class="editor-body">
         <p class="eyebrow">SOURCE</p><h2 id="sourceEditorTitle">Source-Einstellungen</h2>
         <div id="sourceFields"></div>
-        <label class="field">Source-Icon als PNG<img class="source-icon-preview" id="sourceIconPreview" src="../assets/source-icon.png" alt="Vorschau des Source-Icons"><input name="icon" type="file" accept="image/png"><small>Optional ersetzen · maximal 2 MB · empfohlen: quadratisch, 512 × 512 Pixel oder größer.</small></label>
+        <label class="field">Source-Icon als PNG<img class="source-icon-preview" id="sourceIconPreview" src="https://source.zloader.de/assets/source-icon.png" alt="Vorschau des Source-Icons"><input name="icon" type="file" accept="image/png"><small>Optional ersetzen · maximal 2 MB · empfohlen: quadratisch, 512 × 512 Pixel oder größer.</small></label>
         <div class="editor-actions"><span></span><button type="button" id="cancelSource" class="secondary-button">Abbrechen</button><button type="submit" class="primary-button">Source speichern</button></div>
         <p class="form-status" id="sourceStatus" role="status" aria-live="polite"></p>
       </div>

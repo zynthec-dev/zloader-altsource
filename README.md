@@ -1,12 +1,12 @@
-# zynthec-altstore-source
+# zloader-altsource
 
 Eine schlanke AltStore-/SideStore-Source für eigene IPA-Dateien mit browserbasierter Admin-Seite.
 
 ## Enthalten
 
-- `https://zynthec.com/zloader`: öffentliche zLoader-Website mit aktueller IPA, Anleitung und Link zum App-Repository.
-- `https://zynthec.com/zloader/source.json`: kompatibler AltSource-Feed.
-- `https://zynthec.com/zloader/admin/`: Apps hochladen, entfernen und ihre Metadaten gestalten.
+- `https://zloader.de`: öffentliche zLoader-Website mit aktueller IPA, Anleitung und Link zum App-Repository.
+- `https://source.zloader.de`: kompatibler AltSource-Feed.
+- `https://admin.zloader.de/`: Apps hochladen, entfernen und ihre Metadaten gestalten.
 - Automatische Metadaten- und Icon-Erkennung für im Katalog ausgewählte IPA-Dateien.
 - GitHub Releases mit eigenem Tag und Änderungstext für jede neue IPA-Version.
 
@@ -18,7 +18,7 @@ Die Website verlinkt die jeweils veröffentlichte zLoader-IPA. Der erste Downloa
 python3 scripts/release_pipeline.py download
 python3 scripts/build.py
 python3 -m unittest discover -s tests -v
-# Mit Cloudflare-Routing unter /zloader:
+# Mit lokalem Cloudflare-Routing:
 npx wrangler pages dev dist
 ```
 
@@ -31,7 +31,7 @@ Der fertige statische Build liegt in `dist/`.
 IPAs werden nicht in Git eingecheckt. Die vorhandene miPet-Version liegt noch im Release `apps`:
 
 ```bash
-gh release create apps --title "App downloads" --notes "Binary releases used by zynthec-altstore-source."
+gh release create apps --title "App downloads" --notes "Binary releases used by zloader-altsource."
 gh release upload apps miPet-0.3-beta.ipa
 ```
 
@@ -39,11 +39,11 @@ Neue Versionen erhalten beim Upload aus `/admin/` automatisch einen eigenen Rele
 
 ## Admin-Zugang
 
-Der Zugang zu `/zloader/admin/` erfolgt ausschließlich mit einem Passwort. Über **Passwort ändern** im Panel kannst du es nach Eingabe des aktuellen Passworts ändern. Alle anderen Sitzungen werden dabei ungültig. Es gibt weder Token-Felder noch eine GitHub-Verbindungseinrichtung im Browser.
+Der Zugang zu `https://admin.zloader.de/` erfolgt ausschließlich mit einem Passwort. Über **Passwort ändern** im Panel kannst du es nach Eingabe des aktuellen Passworts ändern. Alle anderen Sitzungen werden dabei ungültig. Es gibt weder Token-Felder noch eine GitHub-Verbindungseinrichtung im Browser.
 
 Das initiale oder temporäre Passwort wird serverseitig als gesalzener PBKDF2-Hash in D1 eingerichtet. Nach der Anmeldung kann es sofort im Panel ersetzt werden. Ohne serverseitige Repository-Verbindung sind Katalogansicht und Passwortwechsel möglich; Änderungen an Apps/Source sowie Uploads bleiben gesperrt.
 
-Für Speichern und Uploads benötigt ausschließlich der Server einen GitHub-Zugang. Ein Cloudflare-Administrator hinterlegt ihn als verschlüsseltes Secret **`GITHUB_TOKEN`** im Pages-Projekt. Ein Fine-grained Token sollte auf `zynthec-dev/zynthec-altstore-source` beschränkt sein mit:
+Für Speichern und Uploads benötigt ausschließlich der Server einen GitHub-Zugang. Ein Cloudflare-Administrator hinterlegt ihn als verschlüsseltes Secret **`GITHUB_TOKEN`** im Pages-Projekt. Ein Fine-grained Token sollte auf `zynthec-dev/zloader-altsource` beschränkt sein mit:
 
 - Repository permission `Contents: Read and write`
 - möglichst kurzer Laufzeit
@@ -64,23 +64,23 @@ Die App-Verwaltung ermöglicht:
 
 ## Deployment
 
-Cloudflare Pages ist direkt mit `zynthec-dev/zynthec-altstore-source` verbunden. Jeder Push auf `main` baut und testet die Source und veröffentlicht den erfolgreichen Build. Der Download öffentlicher IPA-Releases funktioniert ohne GitHub-Token oder GitHub CLI im Cloudflare-Build.
+Cloudflare Pages ist direkt mit `zynthec-dev/zloader-altsource` verbunden. Jeder Push auf `main` baut und testet die Source und veröffentlicht den erfolgreichen Build. Der Download öffentlicher IPA-Releases funktioniert ohne GitHub-Token oder GitHub CLI im Cloudflare-Build.
 
 GitHub Actions veröffentlicht vorgemerkte IPAs als versionierte Releases und committet den fertigen Katalog. Dieser Commit löst den nächsten Cloudflare-Build aus. Solange eine IPA noch nicht als Release verfügbar ist, schlägt der Build fehl; der letzte erfolgreiche Stand bleibt online. Nach erfolgreicher Veröffentlichung wird der aktualisierte Katalog automatisch gebaut.
 
-Der Pages Worker in `site/_worker.js` liefert die Website unter `/zloader`, den Feed unter `/zloader/source.json` mit JSON-Content-Type und CORS sowie Icons unter `/zloader/assets/*`. `/zloader/admin/api/*` übernimmt Anmeldung und geschützte GitHub-Zugriffe. `/zloader/admin` wird für relative Assets auf `/zloader/admin/` umgeleitet. Interne Worker-Module und andere Webpfade bleiben unzugänglich. GitHub Pages wird nicht mehr zum Deployment verwendet. Der Download-Button wird bei jedem Build aus dem neuesten zLoader-Eintrag des Katalogs erzeugt.
+Der Pages Worker in `site/_worker.js` liefert die Homepage unter `https://zloader.de/`, den Feed direkt unter `https://source.zloader.de` (auch `/source.json`) und Icons unter `https://source.zloader.de/assets/*`. Das Admin-Panel liegt unter `https://admin.zloader.de/`, seine passwortgeschützte API unter `/api/*`. Admin-Routen sind auf den öffentlichen Domains gesperrt. Interne Worker-Module bleiben unzugänglich.
 
 - Cloudflare account: `7624241f771550ac62dd106ba6b0b749`
-- Pages project: `zynthec-altstore-source`
-- Repository: `zynthec-dev/zynthec-altstore-source`
+- Pages project: `zloader-altsource`
+- Repository: `zynthec-dev/zloader-altsource`
 - Production branch: `main`
 - Build command: `python3 scripts/cloudflare_build.py`
 - Output directory: `dist`
-- Custom domain: `zynthec.com`
-- Website: `https://zynthec.com/zloader`
-- Source: `https://zynthec.com/zloader/source.json`
-- Admin: `https://zynthec.com/zloader/admin`
-- `altsource.zynthec.com` und `source.zynthec.com` sind nicht mehr zugeordnet. `zloader.zynthec.com` leitet vorübergehend auf die neue Source und ihre Assets um, weil zLoader 0.7.50 diese Adresse noch eingebettet hat; die Zuordnung kann nach einem App-Update entfernt werden. Die technische Pages-Domain bleibt als Deployment-Ursprung erhalten.
+- Custom domains: `zloader.de`, `source.zloader.de`, `admin.zloader.de`
+- Website: `https://zloader.de`
+- Source: `https://source.zloader.de`
+- Admin: `https://admin.zloader.de`
+- Alte Domains sind nicht mehr zugeordnet. Die technische Pages-Domain bleibt als Deployment-Ursprung erhalten.
 - Die Source-ID `com.zynthec.source` bleibt für bereits hinzugefügte Sources stabil.
 
 
