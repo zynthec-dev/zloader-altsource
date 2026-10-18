@@ -29,7 +29,7 @@ class Statement {
 }
 const db = { prepare: sql => new Statement(sql), batch: async statements => execute(statements) };
 const env = { ADMIN_DB: db, ADMIN_ENCRYPTION_KEY: 'ab'.repeat(32) };
-const origin = 'https://zynthec.com';
+const origin = 'https://admin.zloader.de';
 const request = (route, body, sessionCookie, headers={}) => new Request(`${origin}/admin/api/${route}`, {
   method:body===undefined?'GET':'POST',
   headers:{'Content-Type':'application/json','X-Admin-Request':'1', Origin:origin,
@@ -45,7 +45,7 @@ globalThis.fetch=async (url, options) => {
   upstreamCalls++;
   if(url.startsWith('https://raw.githubusercontent.com/')) return new Response('{"name":"Public catalog"}');
   assert.equal(options.headers.Authorization, `Bearer ${token}`);
-  if(url.endsWith('/zynthec-altstore-source')) return Response.json({permissions:{push:true}});
+  if(url.endsWith('/zloader-altsource')) return Response.json({permissions:{push:true}});
   return Response.json({content:'test-content'});
 };
 try {

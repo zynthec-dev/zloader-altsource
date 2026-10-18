@@ -77,10 +77,10 @@ class BuildTests(unittest.TestCase):
         for key in ("name", "subtitle", "description", "tintColor"):
             self.assertEqual(self.source[key], self.settings[key])
         self.assertEqual(self.source["identifier"], "com.zynthec.source")
-        self.assertEqual(self.source["website"], "https://zynthec.com/zloader")
-        self.assertEqual(self.source["sourceURL"], "https://zynthec.com/zloader/source.json")
-        self.assertEqual(self.source["iconURL"], "https://zynthec.com/zloader/assets/source-icon.png")
-        self.assertTrue(all(app["iconURL"].startswith("https://zynthec.com/zloader/assets/") for app in self.source["apps"]))
+        self.assertEqual(self.source["website"], "https://zloader.de")
+        self.assertEqual(self.source["sourceURL"], "https://source.zloader.de")
+        self.assertEqual(self.source["iconURL"], "https://source.zloader.de/assets/source-icon.png")
+        self.assertTrue(all(app["iconURL"].startswith("https://source.zloader.de/assets/") for app in self.source["apps"]))
 
     def test_custom_source_settings_and_icon_reach_feed_and_admin(self):
         spec = importlib.util.spec_from_file_location("source_settings_build", ROOT / "scripts/build.py")
@@ -108,8 +108,8 @@ class BuildTests(unittest.TestCase):
         page = (DIST / "zloader/index.html").read_text()
         self.assertIn('https://github.com/zynthec-dev/zloader-app', page)
         self.assertNotIn('href="/zloader/source.json"', page)
-        self.assertIn('value="zynthec.com/zloader/source.json"', page)
-        self.assertIn('src="/zloader/site.js"', page)
+        self.assertIn('value="https://source.zloader.de"', page)
+        self.assertIn('src="/site.js"', page)
         self.assertNotIn('{{ZLOADER_', page)
         app = next((app for app in self.source["apps"] if app["bundleIdentifier"] == "com.zynthec.zLoader"), None)
         if app:

@@ -1,11 +1,11 @@
 {
-  "name": "zynthec-altstore-source",
+  "name": "zloader-altsource",
   "pages_build_output_dir": "./dist",
   "compatibility_date": "2026-10-03",
   "d1_databases": [{
     "binding": "ADMIN_DB",
     "database_name": "zloader-source-admin",
-    "database_id": "1a7813e6-241f-412d-9586-ab1451495ef1",
+    "database_id": "1eaa1b53-a2f1-422d-bfb6-55c070852b35",
     "migrations_dir": "migrations"
   }]
 }

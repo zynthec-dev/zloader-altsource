@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict';
 import { mkdir, readFile } from 'node:fs/promises';
 const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
-const base = process.env.LANDING_TEST_URL || 'https://zynthec.com/zloader';
+const base = process.env.LANDING_TEST_URL || 'https://zloader.de';
 const origin = new URL(base).origin;
 const screenshots = process.env.LANDING_SCREENSHOTS || '/tmp/zloader-landing-qa';
 await mkdir(screenshots, { recursive:true });
@@ -15,7 +15,7 @@ try {
     const code = (await readFile(new URL('../site/_worker.js', import.meta.url), 'utf8'))
       .replace('"./admin-api.js"', JSON.stringify(`data:text/javascript;base64,${Buffer.from(api).toString('base64')}`));
     const { default:worker } = await import(`data:text/javascript;base64,${Buffer.from(code).toString('base64')}`);
-    await context.route(origin+'/**', async route => {
+    await context.route(/^https:\/\/(zloader\.de|source\.zloader\.de)\//, async route => {
       const response = await worker.fetch(new Request(route.request().url()), {ASSETS:{fetch:async request => {
         let path = new URL(request.url).pathname;
         if (path.endsWith('/')) path += 'index.html';
@@ -36,9 +36,9 @@ try {
   assert.equal(await page.getByRole('link',{name:'Auf GitHub',exact:true}).getAttribute('href'),'https://github.com/zynthec-dev/zloader-app');
   assert.equal(await page.getByRole('link',{name:'Source',exact:true}).count(),0);
   assert.equal(await page.getByRole('navigation',{name:'Hauptnavigation'}).getByRole('link').count(),1);
-  assert.equal(await page.locator('#source-url').inputValue(),'zynthec.com/zloader/source.json');
+  assert.equal(await page.locator('#source-url').inputValue(),'https://source.zloader.de');
   // Playwright APIRequestContext bypasses route interception; read the build for isolated QA.
-  const source = process.env.LANDING_TEST_ROOT ? JSON.parse(await readFile(process.env.LANDING_TEST_ROOT+'/source.json','utf8')) : await page.evaluate(async()=>await (await fetch('/zloader/source.json')).json());
+  const source = process.env.LANDING_TEST_ROOT ? JSON.parse(await readFile(process.env.LANDING_TEST_ROOT+'/source.json','utf8')) : await page.evaluate(async()=>await (await fetch('https://source.zloader.de')).json());
   const app = source.apps.find(app=>app.bundleIdentifier==='com.zynthec.zLoader');
   assert.equal(await page.locator('#download').getAttribute('href'),app.versions[0].downloadURL);
   assert.ok(await page.locator('.app-icon').evaluate(image=>image.complete && image.naturalWidth>0));
@@ -46,7 +46,7 @@ try {
   await page.screenshot({path:screenshots+'/desktop.png',fullPage:true});
   await page.getByRole('button',{name:'Kopieren',exact:true}).click();
   await page.getByRole('status').filter({hasText:'Source-Adresse kopiert.'}).waitFor();
-  assert.equal(await page.evaluate(()=>navigator.clipboard.readText()),origin+'/zloader/source.json');
+  assert.equal(await page.evaluate(()=>navigator.clipboard.readText()),'https://source.zloader.de');
   await page.setViewportSize({width:390,height:844});
   await page.reload();
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
@@ -60,7 +60,7 @@ try {
   await denied.goto(base);
   await denied.locator('#copy').click();
   await denied.getByRole('status').filter({hasText:'manuell kopieren'}).waitFor();
-  assert.equal(await denied.locator('#source-url').inputValue(),origin+'/zloader/source.json');
+  assert.equal(await denied.locator('#source-url').inputValue(),'https://source.zloader.de');
   assert.deepEqual(errors,[]);
   console.log('PASS: landing copy, GitHub/source/latest IPA links, real icon, clipboard and denial fallback, desktop/mobile/320px, reduced motion and browser errors.');
 } finally { await browser.close(); }

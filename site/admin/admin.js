@@ -4,7 +4,7 @@ const escapeHTML = value => String(value ?? "").replace(/[&<>'"]/g, character =>
 })[character]);
 
 const BRANCH = "main";
-const API_ROOT = new URL("./api/", import.meta.url).pathname.replace(/\/$/, "");
+const API_ROOT = new URL("/api/", import.meta.url).pathname.replace(/\/$/, "");
 const state = { content: null, file: null, edit: null, settings: null, settingsFile: null, sourceSaving: false, iconPreview: null, sourceDraftPreview: null };
 const sourceFields = [
   ["name", "Anzeigename", "text"],

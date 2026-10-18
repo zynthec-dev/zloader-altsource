@@ -1,4 +1,4 @@
-const REPO = "zynthec-dev/zynthec-altstore-source";
+const REPO = "zynthec-dev/zloader-altsource";
 const COOKIE = "__Host-zloader-admin";
 const TTL = 8 * 60 * 60;
 const encoder = new TextEncoder();

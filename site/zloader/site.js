@@ -1,4 +1,4 @@
-const address = new URL('/zloader/source.json', location.origin).href;
+const address = 'https://source.zloader.de';
 const button = document.querySelector('#copy');
 const input = document.querySelector('#source-url');
 const status = document.querySelector('#copy-status');
