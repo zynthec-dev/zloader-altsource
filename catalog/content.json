@@ -32,25 +32,16 @@
       "versionDescription": "Optional imported signing identities now support installation, updates, re-signing and refresh without Apple login. Select Apple Account to retain the existing automatic portal certificate/App ID/profile workflow. Imported profiles are validated for certificate, team, device, expiry and required capabilities per app and extension. Wildcard profiles can authorize matching concrete bundle IDs without creating portal IDs. Imported refresh re-signs and reinstalls the cached app; it does not extend certificate/profile expiry. Private keys are never embedded in exported IPAs. Source installation requires an added source, while the round IPA download button remains available without adding the source or signing in.\n\nLocal signing/profile/transport/login/revocation/download regressions, Release build and package checks passed. Physical-device anonymous install/refresh, Files UI and lifecycle testing remain pending. Corresponding source is a separate public release asset.",
       "screenshots": [],
       "marketingVersion": "0.7.63",
-      "pendingUpload": {
-        "sha": "e687787fc7c53c2b2dac0e1b684d3140863d58b2",
-        "tag": "app-zloader-v0.7.63-20261018T155646Z-ca2582b7",
-        "size": 31066331
-      },
-      "pendingSourceArchive": {
+      "sourceArchive": {
         "name": "zLoader-0.7.63-source.zip",
         "size": 49101193,
         "sha256": "f48d2775e8a9489016e4686cba7f79c8036be1f075aa2ef58d717f7cb2cc48ef",
-        "chunks": [
-          {
-            "sha": "b9696483b394726772669c1300fe057d25ee0575",
-            "size": 25000000
-          },
-          {
-            "sha": "ead53f0fab64535586f5b8b659b68480cb065fbb",
-            "size": 24101193
-          }
-        ]
+        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.63-20261018T155646Z-ca2582b7/zLoader-0.7.63-source.zip"
+      },
+      "releaseAsset": {
+        "size": 30971779,
+        "sha256": "ca2582b711e0c8b29c7d87e99e3e7fa42ee80e2b2d34640eccf2ca86b71ea0c0",
+        "updatedAt": "2026-10-18T16:00:46.683324+00:00"
       }
     }
   },
