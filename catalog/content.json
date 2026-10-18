@@ -32,27 +32,17 @@
       "versionDescription": "Updates now use https://source.zloader.de. Existing fixed sources migrate in place, preserving app and news links. Restores the missing SigningEntitlements helper and validates requested rights against the selected Apple provisioning profile.\n\nResignable IPA with host/widget App Group metadata. Apple signing and matching profiles are required before installation; use an external local VPN. Local build, signing logic and package checks passed. Physical-device signing and migration still need validation.",
       "screenshots": [],
       "marketingVersion": "0.7.56",
-      "pendingUpload": {
-        "sha": "2e2975654f4ff9b0828044f7b213202b65d78f11",
-        "tag": "app-zloader-v0.7.56-20261018T115322Z-537ceb47",
-        "size": 31014855
-      },
-      "pendingSourceArchive": {
+      "sourceArchive": {
         "name": "zLoader-0.7.56-source.zip",
         "size": 49064677,
         "sha256": "d921770406dde663100a090e95d60c536e612844b488042bee1f5f224d1c0d1f",
-        "chunks": [
-          {
-            "sha": "45885ee4ce75ac708845d034fda9cdd939d1925f",
-            "size": 25000000
-          },
-          {
-            "sha": "cef5ddcd471866d1a96a8b6d5a8db3fcf683678e",
-            "size": 24064677
-          }
-        ]
+        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.56-20261018T115322Z-537ceb47/zLoader-0.7.56-source.zip"
       },
-      "releaseNotes": "Updates now use https://source.zloader.de. Existing fixed sources migrate in place, preserving app and news links. Restores the missing SigningEntitlements helper and validates requested rights against the selected Apple provisioning profile.\n\nResignable IPA with host/widget App Group metadata. Apple signing and matching profiles are required before installation; use an external local VPN. Local build, signing logic and package checks passed. Physical-device signing and migration still need validation.\n\nCorresponding source, including pinned dependency sources and local patches: https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.56-20261018T115322Z-537ceb47/zLoader-0.7.56-source.zip"
+      "releaseAsset": {
+        "size": 30919949,
+        "sha256": "537ceb47635df689e5d00013905306e261596ad1a6f85e8ac10adb53fa6d2bcc",
+        "updatedAt": "2026-10-18T11:59:49.047637+00:00"
+      }
     },
     "com.zynthec.zLocalVPN": {
       "ipaFile": "zLocalVPN-0.1.0-resignable.ipa",
