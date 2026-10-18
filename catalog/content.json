@@ -32,26 +32,16 @@
       "versionDescription": "Apple login compatibility fix for error -80045. GrandSlam requests now use the Android ADI client descriptor, while other verification endpoints retain their original anisette identity. Automatically pushed 2FA codes are supported when Apple omits the auth-type field; retries are bounded per login.\n\nAdapted from SideStore/SideSign PR #5 and SideStore commit 34f61f2. Local build, login-policy tests and package/signature checks passed. Real Apple-account login and SMS-only accounts still require physical-device validation. Apple signing and matching host/widget profiles are required; use an external local VPN.",
       "screenshots": [],
       "marketingVersion": "0.7.57",
-      "releaseNotes": "Apple login compatibility fix for error -80045. GrandSlam requests now use the Android ADI client descriptor, while other verification endpoints retain their original anisette identity. Automatically pushed 2FA codes are supported when Apple omits the auth-type field; retries are bounded per login.\n\nAdapted from SideStore/SideSign PR #5 and SideStore commit 34f61f2. Local build, login-policy tests and package/signature checks passed. Real Apple-account login and SMS-only accounts still require physical-device validation. Apple signing and matching host/widget profiles are required; use an external local VPN.\n\nCorresponding source: https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.57-20261018T122520Z-3097c0b7/zLoader-0.7.57-source.zip",
-      "pendingUpload": {
-        "sha": "55004fe67b868c686419efdbba50d9c7e8cc0e6d",
-        "tag": "app-zloader-v0.7.57-20261018T122520Z-3097c0b7",
-        "size": 31016750
-      },
-      "pendingSourceArchive": {
+      "sourceArchive": {
         "name": "zLoader-0.7.57-source.zip",
         "size": 49071716,
         "sha256": "57787d809eec0406048ea7a6cc37ed64b20f5cb062bdf1041439e2110cffb074",
-        "chunks": [
-          {
-            "sha": "4c5054e39db31b981fdb5c4a5d73fe3958fc0c40",
-            "size": 25000000
-          },
-          {
-            "sha": "de747806a6c11a4840deba70ba2218585a239312",
-            "size": 24071716
-          }
-        ]
+        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.57-20261018T122520Z-3097c0b7/zLoader-0.7.57-source.zip"
+      },
+      "releaseAsset": {
+        "size": 30921844,
+        "sha256": "3097c0b73fb6d19dfe5a5c9ce584a7779e93ed153705977a1afe7e863d4097db",
+        "updatedAt": "2026-10-18T12:27:26.215476+00:00"
       }
     },
     "com.zynthec.zLocalVPN": {
