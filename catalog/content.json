@@ -32,26 +32,16 @@
       "versionDescription": "Provisioning profiles are now resolved against the live portal on every Apple-account signing/install operation. Compatible remote profiles are downloaded and reused; deleted profiles are recreated as needed. Installed/local copies and assigned UUIDs no longer bypass the portal check. Replacement assignments are saved after installation. Existing certificate, team, device, entitlement and extension authorization checks remain enforced. Portal read failures do not fall back to stale local profiles. Login and certificate-revocation fixes are retained.\n\nLocal deletion/recreation/reuse regression tests, authorization/signing/transport/login tests, iPhone Release build and package checks passed. Actual portal recreation and installation still require physical-device validation. Apple-authorized signing and matching host/widget profiles are required.",
       "screenshots": [],
       "marketingVersion": "0.7.61",
-      "releaseNotes": "Provisioning profiles are now resolved against the live portal on every Apple-account signing/install operation. Compatible remote profiles are downloaded and reused; deleted profiles are recreated as needed. Installed/local copies and assigned UUIDs no longer bypass the portal check. Replacement assignments are saved after installation. Existing certificate, team, device, entitlement and extension authorization checks remain enforced. Portal read failures do not fall back to stale local profiles. Login and certificate-revocation fixes are retained.\n\nLocal deletion/recreation/reuse regression tests, authorization/signing/transport/login tests, iPhone Release build and package checks passed. Actual portal recreation and installation still require physical-device validation. Apple-authorized signing and matching host/widget profiles are required.\n\nCorresponding source: https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.61-20261018T140133Z-e72619dc/zLoader-0.7.61-source.zip",
-      "pendingUpload": {
-        "sha": "f27b24178f9e9240d8577a519fe7c31f8caf48ef",
-        "tag": "app-zloader-v0.7.61-20261018T140133Z-e72619dc",
-        "size": 31013664
-      },
-      "pendingSourceArchive": {
+      "sourceArchive": {
         "name": "zLoader-0.7.61-source.zip",
         "size": 49085555,
         "sha256": "df6de665617bbab0e0ab0c104a93f19be7f8ac90f02b04fb3f09670146385c1c",
-        "chunks": [
-          {
-            "sha": "8df377152e10454ebfd60cb26d0e1a855bfb0145",
-            "size": 25000000
-          },
-          {
-            "sha": "8944b4661adcb18577b2057feb8853abf4cb01bb",
-            "size": 24085555
-          }
-        ]
+        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.61-20261018T140133Z-e72619dc/zLoader-0.7.61-source.zip"
+      },
+      "releaseAsset": {
+        "size": 30919112,
+        "sha256": "e72619dc93487a201fd3e704cf73071fc87de7d42de0e820d51a78334545dde6",
+        "updatedAt": "2026-10-18T14:03:12.647806+00:00"
       }
     }
   },
