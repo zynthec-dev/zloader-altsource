@@ -32,26 +32,16 @@
       "versionDescription": "Certificate revocation: HTTP 421 from the web portal now uses the Xcode certificate service. The selected certificate is resolved again using serial number and DER bytes before the fallback DELETE, with service-local resource IDs. Success requires a fresh remote check; rejected or unconfirmed requests preserve local keys. Other HTTP errors are not retried. Apple login fixes from 0.7.58 are retained.\n\nLocal revocation transport tests, signing/transport/login tests, iPhone Release build and package checks passed. Real certificate revocation still requires validation on the iPhone. Apple-authorized signing and matching host/widget profiles are required.",
       "screenshots": [],
       "marketingVersion": "0.7.59",
-      "releaseNotes": "Certificate revocation: HTTP 421 from the web portal now uses the Xcode certificate service. The selected certificate is resolved again using serial number and DER bytes before the fallback DELETE, with service-local resource IDs. Success requires a fresh remote check; rejected or unconfirmed requests preserve local keys. Other HTTP errors are not retried. Apple login fixes from 0.7.58 are retained.\n\nLocal revocation transport tests, signing/transport/login tests, iPhone Release build and package checks passed. Real certificate revocation still requires validation on the iPhone. Apple-authorized signing and matching host/widget profiles are required.\n\nCorresponding source: https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.59-20261018T131046Z-37378232/zLoader-0.7.59-source.zip",
-      "pendingUpload": {
-        "sha": "bb6e7aafdea3811d1a58d13a1d8d527541b6f2ae",
-        "tag": "app-zloader-v0.7.59-20261018T131046Z-37378232",
-        "size": 31024014
-      },
-      "pendingSourceArchive": {
+      "sourceArchive": {
         "name": "zLoader-0.7.59-source.zip",
         "size": 49080835,
         "sha256": "57ca4250931f18cabfc4c5d0936eb602ad90f3bc6acfa70a2fca75243238531a",
-        "chunks": [
-          {
-            "sha": "4c5b65ab8bc2a983d3231789b93fabb4f6a72552",
-            "size": 25000000
-          },
-          {
-            "sha": "f43195eed8c6aca98f19deff5391cd242d1643e6",
-            "size": 24080835
-          }
-        ]
+        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.59-20261018T131046Z-37378232/zLoader-0.7.59-source.zip"
+      },
+      "releaseAsset": {
+        "size": 30929108,
+        "sha256": "37378232b7cfafa15b42761f5adbfea9705816a1f242794fd42d3f1f66ee6bb9",
+        "updatedAt": "2026-10-18T13:12:59.755749+00:00"
       }
     },
     "com.zynthec.zLocalVPN": {
