@@ -116,6 +116,78 @@ class ReleasePipelineTests(unittest.TestCase):
             self.assertIn("Neue Animationen", run.call_args_list[1].args[0])
             self.assertIn(tag, run.call_args_list[2].args[0])
 
+    def source_upload_case(self):
+        data = test_ipa()
+        source = io.BytesIO()
+        with zipfile.ZipFile(source, "w") as archive:
+            archive.writestr("app-source/LICENSE", "Public source license")
+            archive.writestr("app-source/main.swift", "// Source used for the build")
+        source_data = source.getvalue()
+        tag = "app-mipet-v0-4-20260928T205613Z-a1b2c3d4"
+        app = {
+            "ipaFile": "miPet-0.4.ipa", "releaseTag": tag, "name": "miPet",
+            "marketingVersion": "0.4", "versionDescription": "App update only", "releaseNotes": "Source included",
+            "pendingUpload": {"sha": "1" * 40, "tag": tag, "size": len(data)},
+            "pendingSourceArchive": {"sha": "2" * 40, "name": "miPet-0.4-source.zip",
+                "size": len(source_data), "sha256": hashlib.sha256(source_data).hexdigest()},
+        }
+        return {"localApps": {"de.renewitt.mipet": app}}, app, data, source_data
+
+    def test_source_is_uploaded_before_ipa_and_draft_is_published_last(self):
+        content, app, data, source_data = self.source_upload_case()
+        with tempfile.TemporaryDirectory() as folder, patch.object(pipeline, "CONTENT", Path(folder) / "content.json"), patch.object(
+            pipeline, "fetch_blob", side_effect=[data, source_data]
+        ), patch.object(pipeline.subprocess, "run", side_effect=lambda args, **kwargs:
+                        subprocess.CompletedProcess(args, 1 if args[2] == "view" else 0)) as run:
+            self.assertTrue(pipeline.publish_pending(content, "owner/repo", "apps", "test-token"))
+        commands = [call.args[0] for call in run.call_args_list]
+        self.assertIn("--draft", commands[1])
+        self.assertIn("Source included", commands[1])
+        self.assertEqual(app["versionDescription"], "App update only")
+        self.assertNotIn("releaseNotes", app)
+        self.assertTrue(commands[2][4].endswith("-source.zip"))
+        self.assertTrue(commands[3][4].endswith(".ipa"))
+        self.assertEqual(commands[4][2], "edit")
+        self.assertIn("--draft=false", commands[4])
+        self.assertNotIn("pendingSourceArchive", app)
+        self.assertNotIn("pendingUpload", app)
+        self.assertEqual(app["sourceArchive"]["sha256"], hashlib.sha256(source_data).hexdigest())
+
+    def test_chunked_source_is_reassembled_and_verified(self):
+        content, app, data, source_data = self.source_upload_case()
+        pending = app["pendingSourceArchive"]
+        del pending["sha"]
+        cut = len(source_data) // 2
+        pending["chunks"] = [{"sha": "3" * 40, "size": cut}, {"sha": "4" * 40, "size": len(source_data) - cut}]
+        with patch.object(pipeline, "fetch_blob", side_effect=[source_data[:cut], source_data[cut:]]):
+            self.assertEqual(pipeline.staged_source_archive(app, "owner/repo", "test-token"), (pending["name"], source_data))
+        pending["chunks"][0]["size"] += 1
+        with patch.object(pipeline, "fetch_blob") as fetch:
+            with self.assertRaisesRegex(ValueError, "chunk sizes"):
+                pipeline.staged_source_archive(app, "owner/repo", "test-token")
+        fetch.assert_not_called()
+
+    def test_corrupt_source_fails_before_release_is_created(self):
+        content, app, data, source_data = self.source_upload_case()
+        with patch.object(pipeline, "fetch_blob", side_effect=[data, source_data + b"corrupt"]), patch.object(pipeline.subprocess, "run") as run:
+            with self.assertRaisesRegex(ValueError, "(checksum|size) mismatch"):
+                pipeline.publish_pending(content, "owner/repo", "apps", "test-token")
+        run.assert_not_called()
+        self.assertIn("pendingUpload", app)
+
+    def test_failed_source_upload_does_not_publish_draft(self):
+        content, app, data, source_data = self.source_upload_case()
+        def command(args, **kwargs):
+            if args[2] == "upload":
+                raise subprocess.CalledProcessError(1, args)
+            return subprocess.CompletedProcess(args, 1 if args[2] == "view" else 0)
+        with patch.object(pipeline, "fetch_blob", side_effect=[data, source_data]), patch.object(pipeline.subprocess, "run", side_effect=command) as run:
+            with self.assertRaises(subprocess.CalledProcessError):
+                pipeline.publish_pending(content, "owner/repo", "apps", "test-token")
+        self.assertFalse(any(call.args[0][2] == "edit" for call in run.call_args_list))
+        self.assertIn("pendingUpload", app)
+        self.assertIn("pendingSourceArchive", app)
+
     def test_wrong_bundle_id_is_rejected_before_release_creation(self):
         data = test_ipa("com.example.wrong")
         sha = hashlib.sha1(f"blob {len(data)}\0".encode() + data).hexdigest()

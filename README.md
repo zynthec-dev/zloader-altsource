@@ -37,6 +37,8 @@ gh release upload apps miPet-0.3-beta.ipa
 
 Neue Versionen erhalten beim Upload aus `/admin/` automatisch einen eigenen Release-Tag und den Text aus „Neu in dieser Version“ als Release Notes. Die Admin-Seite lädt Dateien bis 70 MB über GitHubs Git-Blob-API zwischen; GitHub Actions prüft die IPA, erstellt das Release und aktualisiert den Feed. Die Datei wird nicht in die Git-Historie eingecheckt. Für größere Dateien kann der Workflow **Publish IPA** eine direkte HTTPS-Datei-URL übernehmen und ebenfalls ein neues Release mit Änderungstext erstellen.
 
+Für Releases mit zugehörigem Quellcode unterstützt die Pipeline zusätzlich ein `pendingSourceArchive` mit ZIP-Dateiname, SHA-256, Größe und einem Git-Blob oder einer Liste geprüfter Blob-Teile. Das Quellcodearchiv wird vor der IPA hochgeladen; das neue Release bleibt bis zum Abschluss beider Uploads ein Entwurf. Die fertige Katalog-Metadaten enthalten anschließend den Quellcode-Download und seine Prüfsumme.
+
 ## Admin-Zugang
 
 Der Zugang zu `https://admin.zloader.de/` erfolgt ausschließlich mit einem Passwort. Über **Passwort ändern** im Panel kannst du es nach Eingabe des aktuellen Passworts ändern. Alle anderen Sitzungen werden dabei ungültig. Es gibt weder Token-Felder noch eine GitHub-Verbindungseinrichtung im Browser.

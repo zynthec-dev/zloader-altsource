@@ -5,12 +5,12 @@
       "releaseTag": "app-mipet-v0-3-beta-20261007T091156Z-d2ae1116",
       "name": "miPet",
       "developerName": "zynthec",
-      "subtitle": "Dein kleiner Begleiter f\u00fcr iPhone und iPad.",
-      "localizedDescription": "miPet bringt einen liebevoll animierten Begleiter auf dein Ger\u00e4t. Diese Beta wird direkt von zynthec ver\u00f6ffentlicht.",
+      "subtitle": "Dein kleiner Begleiter für iPhone und iPad.",
+      "localizedDescription": "miPet bringt einen liebevoll animierten Begleiter auf dein Gerät. Diese Beta wird direkt von zynthec veröffentlicht.",
       "category": "lifestyle",
       "tintColor": "#00C7B7",
       "iconFile": "catalog/assets/mipet-icon.png",
-      "versionDescription": "IPA neu verpackt: macOS-Metadatendateien entfernt, damit SideStore und AltStore das richtige App-Bundle erkennen. App-Version unver\u00e4ndert.",
+      "versionDescription": "IPA neu verpackt: macOS-Metadatendateien entfernt, damit SideStore und AltStore das richtige App-Bundle erkennen. App-Version unverändert.",
       "screenshots": [],
       "marketingVersion": "0.3-beta",
       "releaseAsset": {
@@ -20,8 +20,8 @@
       }
     },
     "com.zynthec.zLoader": {
-      "ipaFile": "zLoader-0.7.55-resignable.ipa",
-      "releaseTag": "app-zloader-v0.7.55-20261011T152922Z-c708fbb9",
+      "ipaFile": "zLoader-0.7.56-resignable.ipa",
+      "releaseTag": "app-zloader-v0.7.56-20261018T115322Z-537ceb47",
       "name": "zLoader",
       "developerName": "zynthec-dev",
       "subtitle": "Independent SideStore fork for iPhone and iPad.",
@@ -29,14 +29,30 @@
       "category": "utilities",
       "tintColor": "#147D60",
       "iconFile": "catalog/assets/zloader-icon.png",
-      "versionDescription": "Corrected local tunnel status: Wi-Fi-only automatic errors are rechecked through the actual device-service path. Pairing, startup, endpoint and missing-tunnel states are shown separately. A WireGuard receiver inside zLoader still depends on zLoader execution; use an independent local VPN for other apps.",
+      "versionDescription": "Updates now use https://source.zloader.de. Existing fixed sources migrate in place, preserving app and news links. Restores the missing SigningEntitlements helper and validates requested rights against the selected Apple provisioning profile.\n\nResignable IPA with host/widget App Group metadata. Apple signing and matching profiles are required before installation; use an external local VPN. Local build, signing logic and package checks passed. Physical-device signing and migration still need validation.",
       "screenshots": [],
-      "marketingVersion": "0.7.55",
-      "releaseAsset": {
-        "size": 32636158,
-        "sha256": "c708fbb99d9c62d999010cd29288e44c92c0f3901181fb191935c5b06f82b508",
-        "updatedAt": "2026-10-11T15:29:22Z"
-      }
+      "marketingVersion": "0.7.56",
+      "pendingUpload": {
+        "sha": "2e2975654f4ff9b0828044f7b213202b65d78f11",
+        "tag": "app-zloader-v0.7.56-20261018T115322Z-537ceb47",
+        "size": 31014855
+      },
+      "pendingSourceArchive": {
+        "name": "zLoader-0.7.56-source.zip",
+        "size": 49064677,
+        "sha256": "d921770406dde663100a090e95d60c536e612844b488042bee1f5f224d1c0d1f",
+        "chunks": [
+          {
+            "sha": "45885ee4ce75ac708845d034fda9cdd939d1925f",
+            "size": 25000000
+          },
+          {
+            "sha": "cef5ddcd471866d1a96a8b6d5a8db3fcf683678e",
+            "size": 24064677
+          }
+        ]
+      },
+      "releaseNotes": "Updates now use https://source.zloader.de. Existing fixed sources migrate in place, preserving app and news links. Restores the missing SigningEntitlements helper and validates requested rights against the selected Apple provisioning profile.\n\nResignable IPA with host/widget App Group metadata. Apple signing and matching profiles are required before installation; use an external local VPN. Local build, signing logic and package checks passed. Physical-device signing and migration still need validation.\n\nCorresponding source, including pinned dependency sources and local patches: https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.56-20261018T115322Z-537ceb47/zLoader-0.7.56-source.zip"
     },
     "com.zynthec.zLocalVPN": {
       "ipaFile": "zLocalVPN-0.1.0-resignable.ipa",
@@ -64,7 +80,7 @@
     {
       "identifier": "welcome-to-zynthec-apps",
       "title": "Willkommen bei der zLoader Source",
-      "caption": "Apps \u00fcber zLoader installieren und aktualisieren.",
+      "caption": "Apps über zLoader installieren und aktualisieren.",
       "date": "2026-09-19",
       "tintColor": "#147D60",
       "url": "https://zloader.de"

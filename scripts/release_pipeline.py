@@ -121,6 +121,44 @@ def normalize_ipa(data: bytes) -> bytes:
     return output.getvalue()
 
 
+def staged_source_archive(app: dict[str, Any], repo: str, token: str) -> tuple[str, bytes] | None:
+    pending = app.get("pendingSourceArchive")
+    if pending is None:
+        return None
+    name, sha, size, digest = (pending.get(key) for key in ("name", "sha", "size", "sha256"))
+    if (not isinstance(name, str) or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]*-source\.zip", name)
+            or type(size) is not int or not 0 < size <= 100_000_000
+            or not isinstance(digest, str) or not re.fullmatch(r"[a-f0-9]{64}", digest)):
+        raise ValueError("Invalid staged corresponding-source metadata")
+    chunks = pending.get("chunks")
+    if chunks is None:
+        if not isinstance(sha, str) or not SHA.fullmatch(sha):
+            raise ValueError("Invalid corresponding-source blob SHA")
+        chunks = [{"sha": sha, "size": size}]
+    if (sha is not None and "chunks" in pending) or not isinstance(chunks, list) or not 1 <= len(chunks) <= 4:
+        raise ValueError("Invalid corresponding-source chunks")
+    if any(not isinstance(chunk, dict) or not isinstance(chunk.get("sha"), str)
+           or not SHA.fullmatch(chunk["sha"]) or type(chunk.get("size")) is not int
+           or not 0 < chunk["size"] <= 100_000_000 for chunk in chunks):
+        raise ValueError("Invalid corresponding-source chunk metadata")
+    if sum(chunk["size"] for chunk in chunks) != size:
+        raise ValueError("Corresponding-source chunk sizes do not match archive")
+    pieces = [fetch_blob(repo, chunk["sha"], token) for chunk in chunks]
+    if any(len(piece) != chunk["size"] for piece, chunk in zip(pieces, chunks)):
+        raise ValueError("Corresponding-source chunk size mismatch")
+    data = b"".join(pieces)
+    if len(data) != size or hashlib.sha256(data).hexdigest() != digest:
+        raise ValueError("Corresponding-source checksum or size mismatch")
+    with zipfile.ZipFile(io.BytesIO(data)) as archive:
+        if sum(entry.file_size for entry in archive.infolist()) > 1_000_000_000:
+            raise ValueError("Corresponding-source archive is too large")
+        if archive.testzip() is not None:
+            raise ValueError("Corrupt corresponding-source archive")
+        if not any(name.endswith("/LICENSE") for name in archive.namelist()):
+            raise ValueError("Corresponding-source archive is missing its license")
+    return name, data
+
+
 def publish_pending(content: dict[str, Any], repo: str, default_tag: str, token: str) -> bool:
     changed = False
     for bundle_id, app in apps(content):
@@ -138,6 +176,7 @@ def publish_pending(content: dict[str, Any], repo: str, default_tag: str, token:
             raise ValueError(f"Excluded app cannot be uploaded: {embedded_bundle_id}")
         if bundle_id is None:
             app["bundleIdentifier"] = embedded_bundle_id
+        source_archive = staged_source_archive(app, repo, token)
         with tempfile.TemporaryDirectory(prefix="source-ipa-") as folder:
             path = Path(folder) / filename
             path.write_bytes(data)
@@ -149,11 +188,26 @@ def publish_pending(content: dict[str, Any], repo: str, default_tag: str, token:
                 subprocess.run(
                     ["gh", "release", "create", tag, "--repo", repo,
                      "--title", f"{app['name']} {app['marketingVersion']}",
-                     "--notes", app["versionDescription"], "--target", "main"],
+                     "--notes", app.get("releaseNotes") or app["versionDescription"], "--target", "main", *(["--draft"] if source_archive else [])],
                     check=True,
                 )
+            if source_archive:
+                source_name, source_data = source_archive
+                source_path = Path(folder) / source_name
+                source_path.write_bytes(source_data)
+                subprocess.run(["gh", "release", "upload", tag, str(source_path), "--repo", repo, "--clobber"], check=True)
             subprocess.run(["gh", "release", "upload", tag, str(path), "--repo", repo, "--clobber"], check=True)
+            if source_archive:
+                # Keep the new binary private until both assets are uploaded.
+                subprocess.run(["gh", "release", "edit", tag, "--repo", repo, "--draft=false", "--latest"], check=True)
+                app["sourceArchive"] = {
+                    "name": source_name, "size": len(source_data),
+                    "sha256": hashlib.sha256(source_data).hexdigest(),
+                    "downloadURL": f"https://github.com/{repo}/releases/download/{tag}/{source_name}",
+                }
+                del app["pendingSourceArchive"]
         del app["pendingUpload"]
+        app.pop("releaseNotes", None)
         app["releaseAsset"] = {"size": len(data), "sha256": hashlib.sha256(data).hexdigest(),
                                "updatedAt": dt.datetime.now(dt.timezone.utc).isoformat()}
         changed = True
