@@ -32,26 +32,16 @@
       "versionDescription": "Apple login: the single HTTP 503 compatibility fallback now also covers password verification. It waits, then starts a completely fresh SRP exchange using the scoped Windows identity; the old proof and verification codes are never replayed. One fallback maximum across initialization and proof, with cancellation and bounded Retry-After handling. Token/code failures and other HTTP errors are not retried. Certificate revocation fixes from 0.7.59 are retained.\n\nLocal login/revocation/signing/transport tests, iPhone Release build and package checks passed. Actual free-account login still requires physical-device validation. Apple-authorized signing and matching host/widget profiles are required.",
       "screenshots": [],
       "marketingVersion": "0.7.60",
-      "releaseNotes": "Apple login: the single HTTP 503 compatibility fallback now also covers password verification. It waits, then starts a completely fresh SRP exchange using the scoped Windows identity; the old proof and verification codes are never replayed. One fallback maximum across initialization and proof, with cancellation and bounded Retry-After handling. Token/code failures and other HTTP errors are not retried. Certificate revocation fixes from 0.7.59 are retained.\n\nLocal login/revocation/signing/transport tests, iPhone Release build and package checks passed. Actual free-account login still requires physical-device validation. Apple-authorized signing and matching host/widget profiles are required.\n\nCorresponding source: https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.60-20261018T133216Z-befadd12/zLoader-0.7.60-source.zip",
-      "pendingUpload": {
-        "sha": "44cdef2780cb25a86507cd378a2dbb642bc0f244",
-        "tag": "app-zloader-v0.7.60-20261018T133216Z-befadd12",
-        "size": 31024666
-      },
-      "pendingSourceArchive": {
+      "sourceArchive": {
         "name": "zLoader-0.7.60-source.zip",
         "size": 49082494,
         "sha256": "a00290864ed2f27b8da4638b6dd3036f306d418a1b026a3b68e6593145ff18ff",
-        "chunks": [
-          {
-            "sha": "6961af0f4ebe07643e2ebe1718629f8b8e6a9264",
-            "size": 25000000
-          },
-          {
-            "sha": "2279a2e1c81a94358273d0bc86824bbf73b17147",
-            "size": 24082494
-          }
-        ]
+        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.60-20261018T133216Z-befadd12/zLoader-0.7.60-source.zip"
+      },
+      "releaseAsset": {
+        "size": 30929760,
+        "sha256": "befadd1293bd322e25b57e020a39b25185221a35b114bbb065004e7151742df2",
+        "updatedAt": "2026-10-18T13:34:28.340721+00:00"
       }
     }
   },
