@@ -20,8 +20,8 @@
       }
     },
     "com.zynthec.zLoader": {
-      "ipaFile": "zLoader-0.7.58-resignable.ipa",
-      "releaseTag": "app-zloader-v0.7.58-20261018T123741Z-a026624b",
+      "ipaFile": "zLoader-0.7.59-resignable.ipa",
+      "releaseTag": "app-zloader-v0.7.59-20261018T131046Z-37378232",
       "name": "zLoader",
       "developerName": "zynthec-dev",
       "subtitle": "Independent SideStore fork for iPhone and iPad.",
@@ -29,19 +29,29 @@
       "category": "utilities",
       "tintColor": "#147D60",
       "iconFile": "catalog/assets/zloader-icon.png",
-      "versionDescription": "Apple login: one delayed, fresh Windows-identity attempt after an HTTP 503 during initialization. Password proofs and verification codes are never replayed by this fallback. Non-plist HTTP failures now identify the status and login phase instead of showing HTML. The original identity remains in use outside GrandSlam. Existing pushed-code 2FA support is retained.\n\nLocal compatibility tests, iPhone Release build and package/signature checks passed. Actual Apple-account login still requires validation on the iPhone. Apple-authorized signing and matching host/widget profiles are required; use an external local VPN.",
+      "versionDescription": "Certificate revocation: HTTP 421 from the web portal now uses the Xcode certificate service. The selected certificate is resolved again using serial number and DER bytes before the fallback DELETE, with service-local resource IDs. Success requires a fresh remote check; rejected or unconfirmed requests preserve local keys. Other HTTP errors are not retried. Apple login fixes from 0.7.58 are retained.\n\nLocal revocation transport tests, signing/transport/login tests, iPhone Release build and package checks passed. Real certificate revocation still requires validation on the iPhone. Apple-authorized signing and matching host/widget profiles are required.",
       "screenshots": [],
-      "marketingVersion": "0.7.58",
-      "sourceArchive": {
-        "name": "zLoader-0.7.58-source.zip",
-        "size": 49075906,
-        "sha256": "9fa887e1428761d1a975f82b2e2cf48011a70487371627359068a78dfbe09b4e",
-        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.58-20261018T123741Z-a026624b/zLoader-0.7.58-source.zip"
+      "marketingVersion": "0.7.59",
+      "releaseNotes": "Certificate revocation: HTTP 421 from the web portal now uses the Xcode certificate service. The selected certificate is resolved again using serial number and DER bytes before the fallback DELETE, with service-local resource IDs. Success requires a fresh remote check; rejected or unconfirmed requests preserve local keys. Other HTTP errors are not retried. Apple login fixes from 0.7.58 are retained.\n\nLocal revocation transport tests, signing/transport/login tests, iPhone Release build and package checks passed. Real certificate revocation still requires validation on the iPhone. Apple-authorized signing and matching host/widget profiles are required.\n\nCorresponding source: https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.59-20261018T131046Z-37378232/zLoader-0.7.59-source.zip",
+      "pendingUpload": {
+        "sha": "bb6e7aafdea3811d1a58d13a1d8d527541b6f2ae",
+        "tag": "app-zloader-v0.7.59-20261018T131046Z-37378232",
+        "size": 31024014
       },
-      "releaseAsset": {
-        "size": 30928186,
-        "sha256": "a026624b05a15b59bf8aca8c8e45a76ca69763704aabdef239858881942c43bf",
-        "updatedAt": "2026-10-18T12:39:34.126348+00:00"
+      "pendingSourceArchive": {
+        "name": "zLoader-0.7.59-source.zip",
+        "size": 49080835,
+        "sha256": "57ca4250931f18cabfc4c5d0936eb602ad90f3bc6acfa70a2fca75243238531a",
+        "chunks": [
+          {
+            "sha": "4c5b65ab8bc2a983d3231789b93fabb4f6a72552",
+            "size": 25000000
+          },
+          {
+            "sha": "f43195eed8c6aca98f19deff5391cd242d1643e6",
+            "size": 24080835
+          }
+        ]
       }
     },
     "com.zynthec.zLocalVPN": {
