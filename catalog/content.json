@@ -20,8 +20,8 @@
       }
     },
     "com.zynthec.zLoader": {
-      "ipaFile": "zLoader-0.7.57-resignable.ipa",
-      "releaseTag": "app-zloader-v0.7.57-20261018T122520Z-3097c0b7",
+      "ipaFile": "zLoader-0.7.58-resignable.ipa",
+      "releaseTag": "app-zloader-v0.7.58-20261018T123741Z-a026624b",
       "name": "zLoader",
       "developerName": "zynthec-dev",
       "subtitle": "Independent SideStore fork for iPhone and iPad.",
@@ -29,19 +29,29 @@
       "category": "utilities",
       "tintColor": "#147D60",
       "iconFile": "catalog/assets/zloader-icon.png",
-      "versionDescription": "Apple login compatibility fix for error -80045. GrandSlam requests now use the Android ADI client descriptor, while other verification endpoints retain their original anisette identity. Automatically pushed 2FA codes are supported when Apple omits the auth-type field; retries are bounded per login.\n\nAdapted from SideStore/SideSign PR #5 and SideStore commit 34f61f2. Local build, login-policy tests and package/signature checks passed. Real Apple-account login and SMS-only accounts still require physical-device validation. Apple signing and matching host/widget profiles are required; use an external local VPN.",
+      "versionDescription": "Apple login: one delayed, fresh Windows-identity attempt after an HTTP 503 during initialization. Password proofs and verification codes are never replayed by this fallback. Non-plist HTTP failures now identify the status and login phase instead of showing HTML. The original identity remains in use outside GrandSlam. Existing pushed-code 2FA support is retained.\n\nLocal compatibility tests, iPhone Release build and package/signature checks passed. Actual Apple-account login still requires validation on the iPhone. Apple-authorized signing and matching host/widget profiles are required; use an external local VPN.",
       "screenshots": [],
-      "marketingVersion": "0.7.57",
-      "sourceArchive": {
-        "name": "zLoader-0.7.57-source.zip",
-        "size": 49071716,
-        "sha256": "57787d809eec0406048ea7a6cc37ed64b20f5cb062bdf1041439e2110cffb074",
-        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.57-20261018T122520Z-3097c0b7/zLoader-0.7.57-source.zip"
+      "marketingVersion": "0.7.58",
+      "releaseNotes": "Apple login: one delayed, fresh Windows-identity attempt after an HTTP 503 during initialization. Password proofs and verification codes are never replayed by this fallback. Non-plist HTTP failures now identify the status and login phase instead of showing HTML. The original identity remains in use outside GrandSlam. Existing pushed-code 2FA support is retained.\n\nLocal compatibility tests, iPhone Release build and package/signature checks passed. Actual Apple-account login still requires validation on the iPhone. Apple-authorized signing and matching host/widget profiles are required; use an external local VPN.\n\nCorresponding source: https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.58-20261018T123741Z-a026624b/zLoader-0.7.58-source.zip",
+      "pendingUpload": {
+        "sha": "a9f1d420a37edc77b3a0034dc7d59ae1702dd0d5",
+        "tag": "app-zloader-v0.7.58-20261018T123741Z-a026624b",
+        "size": 31023092
       },
-      "releaseAsset": {
-        "size": 30921844,
-        "sha256": "3097c0b73fb6d19dfe5a5c9ce584a7779e93ed153705977a1afe7e863d4097db",
-        "updatedAt": "2026-10-18T12:27:26.215476+00:00"
+      "pendingSourceArchive": {
+        "name": "zLoader-0.7.58-source.zip",
+        "size": 49075906,
+        "sha256": "9fa887e1428761d1a975f82b2e2cf48011a70487371627359068a78dfbe09b4e",
+        "chunks": [
+          {
+            "sha": "5828170b1375648c372d5a1e83f783dd3faaf758",
+            "size": 25000000
+          },
+          {
+            "sha": "065a82914af3a17cd751f29cd0258282dbcfad4f",
+            "size": 24075906
+          }
+        ]
       }
     },
     "com.zynthec.zLocalVPN": {
