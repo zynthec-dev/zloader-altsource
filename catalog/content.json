@@ -32,26 +32,16 @@
       "versionDescription": "Apple login: one delayed, fresh Windows-identity attempt after an HTTP 503 during initialization. Password proofs and verification codes are never replayed by this fallback. Non-plist HTTP failures now identify the status and login phase instead of showing HTML. The original identity remains in use outside GrandSlam. Existing pushed-code 2FA support is retained.\n\nLocal compatibility tests, iPhone Release build and package/signature checks passed. Actual Apple-account login still requires validation on the iPhone. Apple-authorized signing and matching host/widget profiles are required; use an external local VPN.",
       "screenshots": [],
       "marketingVersion": "0.7.58",
-      "releaseNotes": "Apple login: one delayed, fresh Windows-identity attempt after an HTTP 503 during initialization. Password proofs and verification codes are never replayed by this fallback. Non-plist HTTP failures now identify the status and login phase instead of showing HTML. The original identity remains in use outside GrandSlam. Existing pushed-code 2FA support is retained.\n\nLocal compatibility tests, iPhone Release build and package/signature checks passed. Actual Apple-account login still requires validation on the iPhone. Apple-authorized signing and matching host/widget profiles are required; use an external local VPN.\n\nCorresponding source: https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.58-20261018T123741Z-a026624b/zLoader-0.7.58-source.zip",
-      "pendingUpload": {
-        "sha": "a9f1d420a37edc77b3a0034dc7d59ae1702dd0d5",
-        "tag": "app-zloader-v0.7.58-20261018T123741Z-a026624b",
-        "size": 31023092
-      },
-      "pendingSourceArchive": {
+      "sourceArchive": {
         "name": "zLoader-0.7.58-source.zip",
         "size": 49075906,
         "sha256": "9fa887e1428761d1a975f82b2e2cf48011a70487371627359068a78dfbe09b4e",
-        "chunks": [
-          {
-            "sha": "5828170b1375648c372d5a1e83f783dd3faaf758",
-            "size": 25000000
-          },
-          {
-            "sha": "065a82914af3a17cd751f29cd0258282dbcfad4f",
-            "size": 24075906
-          }
-        ]
+        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.58-20261018T123741Z-a026624b/zLoader-0.7.58-source.zip"
+      },
+      "releaseAsset": {
+        "size": 30928186,
+        "sha256": "a026624b05a15b59bf8aca8c8e45a76ca69763704aabdef239858881942c43bf",
+        "updatedAt": "2026-10-18T12:39:34.126348+00:00"
       }
     },
     "com.zynthec.zLocalVPN": {
