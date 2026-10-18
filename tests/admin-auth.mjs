@@ -40,6 +40,11 @@ const call = (route, body, cookie, headers) => adminAPI(request(route,body,cooki
 const password = 'test-only-password-123';
 const token = 'test-only-not-a-real-token';
 const originalFetch=globalThis.fetch;
+const originalNow=Date.now;
+// Keep authentication checks within a known rate-limit window even when the
+// real build crosses a quarter-hour boundary. Advance explicitly to test reset.
+let testNow=Date.UTC(2026,9,18,12,7,0);
+Date.now=()=>testNow;
 let upstreamCalls=0;
 globalThis.fetch=async (url, options) => {
   upstreamCalls++;
@@ -97,6 +102,8 @@ try {
   await db.prepare('DELETE FROM admin_attempts').run();
   for(let i=0;i<8;i++) assert.equal((await call('login',{password:'incorrect'})).status,401);
   assert.equal((await call('login',{password:'incorrect'})).status,429);
+  testNow+=900_000;
+  assert.equal((await call('login',{password:'incorrect'})).status,401);
   // Missing credentials allow catalog viewing and password changes but no writes.
   await db.prepare('DELETE FROM admin_attempts').run();
   await db.prepare("UPDATE admin_config SET github_token='' WHERE id=1").run();
@@ -115,5 +122,6 @@ try {
   console.log('PASS: password-only login, encrypted/server-only credentials, public catalog fallback, write blocking, cookies, proxy restrictions, CSRF, password change, revocation, logout and throttling.');
 } finally {
   globalThis.fetch=originalFetch;
+  Date.now=originalNow;
   await rm(folder,{recursive:true,force:true});
 }
