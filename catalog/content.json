@@ -32,26 +32,16 @@
       "versionDescription": "Account certificate recovery: valid Side Installer identities are reused when the matching private key is available and the exact certificate is active on the selected team. Foreign, revoked, expired or key-invalid identities no longer bypass account provisioning. Account setup offers repair instead of treating any stored certificate as ready, and provisioning errors are displayed. Modern Apple Development certificates are recognized in replacement selection. Automatic reinstall selection no longer restores an unusable old identity. Existing revocation confirmation and Apple authorization checks remain in place. Profile and login fixes are retained.\n\nLocal identity-policy/signing/profile/login/revocation/transport tests, iPhone Release build and package checks passed. Actual installer-key recovery and renewal still require physical-device validation. A public certificate alone cannot sign; a matching private key and authorized profiles are required.",
       "screenshots": [],
       "marketingVersion": "0.7.62",
-      "releaseNotes": "Account certificate recovery: valid Side Installer identities are reused when the matching private key is available and the exact certificate is active on the selected team. Foreign, revoked, expired or key-invalid identities no longer bypass account provisioning. Account setup offers repair instead of treating any stored certificate as ready, and provisioning errors are displayed. Modern Apple Development certificates are recognized in replacement selection. Automatic reinstall selection no longer restores an unusable old identity. Existing revocation confirmation and Apple authorization checks remain in place. Profile and login fixes are retained.\n\nLocal identity-policy/signing/profile/login/revocation/transport tests, iPhone Release build and package checks passed. Actual installer-key recovery and renewal still require physical-device validation. A public certificate alone cannot sign; a matching private key and authorized profiles are required.\n\nCorresponding source: https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.62-20261018T150923Z-8fd25afa/zLoader-0.7.62-source.zip",
-      "pendingUpload": {
-        "sha": "45f2e1e1cb1de98ef5841b3052699ea22907f200",
-        "tag": "app-zloader-v0.7.62-20261018T150923Z-8fd25afa",
-        "size": 31021037
-      },
-      "pendingSourceArchive": {
+      "sourceArchive": {
         "name": "zLoader-0.7.62-source.zip",
         "size": 49089570,
         "sha256": "8a5d950cc86a074184c5dc989e80b1a4f77aff0acac72a04f46a3d2aa8594862",
-        "chunks": [
-          {
-            "sha": "5c2511e20d0b00a01b23c7c32ae31c77cfc55877",
-            "size": 25000000
-          },
-          {
-            "sha": "6a3b2ea285ff1eebfed211e708b3097cec9f8248",
-            "size": 24089570
-          }
-        ]
+        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.62-20261018T150923Z-8fd25afa/zLoader-0.7.62-source.zip"
+      },
+      "releaseAsset": {
+        "size": 30926485,
+        "sha256": "8fd25afafcfa92e2b3b11575f35c515c2564b22075483c7b4f559ebeb3451d0d",
+        "updatedAt": "2026-10-18T15:11:15.016720+00:00"
       }
     }
   },
