@@ -20,8 +20,8 @@
       }
     },
     "com.zynthec.zLoader": {
-      "ipaFile": "zLoader-0.7.63-resignable.ipa",
-      "releaseTag": "app-zloader-v0.7.63-20261018T155646Z-ca2582b7",
+      "ipaFile": "zLoader-0.7.64-resignable.ipa",
+      "releaseTag": "app-zloader-v0.7.64-20261019T050113Z-93760022",
       "name": "zLoader",
       "developerName": "zynthec-dev",
       "subtitle": "Independent SideStore fork for iPhone and iPad.",
@@ -29,19 +29,29 @@
       "category": "utilities",
       "tintColor": "#147D60",
       "iconFile": "catalog/assets/zloader-icon.png",
-      "versionDescription": "Optional imported signing identities now support installation, updates, re-signing and refresh without Apple login. Select Apple Account to retain the existing automatic portal certificate/App ID/profile workflow. Imported profiles are validated for certificate, team, device, expiry and required capabilities per app and extension. Wildcard profiles can authorize matching concrete bundle IDs without creating portal IDs. Imported refresh re-signs and reinstalls the cached app; it does not extend certificate/profile expiry. Private keys are never embedded in exported IPAs. Source installation requires an added source, while the round IPA download button remains available without adding the source or signing in.\n\nLocal signing/profile/transport/login/revocation/download regressions, Release build and package checks passed. Physical-device anonymous install/refresh, Files UI and lifecycle testing remain pending. Corresponding source is a separate public release asset.",
+      "versionDescription": "Only the explicit Sign App function saves new permanent signed IPAs. Automatic export settings and every install/refresh/re-sign/backup export step are removed. Internal refresh bundles remain functional and are shown separately in Developer Options > Refresh Cache, outside the IPA library. The wireless IPA installer selector now shows app icons and names. Library metadata is read directly from bounded archive entries without unpacking whole apps; icons are downsampled, cache loads are cancellable and stale loads cannot replace newer results. Core Data and operation-state reads use their queue/lock. IPA extraction is confined to its destination, rejecting traversal and symlink escape. Apple Account provisioning and imported identities remain supported.\n\nLocal regression suites, Release build and package checks passed. Physical-device UI, VoiceOver, lifecycle and actual install/refresh testing remain pending.",
       "screenshots": [],
-      "marketingVersion": "0.7.63",
-      "sourceArchive": {
-        "name": "zLoader-0.7.63-source.zip",
-        "size": 49101193,
-        "sha256": "f48d2775e8a9489016e4686cba7f79c8036be1f075aa2ef58d717f7cb2cc48ef",
-        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.63-20261018T155646Z-ca2582b7/zLoader-0.7.63-source.zip"
+      "marketingVersion": "0.7.64",
+      "releaseNotes": "Only the explicit Sign App function saves new permanent signed IPAs. Automatic export settings and every install/refresh/re-sign/backup export step are removed. Internal refresh bundles remain functional and are shown separately in Developer Options > Refresh Cache, outside the IPA library. The wireless IPA installer selector now shows app icons and names. Library metadata is read directly from bounded archive entries without unpacking whole apps; icons are downsampled, cache loads are cancellable and stale loads cannot replace newer results. Core Data and operation-state reads use their queue/lock. IPA extraction is confined to its destination, rejecting traversal and symlink escape. Apple Account provisioning and imported identities remain supported.\n\nLocal regression suites, Release build and package checks passed. Physical-device UI, VoiceOver, lifecycle and actual install/refresh testing remain pending.",
+      "pendingUpload": {
+        "sha": "9d464324697010ea72b420f55d64e04cfed67106",
+        "tag": "app-zloader-v0.7.64-20261019T050113Z-93760022",
+        "size": 31093355
       },
-      "releaseAsset": {
-        "size": 30971779,
-        "sha256": "ca2582b711e0c8b29c7d87e99e3e7fa42ee80e2b2d34640eccf2ca86b71ea0c0",
-        "updatedAt": "2026-10-18T16:00:46.683324+00:00"
+      "pendingSourceArchive": {
+        "name": "zLoader-0.7.64-source.zip",
+        "size": 49110082,
+        "sha256": "f01afdb92d7caf80142769fff8202b5cc36eb0a211000c380c80a79454f9235c",
+        "chunks": [
+          {
+            "sha": "e73eae2e163a33fa09813ead92f7a9d5a9afdd97",
+            "size": 25000000
+          },
+          {
+            "sha": "bc172b727bf2e717c8c9250452ee0fbf2eba22f3",
+            "size": 24110082
+          }
+        ]
       }
     }
   },
