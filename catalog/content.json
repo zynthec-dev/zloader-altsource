@@ -20,8 +20,8 @@
       }
     },
     "com.zynthec.zLoader": {
-      "ipaFile": "zLoader-0.7.65-resignable.ipa",
-      "releaseTag": "app-zloader-v0.7.65-20261019T053102Z-37ab03db",
+      "ipaFile": "zLoader-0.7.66-resignable.ipa",
+      "releaseTag": "app-zloader-v0.7.66-20261019T054430Z-dc587d12",
       "name": "zLoader",
       "developerName": "zynthec-dev",
       "subtitle": "Independent SideStore fork for iPhone and iPad.",
@@ -29,19 +29,29 @@
       "category": "utilities",
       "tintColor": "#147D60",
       "iconFile": "catalog/assets/zloader-icon.png",
-      "versionDescription": "Refresh Cache is integrated as a normal navigation row in the existing Database Options section of Developer Options. Wireless pairing and the IPA installer also use ordinary list rows. Root settings and settings submenus now share rounded themed cards, row spacing, padding and menu icons. Developer, experimental, operation-logging and backup menus use native sectioned lists with labelled toggles. The styling also covers legacy Anisette servers, profile/certificate selectors, refresh history, error details, licenses and app-icon selection. Existing account, portal, signing and cache behavior is retained.\n\nStatic settings coverage, storyboard/project regressions, local signing/profile/login/transport/HTTPS tests, Release build and package checks passed. Actual iPhone navigation, accessibility text/VoiceOver and tvOS focus acceptance remain pending.",
+      "versionDescription": "Fixed truncated account field names in Settings. Name, Email and account type now use stacked labels and values with measured row heights, multiline text and Dynamic Type. Other settings titles use the full available row width after the icon. Existing account and signing behavior is unchanged. Local settings checks, transport/app-group/context regressions, Release build and package checks passed. Physical iPhone UI validation remains pending.",
       "screenshots": [],
-      "marketingVersion": "0.7.65",
-      "sourceArchive": {
-        "name": "zLoader-0.7.65-source.zip",
-        "size": 49113492,
-        "sha256": "cd48e24ff5cea868b75461b9afa0ecfa08d78411b7d8cdf4009bbaa54148c148",
-        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.65-20261019T053102Z-37ab03db/zLoader-0.7.65-source.zip"
+      "marketingVersion": "0.7.66",
+      "releaseNotes": "Fixed truncated account field names in Settings. Name, Email and account type now use stacked labels and values with measured row heights, multiline text and Dynamic Type. Other settings titles use the full available row width after the icon. Existing account and signing behavior is unchanged. Local settings checks, transport/app-group/context regressions, Release build and package checks passed. Physical iPhone UI validation remains pending.",
+      "pendingUpload": {
+        "sha": "10000e44db1e54b1b265d90396835d70cf8dbd28",
+        "tag": "app-zloader-v0.7.66-20261019T054430Z-dc587d12",
+        "size": 31567844
       },
-      "releaseAsset": {
-        "size": 31471296,
-        "sha256": "37ab03db057e670429afbf2cd4cc300544ac301efc90272ace3ed365afb8c1d5",
-        "updatedAt": "2026-10-19T05:34:52.221057+00:00"
+      "pendingSourceArchive": {
+        "name": "zLoader-0.7.66-source.zip",
+        "size": 49114791,
+        "sha256": "77853ad77014e5141b64f81dd2c1095f0fa1574878fd89dc444f8813d5c4e892",
+        "chunks": [
+          {
+            "sha": "4ece3f7db1541529b17e4a77f2abb9161aa72365",
+            "size": 25000000
+          },
+          {
+            "sha": "afd9a46ccc3f105afd9d6a83eb8dfdd62ed792af",
+            "size": 24114791
+          }
+        ]
       }
     }
   },
