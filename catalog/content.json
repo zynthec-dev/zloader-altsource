@@ -20,8 +20,8 @@
       }
     },
     "com.zynthec.zLoader": {
-      "ipaFile": "zLoader-0.7.64-resignable.ipa",
-      "releaseTag": "app-zloader-v0.7.64-20261019T050113Z-93760022",
+      "ipaFile": "zLoader-0.7.65-resignable.ipa",
+      "releaseTag": "app-zloader-v0.7.65-20261019T053102Z-37ab03db",
       "name": "zLoader",
       "developerName": "zynthec-dev",
       "subtitle": "Independent SideStore fork for iPhone and iPad.",
@@ -29,19 +29,29 @@
       "category": "utilities",
       "tintColor": "#147D60",
       "iconFile": "catalog/assets/zloader-icon.png",
-      "versionDescription": "Only the explicit Sign App function saves new permanent signed IPAs. Automatic export settings and every install/refresh/re-sign/backup export step are removed. Internal refresh bundles remain functional and are shown separately in Developer Options > Refresh Cache, outside the IPA library. The wireless IPA installer selector now shows app icons and names. Library metadata is read directly from bounded archive entries without unpacking whole apps; icons are downsampled, cache loads are cancellable and stale loads cannot replace newer results. Core Data and operation-state reads use their queue/lock. IPA extraction is confined to its destination, rejecting traversal and symlink escape. Apple Account provisioning and imported identities remain supported.\n\nLocal regression suites, Release build and package checks passed. Physical-device UI, VoiceOver, lifecycle and actual install/refresh testing remain pending.",
+      "versionDescription": "Refresh Cache is integrated as a normal navigation row in the existing Database Options section of Developer Options. Wireless pairing and the IPA installer also use ordinary list rows. Root settings and settings submenus now share rounded themed cards, row spacing, padding and menu icons. Developer, experimental, operation-logging and backup menus use native sectioned lists with labelled toggles. The styling also covers legacy Anisette servers, profile/certificate selectors, refresh history, error details, licenses and app-icon selection. Existing account, portal, signing and cache behavior is retained.\n\nStatic settings coverage, storyboard/project regressions, local signing/profile/login/transport/HTTPS tests, Release build and package checks passed. Actual iPhone navigation, accessibility text/VoiceOver and tvOS focus acceptance remain pending.",
       "screenshots": [],
-      "marketingVersion": "0.7.64",
-      "sourceArchive": {
-        "name": "zLoader-0.7.64-source.zip",
-        "size": 49110082,
-        "sha256": "f01afdb92d7caf80142769fff8202b5cc36eb0a211000c380c80a79454f9235c",
-        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.64-20261019T050113Z-93760022/zLoader-0.7.64-source.zip"
+      "marketingVersion": "0.7.65",
+      "releaseNotes": "Refresh Cache is integrated as a normal navigation row in the existing Database Options section of Developer Options. Wireless pairing and the IPA installer also use ordinary list rows. Root settings and settings submenus now share rounded themed cards, row spacing, padding and menu icons. Developer, experimental, operation-logging and backup menus use native sectioned lists with labelled toggles. The styling also covers legacy Anisette servers, profile/certificate selectors, refresh history, error details, licenses and app-icon selection. Existing account, portal, signing and cache behavior is retained.\n\nStatic settings coverage, storyboard/project regressions, local signing/profile/login/transport/HTTPS tests, Release build and package checks passed. Actual iPhone navigation, accessibility text/VoiceOver and tvOS focus acceptance remain pending.",
+      "pendingUpload": {
+        "sha": "04cf030eb280a3f97c1e4a8169e47dc172245857",
+        "tag": "app-zloader-v0.7.65-20261019T053102Z-37ab03db",
+        "size": 31565848
       },
-      "releaseAsset": {
-        "size": 30998803,
-        "sha256": "93760022f98b18d426cf77562cdeaa56b92cdac7a86cd2ac1b5e857accf0afe1",
-        "updatedAt": "2026-10-19T05:03:31.096732+00:00"
+      "pendingSourceArchive": {
+        "name": "zLoader-0.7.65-source.zip",
+        "size": 49113492,
+        "sha256": "cd48e24ff5cea868b75461b9afa0ecfa08d78411b7d8cdf4009bbaa54148c148",
+        "chunks": [
+          {
+            "sha": "1fc1e4581608f7c96f810a32899c33b536072734",
+            "size": 25000000
+          },
+          {
+            "sha": "1c90f1e41b212540725d6011baa495328dce9ec5",
+            "size": 24113492
+          }
+        ]
       }
     }
   },
