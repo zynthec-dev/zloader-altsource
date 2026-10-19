@@ -32,26 +32,16 @@
       "versionDescription": "Only the explicit Sign App function saves new permanent signed IPAs. Automatic export settings and every install/refresh/re-sign/backup export step are removed. Internal refresh bundles remain functional and are shown separately in Developer Options > Refresh Cache, outside the IPA library. The wireless IPA installer selector now shows app icons and names. Library metadata is read directly from bounded archive entries without unpacking whole apps; icons are downsampled, cache loads are cancellable and stale loads cannot replace newer results. Core Data and operation-state reads use their queue/lock. IPA extraction is confined to its destination, rejecting traversal and symlink escape. Apple Account provisioning and imported identities remain supported.\n\nLocal regression suites, Release build and package checks passed. Physical-device UI, VoiceOver, lifecycle and actual install/refresh testing remain pending.",
       "screenshots": [],
       "marketingVersion": "0.7.64",
-      "releaseNotes": "Only the explicit Sign App function saves new permanent signed IPAs. Automatic export settings and every install/refresh/re-sign/backup export step are removed. Internal refresh bundles remain functional and are shown separately in Developer Options > Refresh Cache, outside the IPA library. The wireless IPA installer selector now shows app icons and names. Library metadata is read directly from bounded archive entries without unpacking whole apps; icons are downsampled, cache loads are cancellable and stale loads cannot replace newer results. Core Data and operation-state reads use their queue/lock. IPA extraction is confined to its destination, rejecting traversal and symlink escape. Apple Account provisioning and imported identities remain supported.\n\nLocal regression suites, Release build and package checks passed. Physical-device UI, VoiceOver, lifecycle and actual install/refresh testing remain pending.",
-      "pendingUpload": {
-        "sha": "9d464324697010ea72b420f55d64e04cfed67106",
-        "tag": "app-zloader-v0.7.64-20261019T050113Z-93760022",
-        "size": 31093355
-      },
-      "pendingSourceArchive": {
+      "sourceArchive": {
         "name": "zLoader-0.7.64-source.zip",
         "size": 49110082,
         "sha256": "f01afdb92d7caf80142769fff8202b5cc36eb0a211000c380c80a79454f9235c",
-        "chunks": [
-          {
-            "sha": "e73eae2e163a33fa09813ead92f7a9d5a9afdd97",
-            "size": 25000000
-          },
-          {
-            "sha": "bc172b727bf2e717c8c9250452ee0fbf2eba22f3",
-            "size": 24110082
-          }
-        ]
+        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.64-20261019T050113Z-93760022/zLoader-0.7.64-source.zip"
+      },
+      "releaseAsset": {
+        "size": 30998803,
+        "sha256": "93760022f98b18d426cf77562cdeaa56b92cdac7a86cd2ac1b5e857accf0afe1",
+        "updatedAt": "2026-10-19T05:03:31.096732+00:00"
       }
     }
   },
