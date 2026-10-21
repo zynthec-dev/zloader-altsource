@@ -32,26 +32,16 @@
       "versionDescription": "Managed capability signing now requests nonempty Apple developer capabilities individually and refreshes existing profiles when they do not authorize the complete request. Original entitlement sidecar requests are preserved. Missing CarPlay authorization stops signing with a diagnostic instead of silently omitting those rights. CodeSignKit DER entitlements use canonical encoding validated against Apple fixtures. Imported profile signing remains read-only and Apple-issued profiles remain authoritative. Local regression checks, iPhoneOS Release build and resignable package integrity passed. Live Apple capability approval and physical iPhone/CarPlay behavior remain untested.",
       "screenshots": [],
       "marketingVersion": "0.7.67",
-      "releaseNotes": "Managed capability signing now requests nonempty Apple developer capabilities individually and refreshes existing profiles when they do not authorize the complete request. Original entitlement sidecar requests are preserved. Missing CarPlay authorization stops signing with a diagnostic instead of silently omitting those rights. CodeSignKit DER entitlements use canonical encoding validated against Apple fixtures. Imported profile signing remains read-only and Apple-issued profiles remain authoritative. Local regression checks, iPhoneOS Release build and resignable package integrity passed. Live Apple capability approval and physical iPhone/CarPlay behavior remain untested.",
-      "pendingUpload": {
-        "sha": "52f92b7b8074f2c3fa1a35a9ed221711aa2287a0",
-        "tag": "app-zloader-v0.7.67-20261021T150149Z-25b17643",
-        "size": 31584702
-      },
-      "pendingSourceArchive": {
+      "sourceArchive": {
         "name": "zLoader-0.7.67-source.zip",
         "size": 49121080,
         "sha256": "c5a73311addf69c4776f3e6e40dc942268de98e18f6d2e67359b483dfee063cd",
-        "chunks": [
-          {
-            "sha": "fd9079782768a71779a321494f0a5ca4add3cfd9",
-            "size": 25000000
-          },
-          {
-            "sha": "e36219ae7b50e03b428d0de5c4f8b505ef311453",
-            "size": 24121080
-          }
-        ]
+        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.67-20261021T150149Z-25b17643/zLoader-0.7.67-source.zip"
+      },
+      "releaseAsset": {
+        "size": 31489796,
+        "sha256": "25b176435a464821a6d7b8202b644ce32c695371e20466082bf23b9c1be9fe19",
+        "updatedAt": "2026-10-21T15:30:31.166228+00:00"
       }
     }
   },
