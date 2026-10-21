@@ -32,16 +32,26 @@
       "versionDescription": "App ID details now load the Apple Portal capability catalog dynamically, including managed capabilities such as CarPlay, with per-App-ID enabled/editable state and verified manual changes. Apple approval, configuration restrictions and profile authorization remain required. The running zLoader is pinned first in My Apps without changing refresh-all order. Ordinary installations no longer automatically launch another app. Self-updates acknowledge error-free installer status responses even without a percentage, allowing zLoader to exit after the device accepts replacement. Rejected requests never trigger that acknowledgement. The pinned installer source is rebuilt with the tracked fix and original crypto features. Local regressions, iPhoneOS Release build, package and source integrity checks passed. Live Apple capability editing, real app installations, self-update/refresh lifecycle and physical CarPlay operation remain untested.",
       "screenshots": [],
       "marketingVersion": "0.7.68",
-      "sourceArchive": {
-        "name": "zLoader-0.7.68-source.zip",
-        "size": 49070012,
-        "sha256": "19d268cb7d4c207ec0850ab58000b5644bcdcc34cc39f3763139d2df6e73006c",
-        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.68-20261021T154527Z-86f1f4df/zLoader-0.7.68-source.zip"
+      "releaseNotes": "App ID details now load the Apple Portal capability catalog dynamically, including managed capabilities such as CarPlay, with per-App-ID enabled/editable state and verified manual changes. Apple approval, configuration restrictions and profile authorization remain required. The running zLoader is pinned first in My Apps without changing refresh-all order. Ordinary installations no longer automatically launch another app. Self-updates acknowledge error-free installer status responses even without a percentage, allowing zLoader to exit after the device accepts replacement. Rejected requests never trigger that acknowledgement. The pinned installer source is rebuilt with the tracked fix and original crypto features. Local regressions, iPhoneOS Release build, package and source integrity checks passed. Live Apple capability editing, real app installations, self-update/refresh lifecycle and physical CarPlay operation remain untested.",
+      "pendingUpload": {
+        "sha": "501307a3919a7e905f5c07b86114194a42e2187b",
+        "tag": "app-zloader-v0.7.68-20261021T154527Z-86f1f4df",
+        "size": 31635023
       },
-      "releaseAsset": {
-        "size": 31540471,
-        "sha256": "86f1f4df58e77ed7201cfe0a3a0f9c07c686322b39099d1d260c0db4e780ca11",
-        "updatedAt": "2026-10-21T18:51:23.923766+00:00"
+      "pendingSourceArchive": {
+        "name": "zLoader-0.7.68-source.zip",
+        "size": 49108693,
+        "sha256": "0a242ade8210b0b921e1c7b37989af9cb568927f45353793a8f6c7679bbde766",
+        "chunks": [
+          {
+            "sha": "0a75bb5d377a1254694a9e7596d5239352d03c8e",
+            "size": 25000000
+          },
+          {
+            "sha": "0708e6b94d8db7a36c071fe8583cde4aca6b2a85",
+            "size": 24108693
+          }
+        ]
       }
     }
   },
