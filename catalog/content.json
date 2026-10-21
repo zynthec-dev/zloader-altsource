@@ -20,8 +20,8 @@
       }
     },
     "com.zynthec.zLoader": {
-      "ipaFile": "zLoader-0.7.67-resignable.ipa",
-      "releaseTag": "app-zloader-v0.7.67-20261021T150149Z-25b17643",
+      "ipaFile": "zLoader-0.7.68-resignable.ipa",
+      "releaseTag": "app-zloader-v0.7.68-20261021T154527Z-86f1f4df",
       "name": "zLoader",
       "developerName": "zynthec-dev",
       "subtitle": "Independent SideStore fork for iPhone and iPad.",
@@ -29,19 +29,29 @@
       "category": "utilities",
       "tintColor": "#147D60",
       "iconFile": "catalog/assets/zloader-icon.png",
-      "versionDescription": "Managed capability signing now requests nonempty Apple developer capabilities individually and refreshes existing profiles when they do not authorize the complete request. Original entitlement sidecar requests are preserved. Missing CarPlay authorization stops signing with a diagnostic instead of silently omitting those rights. CodeSignKit DER entitlements use canonical encoding validated against Apple fixtures. Imported profile signing remains read-only and Apple-issued profiles remain authoritative. Local regression checks, iPhoneOS Release build and resignable package integrity passed. Live Apple capability approval and physical iPhone/CarPlay behavior remain untested.",
+      "versionDescription": "App ID details now load the Apple Portal capability catalog dynamically, including managed capabilities such as CarPlay, with per-App-ID enabled/editable state and verified manual changes. Apple approval, configuration restrictions and profile authorization remain required. The running zLoader is pinned first in My Apps without changing refresh-all order. Ordinary installations no longer automatically launch another app. Self-updates acknowledge error-free installer status responses even without a percentage, allowing zLoader to exit after the device accepts replacement. Rejected requests never trigger that acknowledgement. The pinned installer source is rebuilt with the tracked fix and original crypto features. Local regressions, iPhoneOS Release build, package and source integrity checks passed. Live Apple capability editing, real app installations, self-update/refresh lifecycle and physical CarPlay operation remain untested.",
       "screenshots": [],
-      "marketingVersion": "0.7.67",
-      "sourceArchive": {
-        "name": "zLoader-0.7.67-source.zip",
-        "size": 49121080,
-        "sha256": "c5a73311addf69c4776f3e6e40dc942268de98e18f6d2e67359b483dfee063cd",
-        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.67-20261021T150149Z-25b17643/zLoader-0.7.67-source.zip"
+      "marketingVersion": "0.7.68",
+      "releaseNotes": "App ID details now load the Apple Portal capability catalog dynamically, including managed capabilities such as CarPlay, with per-App-ID enabled/editable state and verified manual changes. Apple approval, configuration restrictions and profile authorization remain required. The running zLoader is pinned first in My Apps without changing refresh-all order. Ordinary installations no longer automatically launch another app. Self-updates acknowledge error-free installer status responses even without a percentage, allowing zLoader to exit after the device accepts replacement. Rejected requests never trigger that acknowledgement. The pinned installer source is rebuilt with the tracked fix and original crypto features. Local regressions, iPhoneOS Release build, package and source integrity checks passed. Live Apple capability editing, real app installations, self-update/refresh lifecycle and physical CarPlay operation remain untested.",
+      "pendingUpload": {
+        "sha": "501307a3919a7e905f5c07b86114194a42e2187b",
+        "tag": "app-zloader-v0.7.68-20261021T154527Z-86f1f4df",
+        "size": 31635023
       },
-      "releaseAsset": {
-        "size": 31489796,
-        "sha256": "25b176435a464821a6d7b8202b644ce32c695371e20466082bf23b9c1be9fe19",
-        "updatedAt": "2026-10-21T15:30:31.166228+00:00"
+      "pendingSourceArchive": {
+        "name": "zLoader-0.7.68-source.zip",
+        "size": 49070012,
+        "sha256": "19d268cb7d4c207ec0850ab58000b5644bcdcc34cc39f3763139d2df6e73006c",
+        "chunks": [
+          {
+            "sha": "7e668b22d425e6d735f72a2b9c468cba9e898a3a",
+            "size": 25000000
+          },
+          {
+            "sha": "18767cd803ef2d8755a8d7aa16f85bbf97f28371",
+            "size": 24070012
+          }
+        ]
       }
     }
   },
