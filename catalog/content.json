@@ -32,26 +32,16 @@
       "versionDescription": "Opening apps from My Apps now uses the actual re-signed bundle identifier through native app launch, without delivering a generated or legacy deep-link URL to the target. This avoids triggering URL-handler browser behavior during an ordinary launch. The JIT success callback no longer opens the app a second time via a URL scheme. Unsupported native launch APIs and failures show an error; no browser/URL fallback is attempted. Backup/restore deep links and signing-time URL scheme registration remain available for their intended workflows. Local native-launch regression checks, the documented regression suite, iPhoneOS Release build and resignable package checks passed. Physical iPhone/JIT foreground behavior and the reported target-app Safari behavior remain untested.",
       "screenshots": [],
       "marketingVersion": "0.7.70",
-      "releaseNotes": "Opening apps from My Apps now uses the actual re-signed bundle identifier through native app launch, without delivering a generated or legacy deep-link URL to the target. This avoids triggering URL-handler browser behavior during an ordinary launch. The JIT success callback no longer opens the app a second time via a URL scheme. Unsupported native launch APIs and failures show an error; no browser/URL fallback is attempted. Backup/restore deep links and signing-time URL scheme registration remain available for their intended workflows. Local native-launch regression checks, the documented regression suite, iPhoneOS Release build and resignable package checks passed. Physical iPhone/JIT foreground behavior and the reported target-app Safari behavior remain untested.",
-      "pendingUpload": {
-        "sha": "f6f1dba4a4d7316670c8e9e5b2ad5b5436683545",
-        "tag": "app-zloader-v0.7.70-20261022T061101Z-874ce04d",
-        "size": 31644269
-      },
-      "pendingSourceArchive": {
+      "sourceArchive": {
         "name": "zLoader-0.7.70-source.zip",
         "size": 49119470,
         "sha256": "fcd2ef6932e914573e30f39f597e3c815c3a86bef769bfa2fa0e55acbec45a9a",
-        "chunks": [
-          {
-            "sha": "19c23a4b1464aa7a0abe1c173d8d51544c9dcf83",
-            "size": 25000000
-          },
-          {
-            "sha": "e812d7ef1daafbf573dfe244a341c03bb9529800",
-            "size": 24119470
-          }
-        ]
+        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.70-20261022T061101Z-874ce04d/zLoader-0.7.70-source.zip"
+      },
+      "releaseAsset": {
+        "size": 31549363,
+        "sha256": "874ce04d4b6f07373b11d9b512a179dde98938a466569241e91c6b587659044f",
+        "updatedAt": "2026-10-22T06:13:07.699877+00:00"
       }
     }
   },
