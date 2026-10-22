@@ -84,6 +84,25 @@ try {
   const secondCookie=response.headers.get('set-cookie').split(';')[0];
   assert.equal((await (await call('status',undefined,cookie)).json()).authenticated,true);
   assert.equal((await call('github/contents/catalog/content.json',undefined,cookie)).status,200);
+  // Secret copy/paste whitespace must not break the Authorization header.
+  env.GITHUB_TOKEN = ` \n${token}\r\n`;
+  assert.equal((await call('github/contents/catalog/content.json',undefined,cookie)).status,200);
+  env.GITHUB_TOKEN = 'invalid\nsecret';
+  const beforeMalformed=upstreamCalls;
+  response=await call('github/contents/catalog/content.json',undefined,cookie);
+  assert.equal(response.status,503);
+  assert.match((await response.json()).message,/GITHUB_TOKEN/);
+  assert.equal(upstreamCalls,beforeMalformed);
+  env.GITHUB_TOKEN = token;
+  const healthyFetch=globalThis.fetch;
+  globalThis.fetch=async()=>{throw new TypeError('test upstream failure');};
+  assert.equal((await call('github/contents/catalog/content.json',undefined,cookie)).status,502);
+  globalThis.fetch=async()=>Response.json({message:'Bad credentials'},{status:401});
+  response=await call('github/contents/catalog/content.json',undefined,cookie);
+  assert.equal(response.status,503);
+  assert.match((await response.json()).message,/abgelehnt/);
+  globalThis.fetch=healthyFetch;
+  delete env.GITHUB_TOKEN;
   const callsBefore=upstreamCalls;
   assert.equal((await call('github/contents/.github/workflows/deploy.yml',{},cookie)).status,403);
   assert.equal(upstreamCalls,callsBefore);

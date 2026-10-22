@@ -155,8 +155,19 @@ export async function adminAPI(request, env) {
           return json({ sha, content: btoa(binary), encoding: "base64" });
         }
       }
-      const token = env.GITHUB_TOKEN || (config.github_token ? await tokenCipher(config.github_token, env.ADMIN_ENCRYPTION_KEY, true) : "");
-      const upstream = await github(`/repos/${REPO}${path}${url.search}`, token, { method: request.method, body: bodyText });
+      // Copying a secret can include surrounding whitespace. Never put control
+      // characters or non-ASCII text into an HTTP Authorization header.
+      const token = (env.GITHUB_TOKEN || (config.github_token ? await tokenCipher(config.github_token, env.ADMIN_ENCRYPTION_KEY, true) : "")).trim();
+      if (!token || !/^[\x21-\x7e]+$/.test(token)) {
+        return json({ message: "Der GitHub-Token ist nicht korrekt hinterlegt. Bitte GITHUB_TOKEN in Cloudflare als reinen Token ohne zusätzliche Zeilen oder Text speichern und erneut deployen." }, 503);
+      }
+      let upstream;
+      try {
+        upstream = await github(`/repos/${REPO}${path}${url.search}`, token, { method: request.method, body: bodyText });
+      } catch {
+        return json({ message: "Die Verbindung zu GitHub ist fehlgeschlagen. Bitte erneut versuchen." }, 502);
+      }
+      if (upstream.status === 401) return json({ message: "GitHub hat den hinterlegten Token abgelehnt. Bitte GITHUB_TOKEN in Cloudflare erneuern und erneut deployen." }, 503);
       return new Response(upstream.body, { status: upstream.status, headers: {
         "Content-Type": "application/json", "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff",
       } });
