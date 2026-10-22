@@ -34,7 +34,7 @@ async function tokenCipher(value, secret, decrypt = false) {
 }
 
 async function github(path, token, options = {}) {
-  return fetch(`https://api.github.com${path}`, { ...options, redirect: "error", headers: {
+  return fetch(`https://api.github.com${path}`, { ...options, redirect: "manual", headers: {
     "Accept": "application/vnd.github+json", ...(token ? { "Authorization": `Bearer ${token}` } : {}),
     "X-GitHub-Api-Version": "2022-11-28", "User-Agent": "zLoader-Source-Admin",
     "Content-Type": "application/json",
@@ -167,6 +167,9 @@ export async function adminAPI(request, env) {
       } catch {
         return json({ message: "Die Verbindung zu GitHub ist fehlgeschlagen. Bitte erneut versuchen." }, 502);
       }
+      // Do not follow redirects with the repository credential or forward a
+      // redirect that would send the browser outside this authenticated proxy.
+      if (upstream.status >= 300 && upstream.status < 400) return json({ message: "GitHub hat die Repository-Anfrage umgeleitet. Bitte die serverseitige Repository-Zuordnung prüfen." }, 503);
       if (upstream.status === 401) return json({ message: "GitHub hat den hinterlegten Token abgelehnt. Bitte GITHUB_TOKEN in Cloudflare erneuern und erneut deployen." }, 503);
       return new Response(upstream.body, { status: upstream.status, headers: {
         "Content-Type": "application/json", "Cache-Control": "no-store", "X-Content-Type-Options": "nosniff",

@@ -50,6 +50,7 @@ globalThis.fetch=async (url, options) => {
   upstreamCalls++;
   if(url.startsWith('https://raw.githubusercontent.com/')) return new Response('{"name":"Public catalog"}');
   assert.equal(options.headers.Authorization, `Bearer ${token}`);
+  assert.equal(options.redirect, 'manual');
   if(url.endsWith('/zloader-altsource')) return Response.json({permissions:{push:true}});
   return Response.json({content:'test-content'});
 };
@@ -101,6 +102,10 @@ try {
   response=await call('github/contents/catalog/content.json',undefined,cookie);
   assert.equal(response.status,503);
   assert.match((await response.json()).message,/abgelehnt/);
+  globalThis.fetch=async()=>new Response(null,{status:302,headers:{Location:'https://other.example'}});
+  response=await call('github/contents/catalog/content.json',undefined,cookie);
+  assert.equal(response.status,503);
+  assert.equal(response.headers.get('location'),null);
   globalThis.fetch=healthyFetch;
   delete env.GITHUB_TOKEN;
   const callsBefore=upstreamCalls;
