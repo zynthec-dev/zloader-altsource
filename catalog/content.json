@@ -32,30 +32,16 @@
       "versionDescription": "zLoader 0.8.0 embeds the pinned original LiveContainer 3.8.11 runtime with Home Screen-style installed/container icon pages, a shared Plus menu and full-screen IPA destination chooser, container management, tweaks and multitasking settings. The IPA Library is in Discover. Free Apple accounts with no remaining App IDs can select container import only; paid teams and imported identities keep device installation. Rounded text fields no longer draw rectangular inner backgrounds, and the Default Import Mode preference is removed. Container Settings select the original host identity or one shared virtual identity for all guests, with regeneration on next launch. WKWebView, public Safari windows and both Apple web-authentication APIs route custom-scheme callbacks within the running guest. Home Screen shortcuts use removable per-container web-clip profiles served through a temporary loopback page. Explicit managed paid-team refresh/re-sign renews owned profiles and updates the private refresh cache; imported profiles remain limited by their Apple-issued expiry. Self replacement hands off after the Install command is flushed; ordinary installs request one native host activation after successful completion if iOS backgrounded the host. All 28 local regression scripts, five end-to-end Simulator UI tests, the iPhoneOS Release build and resignable-package checks passed. Actual iPhone install/refresh/self-update, Apple-portal renewal, real OAuth providers, Home Screen profile installation and system LiveProcess/PiP/JIT behavior remain untested. LiveContainer and dependency authors/licenses are credited in About and the separate corresponding-source archive.",
       "screenshots": [],
       "marketingVersion": "0.8.0",
-      "releaseNotes": "zLoader 0.8.0 embeds the pinned original LiveContainer 3.8.11 runtime with Home Screen-style installed/container icon pages, a shared Plus menu and full-screen IPA destination chooser, container management, tweaks and multitasking settings. The IPA Library is in Discover. Free Apple accounts with no remaining App IDs can select container import only; paid teams and imported identities keep device installation. Rounded text fields no longer draw rectangular inner backgrounds, and the Default Import Mode preference is removed. Container Settings select the original host identity or one shared virtual identity for all guests, with regeneration on next launch. WKWebView, public Safari windows and both Apple web-authentication APIs route custom-scheme callbacks within the running guest. Home Screen shortcuts use removable per-container web-clip profiles served through a temporary loopback page. Explicit managed paid-team refresh/re-sign renews owned profiles and updates the private refresh cache; imported profiles remain limited by their Apple-issued expiry. Self replacement hands off after the Install command is flushed; ordinary installs request one native host activation after successful completion if iOS backgrounded the host. All 28 local regression scripts, five end-to-end Simulator UI tests, the iPhoneOS Release build and resignable-package checks passed. Actual iPhone install/refresh/self-update, Apple-portal renewal, real OAuth providers, Home Screen profile installation and system LiveProcess/PiP/JIT behavior remain untested. LiveContainer and dependency authors/licenses are credited in About and the separate corresponding-source archive.",
-      "pendingUpload": {
-        "sha": "4475e1141e4bb84ed85a9726e59706945a979fad",
-        "tag": "app-zloader-v0.8.0-20261022T220259Z-69e00dd6",
-        "size": 35991341
-      },
-      "pendingSourceArchive": {
+      "sourceArchive": {
         "name": "zLoader-0.8.0-source.zip",
         "size": 67362023,
         "sha256": "40a0c160fb15a7ed3b50497580921da0a502ddbefb19c76e443ccc0e6aea7095",
-        "chunks": [
-          {
-            "sha": "7513637a79ac5748fd82eeb4ba728de60ae28d6f",
-            "size": 25000000
-          },
-          {
-            "sha": "e336b9f25b9da112a99b32928486d56e9168451a",
-            "size": 25000000
-          },
-          {
-            "sha": "9ab455b92a01235e2c9e4c1acc3fa9df19eb0308",
-            "size": 17362023
-          }
-        ]
+        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.8.0-20261022T220259Z-69e00dd6/zLoader-0.8.0-source.zip"
+      },
+      "releaseAsset": {
+        "size": 35820613,
+        "sha256": "69e00dd6b4286743c53eda5c81a6b52f86cc562746891e61eadaff7d8ba8fb0b",
+        "updatedAt": "2026-10-22T22:06:21.856028+00:00"
       }
     }
   },
