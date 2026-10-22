@@ -35,7 +35,7 @@ const admin = await fetchAt('admin.zloader.de');
 assert.equal(await admin.text(), '<html>Admin</html>');
 assert.equal(admin.headers.get('x-frame-options'), 'DENY');
 assert.equal((await fetchAt('admin.zloader.de', '/api/status')).status, 503);
-for (const path of ['/admin.css','/base.css','/admin.js']) {
+for (const path of ['/admin.css','/base.css','/admin.js','/ipa-upload.js']) {
  await fetchAt('admin.zloader.de', path);
  assert.equal(new URL(calls.at(-1).url).pathname, '/admin'+path);
 }

@@ -188,6 +188,43 @@ class ReleasePipelineTests(unittest.TestCase):
         self.assertIn("pendingUpload", app)
         self.assertIn("pendingSourceArchive", app)
 
+    def test_chunked_ipa_is_reassembled_and_published(self):
+        data = test_ipa()
+        cut = len(data) // 2
+        chunks = [{"sha": "1" * 40, "size": cut}, {"sha": "2" * 40, "size": len(data) - cut}]
+        tag = "app-mipet-v0-4-20260928T205613Z-a1b2c3d4"
+        app = {"ipaFile": "miPet-0.4.ipa", "releaseTag": tag, "name": "miPet",
+               "marketingVersion": "0.4", "versionDescription": "Chunk upload",
+               "pendingUpload": {"chunks": chunks, "size": len(data), "tag": tag}}
+        content = {"localApps": {"de.renewitt.mipet": app}}
+        with tempfile.TemporaryDirectory() as folder, patch.object(pipeline, "CONTENT", Path(folder) / "content.json"), patch.object(
+            pipeline, "fetch_blob", side_effect=[data[:cut], data[cut:]]
+        ) as fetch, patch.object(pipeline.subprocess, "run", side_effect=lambda args, **kwargs:
+                subprocess.CompletedProcess(args, 1 if args[2] == "view" else 0)):
+            self.assertTrue(pipeline.publish_pending(content, "owner/repo", "apps", "test-token"))
+        self.assertEqual([call.args[1] for call in fetch.call_args_list], [chunk["sha"] for chunk in chunks])
+        self.assertNotIn("pendingUpload", app)
+        self.assertGreater(app["releaseAsset"]["size"], 0)
+
+    def test_chunked_ipa_limits_and_malformed_metadata(self):
+        tag = "app-mipet-v0-4-20260928T205613Z-a1b2c3d4"
+        pending = {"chunks": [{"sha": "a" * 40, "size": 8_000_000} for _ in range(25)],
+                   "size": 200_000_000, "tag": tag}
+        app = {"ipaFile": "miPet.ipa", "releaseTag": tag, "name": "miPet",
+               "marketingVersion": "0.4", "versionDescription": "Update", "pendingUpload": pending}
+        self.assertEqual(pipeline.validate_pending(app, "apps")[2], 200_000_000)
+        for changes in [{"size": 200_000_001}, {"chunks": []}, {"sha": "b" * 40},
+                        {"chunks": [{"sha": "a" * 40, "size": 200_000_000}]},
+                        {"chunks": [{"sha": "bad", "size": 200_000_000}]}]:
+            with self.subTest(changes=changes), patch.dict(app, {"pendingUpload": {**pending, **changes}}):
+                with self.assertRaises(ValueError):
+                    pipeline.validate_pending(app, "apps")
+        broken = {**pending, "size": 10, "chunks": [{"sha": "a" * 40, "size": 10}]}
+        with patch.dict(app, {"pendingUpload": broken}), patch.object(pipeline, "fetch_blob", return_value=b"short"), patch.object(pipeline.subprocess, "run") as run:
+            with self.assertRaisesRegex(ValueError, "chunk size mismatch"):
+                pipeline.publish_pending({"localApps": {"de.renewitt.mipet": app}}, "owner/repo", "apps", "token")
+            run.assert_not_called()
+
     def test_wrong_bundle_id_is_rejected_before_release_creation(self):
         data = test_ipa("com.example.wrong")
         sha = hashlib.sha1(f"blob {len(data)}\0".encode() + data).hexdigest()

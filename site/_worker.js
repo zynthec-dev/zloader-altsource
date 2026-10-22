@@ -16,7 +16,7 @@ export default {
         return adminAPI(new Request(url, request), env);
       }
       if (path === "/") path = "/admin/";
-      else if (["/admin.css", "/base.css", "/admin.js"].includes(path)) path = "/admin" + path;
+      else if (["/admin.css", "/base.css", "/admin.js", "/ipa-upload.js"].includes(path)) path = "/admin" + path;
       else return new Response("Not found", { status: 404 });
     } else if (home) {
       if (preview && path.startsWith("/api/")) {
@@ -24,7 +24,7 @@ export default {
         return adminAPI(new Request(url, request), env);
       }
       if (preview && path === "/admin") return Response.redirect(url.origin + "/admin/", 308);
-      if (preview && (path.startsWith("/admin/") || ["/admin.css", "/base.css", "/admin.js"].includes(path))) {
+      if (preview && (path.startsWith("/admin/") || ["/admin.css", "/base.css", "/admin.js", "/ipa-upload.js"].includes(path))) {
         if (!path.startsWith("/admin/")) path = "/admin" + path;
       } else if (path === "/") path = "/zloader/";
       else if (["/site.css", "/site.js"].includes(path)) path = "/zloader" + path;

@@ -15,3 +15,5 @@ for arguments in (
 
 subprocess.run(["node", "tests/cloudflare-routing.mjs"], cwd=ROOT, check=True)
 subprocess.run(["node", "tests/admin-auth.mjs"], cwd=ROOT, check=True)
+
+subprocess.run(["node", "tests/ipa-upload.mjs"], cwd=ROOT, check=True)

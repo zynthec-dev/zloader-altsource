@@ -1,3 +1,4 @@
+import { uploadIPA } from "./ipa-upload.js";
 const $ = (selector, root = document) => root.querySelector(selector);
 const escapeHTML = value => String(value ?? "").replace(/[&<>'"]/g, character => ({
   "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;"
@@ -179,7 +180,7 @@ function openEditor(kind = "new", key = null) {
   const isNew = kind === "new";
   $("#editorTitle").textContent = isNew ? "App hochladen" : (record.app.name || "App bearbeiten");
   $("#editorFields").innerHTML = `${editableFields.map(args => field(record.app, ...args)).join("")}
-    <label class="field">${isNew ? "IPA-Datei" : "Neue IPA-Version (optional)"}<input name="ipa" type="file" accept=".ipa,application/octet-stream" ${isNew ? "required" : ""}><small>Bei jeder neuen IPA entsteht ein eigener Release-Tag mit dem Text aus „Neu in dieser Version“. Browser-Upload bis 70 MB.</small></label>
+    <label class="field">${isNew ? "IPA-Datei" : "Neue IPA-Version (optional)"}<input name="ipa" type="file" accept=".ipa,application/octet-stream" ${isNew ? "required" : ""}><small>Bei jeder neuen IPA entsteht ein eigener Release-Tag mit dem Text aus „Neu in dieser Version“. Browser-Upload bis 200 MB.</small></label>
     <label class="field">${isNew ? "App-Icon als PNG (optional)" : "Neues App-Icon als PNG (optional)"}<input name="icon" type="file" accept="image/png"></label>`;
   $("#deleteItem").classList.toggle("hidden", isNew || isPinned(record));
   $("#editorStatus").textContent = "";
@@ -209,12 +210,12 @@ function releaseTag(app) {
 }
 
 async function stageIPA(file, app) {
-  if (file.size > 70_000_000) throw new Error("Diese IPA ist größer als 70 MB. Bitte über den GitHub-Workflow mit direkter HTTPS-Datei-URL veröffentlichen.");
   if (!app.marketingVersion || !app.versionDescription) throw new Error("Für eine neue IPA sind Versionsnummer und Änderungstext erforderlich.");
   const name = releaseAssetName(file.name);
-  const content = encodeBytes(new Uint8Array(await file.arrayBuffer()));
-  const result = await api("/git/blobs", { method: "POST", body: JSON.stringify({ content, encoding: "base64" }) });
-  return { name, tag: releaseTag(app), sha: result.sha, size: file.size };
+  const staged = await uploadIPA(file,
+    payload => api("/git/blobs", { method: "POST", body: JSON.stringify(payload) }),
+    (sent, total) => { $("#editorStatus").textContent = `IPA wird hochgeladen … ${Math.round(sent / total * 100)} % (${(sent / 1_000_000).toFixed(1)} von ${(total / 1_000_000).toFixed(1)} MB)`; });
+  return { name, tag: releaseTag(app), ...staged };
 }
 
 async function deleteIPA(filename, tag = "apps") {
@@ -250,7 +251,11 @@ async function commitContent(message) {
 }
 
 async function save() {
+  if (state.saving) return;
   const { app, ipa, icon } = collect();
+  state.saving = true;
+  const buttons = [...$("#editor").querySelectorAll("button")];
+  buttons.forEach(button => { button.disabled = true; });
   const isNew = state.edit.kind === "new";
   $("#editorStatus").textContent = ipa?.size ? "IPA wird sicher bei GitHub zwischengespeichert …" : "Änderungen werden gespeichert …";
   try {
@@ -258,7 +263,8 @@ async function save() {
       const staged = await stageIPA(ipa, app);
       app.ipaFile = staged.name;
       app.releaseTag = staged.tag;
-      app.pendingUpload = { sha: staged.sha, tag: staged.tag, size: staged.size };
+      const { name, ...pending } = staged;
+      app.pendingUpload = pending;
     }
     if (icon?.size) {
       const path = safeAssetName(app, icon);
@@ -275,6 +281,9 @@ async function save() {
   } catch (error) {
     $("#editorStatus").textContent = error.message;
     await load();
+  } finally {
+    state.saving = false;
+    buttons.forEach(button => { button.disabled = false; });
   }
 }
 
@@ -384,6 +393,7 @@ document.addEventListener("click", event => {
   if (item) openEditor(item.dataset.kind, item.dataset.key);
   if (event.target.closest(".dialog-close")) event.target.closest("dialog").close();
 });
+$("#editor").addEventListener("cancel", event => { if (state.saving) event.preventDefault(); });
 $("#editorForm").addEventListener("submit", event => { event.preventDefault(); if (event.submitter?.value === "cancel") { $("#editor").close(); return; } save(); });
 $("#deleteItem").onclick = remove;
 $("#cancelEditor").onclick = () => $("#editor").close();

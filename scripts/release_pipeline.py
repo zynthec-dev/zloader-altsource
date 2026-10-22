@@ -27,7 +27,8 @@ SETTINGS = ROOT / "catalog" / "settings.json"
 ASSET_NAME = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]*\.ipa\Z")
 RELEASE_TAG = re.compile(r"app-[a-z0-9-]+-v[a-z0-9._-]+-[0-9]{8}T[0-9]{6}Z-[a-f0-9]{8}\Z")
 SHA = re.compile(r"[a-f0-9]{40}\Z")
-MAX_BROWSER_IPA_BYTES = 70_000_000
+MAX_BROWSER_IPA_BYTES = 200_000_000
+MAX_IPA_CHUNK_BYTES = 8_000_000
 
 
 def read_json(path: Path) -> dict[str, Any]:
@@ -53,12 +54,26 @@ def selected_assets(content: dict[str, Any], default_tag: str) -> list[tuple[str
     return result
 
 
-def validate_pending(app: dict[str, Any], default_tag: str) -> tuple[str, str, int, str]:
+def validate_pending(app: dict[str, Any], default_tag: str) -> tuple[list[dict[str, Any]], str, int, str]:
     pending = app["pendingUpload"]
     sha, tag, size = pending.get("sha"), pending.get("tag"), pending.get("size")
     filename = app.get("ipaFile", "")
-    if not isinstance(sha, str) or not SHA.fullmatch(sha):
-        raise ValueError("Invalid staged IPA SHA")
+    chunks = pending.get("chunks")
+    if chunks is None:
+        if not isinstance(sha, str) or not SHA.fullmatch(sha):
+            raise ValueError("Invalid staged IPA SHA")
+        if type(size) is not int or not 0 < size <= 70_000_000:
+            raise ValueError("Invalid legacy staged IPA size")
+        chunks = [{"sha": sha, "size": size}]
+    else:
+        if "sha" in pending or not isinstance(chunks, list) or not 1 <= len(chunks) <= 25:
+            raise ValueError("Invalid staged IPA chunks")
+        if any(not isinstance(chunk, dict) or not isinstance(chunk.get("sha"), str)
+               or not SHA.fullmatch(chunk["sha"]) or type(chunk.get("size")) is not int
+               or not 0 < chunk["size"] <= MAX_IPA_CHUNK_BYTES for chunk in chunks):
+            raise ValueError("Invalid staged IPA chunk metadata")
+        if sum(chunk["size"] for chunk in chunks) != size:
+            raise ValueError("Staged IPA chunk sizes do not match IPA")
     if not isinstance(tag, str) or not RELEASE_TAG.fullmatch(tag) or tag == default_tag:
         raise ValueError("Invalid staged IPA release tag")
     if tag != app.get("releaseTag"):
@@ -69,7 +84,7 @@ def validate_pending(app: dict[str, Any], default_tag: str) -> tuple[str, str, i
         raise ValueError("Invalid staged IPA size")
     if not app.get("name") or not app.get("marketingVersion") or not app.get("versionDescription"):
         raise ValueError("App name, version and change notes are required for an IPA update")
-    return sha, tag, size, filename
+    return chunks, tag, size, filename
 
 
 def fetch_blob(repo: str, sha: str, token: str) -> bytes:
@@ -164,8 +179,15 @@ def publish_pending(content: dict[str, Any], repo: str, default_tag: str, token:
     for bundle_id, app in apps(content):
         if "pendingUpload" not in app:
             continue
-        sha, tag, size, filename = validate_pending(app, default_tag)
-        data = fetch_blob(repo, sha, token)
+        chunks, tag, size, filename = validate_pending(app, default_tag)
+        pieces = []
+        for chunk in chunks:
+            piece = fetch_blob(repo, chunk["sha"], token)
+            if len(piece) != chunk["size"]:
+                raise ValueError(f"Staged IPA chunk size mismatch: {filename}")
+            pieces.append(piece)
+        data = b"".join(pieces)
+        del pieces
         if len(data) != size:
             raise ValueError(f"Staged IPA size mismatch: {filename}")
         data = normalize_ipa(data)
