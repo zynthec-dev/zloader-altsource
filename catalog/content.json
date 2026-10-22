@@ -32,26 +32,16 @@
       "versionDescription": "Signing activates requested managed capabilities through the current Apple Portal API for the actual re-signed App ID. Account-advertised entitlement mappings, editability and configuration restrictions are respected; changes require readback before profile issuance. Capability mutation requests preserve the selected team and avoid replaying read-only input metadata. Installation completion now transfers permanent Core Data object IDs to the UI context, delivers early failures and cancellation on MainActor, and avoids retaining completed operation groups. The self-update entry point rechecks the exact running bundle identity before permitting termination. Local regression checks, Release build and resignable IPA integrity passed. Live Apple capability activation, physical app installation/self-update, cellular lifecycle and CarPlay behavior remain untested.",
       "screenshots": [],
       "marketingVersion": "0.7.69",
-      "releaseNotes": "Signing activates requested managed capabilities through the current Apple Portal API for the actual re-signed App ID. Account-advertised entitlement mappings, editability and configuration restrictions are respected; changes require readback before profile issuance. Capability mutation requests preserve the selected team and avoid replaying read-only input metadata. Installation completion now transfers permanent Core Data object IDs to the UI context, delivers early failures and cancellation on MainActor, and avoids retaining completed operation groups. The self-update entry point rechecks the exact running bundle identity before permitting termination. Local regression checks, Release build and resignable IPA integrity passed. Live Apple capability activation, physical app installation/self-update, cellular lifecycle and CarPlay behavior remain untested.",
-      "pendingUpload": {
-        "sha": "0c86b5ef73ea7d2fe5cfc74db581ce2d9b9d2f59",
-        "tag": "app-zloader-v0.7.69-20261022T050417Z-87e412e7",
-        "size": 31644419
-      },
-      "pendingSourceArchive": {
+      "sourceArchive": {
         "name": "zLoader-0.7.69-source.zip",
         "size": 49114351,
         "sha256": "c0fde6966bb1eae38cb3477f972921339987f55a04e1401d5db60e1184f83ee3",
-        "chunks": [
-          {
-            "sha": "ad784db2724c011d664b19677406cab59582e026",
-            "size": 25000000
-          },
-          {
-            "sha": "216c5a05280237f3a34ebc4506eb2336eac2ace5",
-            "size": 24114351
-          }
-        ]
+        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.7.69-20261022T050417Z-87e412e7/zLoader-0.7.69-source.zip"
+      },
+      "releaseAsset": {
+        "size": 31549513,
+        "sha256": "87e412e726f1e994ba2eafbbf4373a9338009856d5c77a4d4644ac9d726d374e",
+        "updatedAt": "2026-10-22T05:06:20.129325+00:00"
       }
     }
   },
