@@ -20,8 +20,8 @@
       }
     },
     "com.zynthec.zLoader": {
-      "ipaFile": "zLoader-0.8.1-resignable.ipa",
-      "releaseTag": "app-zloader-v0.8.1-20261023T081716Z-5693bb68",
+      "ipaFile": "zLoader-0.8.2-resignable.ipa",
+      "releaseTag": "app-zloader-v0.8.2-20261023T130621Z-8839ade0",
       "name": "zLoader",
       "developerName": "zynthec-dev",
       "subtitle": "Independent SideStore fork for iPhone and iPad.",
@@ -29,19 +29,33 @@
       "category": "utilities",
       "tintColor": "#147D60",
       "iconFile": "catalog/assets/zloader-icon.png",
-      "versionDescription": "zLoader 0.8.1 fixes virtual container windows whose view/controller hierarchy caused zLoader to abort. Window ownership, active-window selection, bookmark errors and early process-start callbacks are handled safely. Container Settings is in Advanced Settings; source management, manual certificate import/identity transfer, global JIT providers and the 32-bit emulator picker are removed. The active zLoader signing identity is synchronized automatically, with host-profile certificate/expiry validation. The long-press Start with JIT action uses the integrated device debugger and the actual LiveProcess PID with bounded startup waiting. Container settings use an inline title, and startup tab controls become accessible after the transition can accept input. User-facing runtime branding is Container; original authors and licenses remain credited. Browser callbacks target guest-owned scenes or the legacy guest AppDelegate, and reach Safari wrappers before dismissal; this addresses the routing and cancellation failures relevant to the supplied DHL app. The previously committed complete Watch companion signing, refresh and identifier-graph support is included. All 28 local regression scripts, seven Simulator UI tests, the iPhoneOS Release build and resignable package checks passed. Simulator fixtures cover modern/legacy OAuth callbacks, native scheme collision isolation and virtual windows. Real DHL-account sign-in, physical-device LiveProcess/JIT/PiP, Apple-portal renewal, Watch installation and iPhone install/refresh/self-update remain untested. The separate corresponding-source download preserves original credits and includes all applied dependency patches. No DHL binary, Apple profiles, private keys or credentials are distributed.",
+      "versionDescription": "zLoader 0.8.2 corrects the Apple sign-in path associated with error -80046. The app defaults to the Mac Anisette V3 provider also selected by current iLoader. Existing installations migrate once from On-Device Anisette to this provider with rotation disabled. Provider Client-Info and User-Agent remain consistent across provisioning, SRP and two-factor verification. UUIDs use the V3 Base64 format; device/local-user identity and routing data match the provider. Keychain ADI provisioning data is scoped to the selected provider, and a failed V3 request no longer falls back to a shared V1 identity. The built-in Mac server remains available when the remote server catalog is unavailable. Accounts, app records and pairing data are preserved; install over the existing app with the same identity. All 29 existing local checks, two new migration/protocol regression suites, clean dependency patch reproduction, the iPhoneOS Release build and strict resignable IPA checks passed. Actual Apple-account sign-in/2FA, Apple-portal operations, iLoader replacement, refresh/self-update and physical-device lifecycle remain untested. The separate matching corresponding-source archive retains all original authors, licenses and applied dependency patches. No credentials, profiles or private repository history are distributed.",
       "screenshots": [],
-      "marketingVersion": "0.8.1",
-      "sourceArchive": {
-        "name": "zLoader-0.8.1-source.zip",
-        "size": 67383656,
-        "sha256": "7ee4b923d9c17d13902e74275fc653c61f16e84e4d9a857900e03be93bc5d858",
-        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.8.1-20261023T081716Z-5693bb68/zLoader-0.8.1-source.zip"
+      "marketingVersion": "0.8.2",
+      "releaseNotes": "zLoader 0.8.2 corrects the Apple sign-in path associated with error -80046. The app defaults to the Mac Anisette V3 provider also selected by current iLoader. Existing installations migrate once from On-Device Anisette to this provider with rotation disabled. Provider Client-Info and User-Agent remain consistent across provisioning, SRP and two-factor verification. UUIDs use the V3 Base64 format; device/local-user identity and routing data match the provider. Keychain ADI provisioning data is scoped to the selected provider, and a failed V3 request no longer falls back to a shared V1 identity. The built-in Mac server remains available when the remote server catalog is unavailable. Accounts, app records and pairing data are preserved; install over the existing app with the same identity. All 29 existing local checks, two new migration/protocol regression suites, clean dependency patch reproduction, the iPhoneOS Release build and strict resignable IPA checks passed. Actual Apple-account sign-in/2FA, Apple-portal operations, iLoader replacement, refresh/self-update and physical-device lifecycle remain untested. The separate matching corresponding-source archive retains all original authors, licenses and applied dependency patches. No credentials, profiles or private repository history are distributed.",
+      "pendingUpload": {
+        "sha": "f7310466f522bfe1137dcec7391cbbe034a768a8",
+        "tag": "app-zloader-v0.8.2-20261023T130621Z-8839ade0",
+        "size": 36043898
       },
-      "releaseAsset": {
-        "size": 35863738,
-        "sha256": "5693bb6888410c4d85b7abd9899940997192c3eb53b35b8bdf8a4ef04d3807c9",
-        "updatedAt": "2026-10-23T08:21:55.272616+00:00"
+      "pendingSourceArchive": {
+        "name": "zLoader-0.8.2-source.zip",
+        "size": 67397541,
+        "sha256": "ecdde13ef53f9f425833345ce79b776161f5899bf2d8cfd0a2750b409bf5368f",
+        "chunks": [
+          {
+            "sha": "0f9cc37fc9d425fc69a07419de71e8ab2813bea0",
+            "size": 25000000
+          },
+          {
+            "sha": "a96d0ec6333376546d0964e9e3d6f2f929a73974",
+            "size": 25000000
+          },
+          {
+            "sha": "bb52a251b4d149426830c077d27448307f52577d",
+            "size": 17397541
+          }
+        ]
       }
     }
   },
