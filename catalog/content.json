@@ -32,30 +32,16 @@
       "versionDescription": "zLoader 0.8.4 fixes duplicate back buttons in Container Settings. The embedded container settings and their detail pages now share one navigation bar, with one back action per page. Multiple LiveContainers is removed from the embedded settings. The main Settings order is Developer Options, Container Settings, User Customizations, then Experimental Features. Container Settings and User Customizations remain available when diagnostics are hidden. All 32 local regression scripts, the iPhone simulator navigation regression, the iPhoneOS Release build and strict resignable IPA checks passed. The UI regression checks row order, root and detail back navigation, Device Identity, JIT-less diagnostics and User Customizations. Physical-device installation, Apple signing, refresh and lifecycle remain untested for this release. The separate matching corresponding-source archive retains original authors, licenses and applied dependency patches. Credentials, Apple profiles and private repository history are not distributed.",
       "screenshots": [],
       "marketingVersion": "0.8.4",
-      "releaseNotes": "zLoader 0.8.4 fixes duplicate back buttons in Container Settings. The embedded container settings and their detail pages now share one navigation bar, with one back action per page. Multiple LiveContainers is removed from the embedded settings. The main Settings order is Developer Options, Container Settings, User Customizations, then Experimental Features. Container Settings and User Customizations remain available when diagnostics are hidden. All 32 local regression scripts, the iPhone simulator navigation regression, the iPhoneOS Release build and strict resignable IPA checks passed. The UI regression checks row order, root and detail back navigation, Device Identity, JIT-less diagnostics and User Customizations. Physical-device installation, Apple signing, refresh and lifecycle remain untested for this release. The separate matching corresponding-source archive retains original authors, licenses and applied dependency patches. Credentials, Apple profiles and private repository history are not distributed.",
-      "pendingUpload": {
-        "sha": "0c45eb609553060b3da8ea10fbcd985fc12f1c09",
-        "tag": "app-zloader-v0.8.4-20261023T172443Z-a1379329",
-        "size": 36049247
-      },
-      "pendingSourceArchive": {
+      "sourceArchive": {
         "name": "zLoader-0.8.4-source.zip",
         "size": 67408572,
         "sha256": "fe7912b630b9dc77530b8b8daf4a3a9cbe419a193dfb5a24500658a0428fde13",
-        "chunks": [
-          {
-            "sha": "a022c084067449be6c08642c05d913d9bd04d00f",
-            "size": 25000000
-          },
-          {
-            "sha": "7f337b7cd49cd455b3f97c36212130eb218cf1f5",
-            "size": 25000000
-          },
-          {
-            "sha": "0708102ccb9aae5b94b2d9ccfb3cbe81fc2d90e2",
-            "size": 17408572
-          }
-        ]
+        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.8.4-20261023T172443Z-a1379329/zLoader-0.8.4-source.zip"
+      },
+      "releaseAsset": {
+        "size": 35878165,
+        "sha256": "a13793299ea1e6b6d9d2ee32c9bdcd5d5481385e3d105dd23f0bb103632282da",
+        "updatedAt": "2026-10-23T17:26:48.345384+00:00"
       }
     }
   },
