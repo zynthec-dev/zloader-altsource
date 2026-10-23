@@ -20,8 +20,8 @@
       }
     },
     "com.zynthec.zLoader": {
-      "ipaFile": "zLoader-0.8.3-resignable.ipa",
-      "releaseTag": "app-zloader-v0.8.3-20261023T143828Z-838646f8",
+      "ipaFile": "zLoader-0.8.4-resignable.ipa",
+      "releaseTag": "app-zloader-v0.8.4-20261023T172443Z-a1379329",
       "name": "zLoader",
       "developerName": "zynthec-dev",
       "subtitle": "Independent SideStore fork for iPhone and iPad.",
@@ -29,19 +29,33 @@
       "category": "utilities",
       "tintColor": "#147D60",
       "iconFile": "catalog/assets/zloader-icon.png",
-      "versionDescription": "zLoader 0.8.3 fixes UTM installation failures reported as MinimuxerError 36 / IXErrorDomain 8 with mismatched bundle IDs. ExtensionKit helpers under Extensions/*.appex now participate in per-component profile preparation, bundle-ID rewriting, entitlement selection, signing and extension inspection, alongside classic PlugIns extensions and Watch apps. The UTM iOSHelper is retained and receives the final parent app prefix. Its extension point protocol identifier is preserved. A pre-signing identity check rejects stale child IDs and duplicate IDs. Each component still requires its own Apple-authorized provisioning profile; no entitlement bypass is introduced. All 32 local regression scripts, metadata rewriting against the official UTM 5.0.8 IPA, actual CodeSignKit host/helper signatures verified with Apple codesign, clean dependency patch reproduction, the iPhoneOS Release build and strict resignable IPA checks passed. Reimport the original UTM IPA after updating so it is signed afresh. Actual Apple-portal profile issuance, UTM installation/helper execution/snapshots, JIT, iPhone refresh/self-update and physical-device lifecycle remain untested. The separate matching corresponding-source archive retains original authors, licenses and applied dependency patches. The UTM fixture, credentials, Apple profiles and private repository history are not distributed.",
+      "versionDescription": "zLoader 0.8.4 fixes duplicate back buttons in Container Settings. The embedded container settings and their detail pages now share one navigation bar, with one back action per page. Multiple LiveContainers is removed from the embedded settings. The main Settings order is Developer Options, Container Settings, User Customizations, then Experimental Features. Container Settings and User Customizations remain available when diagnostics are hidden. All 32 local regression scripts, the iPhone simulator navigation regression, the iPhoneOS Release build and strict resignable IPA checks passed. The UI regression checks row order, root and detail back navigation, Device Identity, JIT-less diagnostics and User Customizations. Physical-device installation, Apple signing, refresh and lifecycle remain untested for this release. The separate matching corresponding-source archive retains original authors, licenses and applied dependency patches. Credentials, Apple profiles and private repository history are not distributed.",
       "screenshots": [],
-      "marketingVersion": "0.8.3",
-      "sourceArchive": {
-        "name": "zLoader-0.8.3-source.zip",
-        "size": 67405523,
-        "sha256": "4f7e304b66410877c6bb57fbfd41231e464ccd7a12c4c2bdde638ab609cfb6f0",
-        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.8.3-20261023T143828Z-838646f8/zLoader-0.8.3-source.zip"
+      "marketingVersion": "0.8.4",
+      "releaseNotes": "zLoader 0.8.4 fixes duplicate back buttons in Container Settings. The embedded container settings and their detail pages now share one navigation bar, with one back action per page. Multiple LiveContainers is removed from the embedded settings. The main Settings order is Developer Options, Container Settings, User Customizations, then Experimental Features. Container Settings and User Customizations remain available when diagnostics are hidden. All 32 local regression scripts, the iPhone simulator navigation regression, the iPhoneOS Release build and strict resignable IPA checks passed. The UI regression checks row order, root and detail back navigation, Device Identity, JIT-less diagnostics and User Customizations. Physical-device installation, Apple signing, refresh and lifecycle remain untested for this release. The separate matching corresponding-source archive retains original authors, licenses and applied dependency patches. Credentials, Apple profiles and private repository history are not distributed.",
+      "pendingUpload": {
+        "sha": "0c45eb609553060b3da8ea10fbcd985fc12f1c09",
+        "tag": "app-zloader-v0.8.4-20261023T172443Z-a1379329",
+        "size": 36049247
       },
-      "releaseAsset": {
-        "size": 35870244,
-        "sha256": "838646f8cb6e24a8fe025476922cb7a68203cd700a20728dce216aba69bf3c75",
-        "updatedAt": "2026-10-23T14:40:58.886966+00:00"
+      "pendingSourceArchive": {
+        "name": "zLoader-0.8.4-source.zip",
+        "size": 67408572,
+        "sha256": "fe7912b630b9dc77530b8b8daf4a3a9cbe419a193dfb5a24500658a0428fde13",
+        "chunks": [
+          {
+            "sha": "a022c084067449be6c08642c05d913d9bd04d00f",
+            "size": 25000000
+          },
+          {
+            "sha": "7f337b7cd49cd455b3f97c36212130eb218cf1f5",
+            "size": 25000000
+          },
+          {
+            "sha": "0708102ccb9aae5b94b2d9ccfb3cbe81fc2d90e2",
+            "size": 17408572
+          }
+        ]
       }
     }
   },
