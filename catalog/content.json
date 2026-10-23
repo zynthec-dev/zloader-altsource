@@ -20,8 +20,8 @@
       }
     },
     "com.zynthec.zLoader": {
-      "ipaFile": "zLoader-0.8.2-resignable.ipa",
-      "releaseTag": "app-zloader-v0.8.2-20261023T130621Z-8839ade0",
+      "ipaFile": "zLoader-0.8.3-resignable.ipa",
+      "releaseTag": "app-zloader-v0.8.3-20261023T143828Z-838646f8",
       "name": "zLoader",
       "developerName": "zynthec-dev",
       "subtitle": "Independent SideStore fork for iPhone and iPad.",
@@ -29,19 +29,33 @@
       "category": "utilities",
       "tintColor": "#147D60",
       "iconFile": "catalog/assets/zloader-icon.png",
-      "versionDescription": "zLoader 0.8.2 corrects the Apple sign-in path associated with error -80046. The app defaults to the Mac Anisette V3 provider also selected by current iLoader. Existing installations migrate once from On-Device Anisette to this provider with rotation disabled. Provider Client-Info and User-Agent remain consistent across provisioning, SRP and two-factor verification. UUIDs use the V3 Base64 format; device/local-user identity and routing data match the provider. Keychain ADI provisioning data is scoped to the selected provider, and a failed V3 request no longer falls back to a shared V1 identity. The built-in Mac server remains available when the remote server catalog is unavailable. Accounts, app records and pairing data are preserved; install over the existing app with the same identity. All 29 existing local checks, two new migration/protocol regression suites, clean dependency patch reproduction, the iPhoneOS Release build and strict resignable IPA checks passed. Actual Apple-account sign-in/2FA, Apple-portal operations, iLoader replacement, refresh/self-update and physical-device lifecycle remain untested. The separate matching corresponding-source archive retains all original authors, licenses and applied dependency patches. No credentials, profiles or private repository history are distributed.",
+      "versionDescription": "zLoader 0.8.3 fixes UTM installation failures reported as MinimuxerError 36 / IXErrorDomain 8 with mismatched bundle IDs. ExtensionKit helpers under Extensions/*.appex now participate in per-component profile preparation, bundle-ID rewriting, entitlement selection, signing and extension inspection, alongside classic PlugIns extensions and Watch apps. The UTM iOSHelper is retained and receives the final parent app prefix. Its extension point protocol identifier is preserved. A pre-signing identity check rejects stale child IDs and duplicate IDs. Each component still requires its own Apple-authorized provisioning profile; no entitlement bypass is introduced. All 32 local regression scripts, metadata rewriting against the official UTM 5.0.8 IPA, actual CodeSignKit host/helper signatures verified with Apple codesign, clean dependency patch reproduction, the iPhoneOS Release build and strict resignable IPA checks passed. Reimport the original UTM IPA after updating so it is signed afresh. Actual Apple-portal profile issuance, UTM installation/helper execution/snapshots, JIT, iPhone refresh/self-update and physical-device lifecycle remain untested. The separate matching corresponding-source archive retains original authors, licenses and applied dependency patches. The UTM fixture, credentials, Apple profiles and private repository history are not distributed.",
       "screenshots": [],
-      "marketingVersion": "0.8.2",
-      "sourceArchive": {
-        "name": "zLoader-0.8.2-source.zip",
-        "size": 67397541,
-        "sha256": "ecdde13ef53f9f425833345ce79b776161f5899bf2d8cfd0a2750b409bf5368f",
-        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.8.2-20261023T130621Z-8839ade0/zLoader-0.8.2-source.zip"
+      "marketingVersion": "0.8.3",
+      "releaseNotes": "zLoader 0.8.3 fixes UTM installation failures reported as MinimuxerError 36 / IXErrorDomain 8 with mismatched bundle IDs. ExtensionKit helpers under Extensions/*.appex now participate in per-component profile preparation, bundle-ID rewriting, entitlement selection, signing and extension inspection, alongside classic PlugIns extensions and Watch apps. The UTM iOSHelper is retained and receives the final parent app prefix. Its extension point protocol identifier is preserved. A pre-signing identity check rejects stale child IDs and duplicate IDs. Each component still requires its own Apple-authorized provisioning profile; no entitlement bypass is introduced. All 32 local regression scripts, metadata rewriting against the official UTM 5.0.8 IPA, actual CodeSignKit host/helper signatures verified with Apple codesign, clean dependency patch reproduction, the iPhoneOS Release build and strict resignable IPA checks passed. Reimport the original UTM IPA after updating so it is signed afresh. Actual Apple-portal profile issuance, UTM installation/helper execution/snapshots, JIT, iPhone refresh/self-update and physical-device lifecycle remain untested. The separate matching corresponding-source archive retains original authors, licenses and applied dependency patches. The UTM fixture, credentials, Apple profiles and private repository history are not distributed.",
+      "pendingUpload": {
+        "sha": "e28f0df74f04f45414210db54c15277ce66b9cf7",
+        "tag": "app-zloader-v0.8.3-20261023T143828Z-838646f8",
+        "size": 36041326
       },
-      "releaseAsset": {
-        "size": 35872816,
-        "sha256": "8839ade0c2ee6fe1a0e8daa5ba812eebf9e1f0ab275b95ddab3549fcbfa13e30",
-        "updatedAt": "2026-10-23T13:09:27.910014+00:00"
+      "pendingSourceArchive": {
+        "name": "zLoader-0.8.3-source.zip",
+        "size": 67405523,
+        "sha256": "4f7e304b66410877c6bb57fbfd41231e464ccd7a12c4c2bdde638ab609cfb6f0",
+        "chunks": [
+          {
+            "sha": "41eb9bc9a0c7a72ca8e050fa7efed9bf7d5103cb",
+            "size": 25000000
+          },
+          {
+            "sha": "265753fcd69d4908efca66ec02ab6a479f2e4c50",
+            "size": 25000000
+          },
+          {
+            "sha": "cc583c34427f9c606b1b803514b1d171498c05e1",
+            "size": 17405523
+          }
+        ]
       }
     }
   },
