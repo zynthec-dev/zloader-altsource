@@ -32,30 +32,16 @@
       "versionDescription": "zLoader 0.8.2 corrects the Apple sign-in path associated with error -80046. The app defaults to the Mac Anisette V3 provider also selected by current iLoader. Existing installations migrate once from On-Device Anisette to this provider with rotation disabled. Provider Client-Info and User-Agent remain consistent across provisioning, SRP and two-factor verification. UUIDs use the V3 Base64 format; device/local-user identity and routing data match the provider. Keychain ADI provisioning data is scoped to the selected provider, and a failed V3 request no longer falls back to a shared V1 identity. The built-in Mac server remains available when the remote server catalog is unavailable. Accounts, app records and pairing data are preserved; install over the existing app with the same identity. All 29 existing local checks, two new migration/protocol regression suites, clean dependency patch reproduction, the iPhoneOS Release build and strict resignable IPA checks passed. Actual Apple-account sign-in/2FA, Apple-portal operations, iLoader replacement, refresh/self-update and physical-device lifecycle remain untested. The separate matching corresponding-source archive retains all original authors, licenses and applied dependency patches. No credentials, profiles or private repository history are distributed.",
       "screenshots": [],
       "marketingVersion": "0.8.2",
-      "releaseNotes": "zLoader 0.8.2 corrects the Apple sign-in path associated with error -80046. The app defaults to the Mac Anisette V3 provider also selected by current iLoader. Existing installations migrate once from On-Device Anisette to this provider with rotation disabled. Provider Client-Info and User-Agent remain consistent across provisioning, SRP and two-factor verification. UUIDs use the V3 Base64 format; device/local-user identity and routing data match the provider. Keychain ADI provisioning data is scoped to the selected provider, and a failed V3 request no longer falls back to a shared V1 identity. The built-in Mac server remains available when the remote server catalog is unavailable. Accounts, app records and pairing data are preserved; install over the existing app with the same identity. All 29 existing local checks, two new migration/protocol regression suites, clean dependency patch reproduction, the iPhoneOS Release build and strict resignable IPA checks passed. Actual Apple-account sign-in/2FA, Apple-portal operations, iLoader replacement, refresh/self-update and physical-device lifecycle remain untested. The separate matching corresponding-source archive retains all original authors, licenses and applied dependency patches. No credentials, profiles or private repository history are distributed.",
-      "pendingUpload": {
-        "sha": "f7310466f522bfe1137dcec7391cbbe034a768a8",
-        "tag": "app-zloader-v0.8.2-20261023T130621Z-8839ade0",
-        "size": 36043898
-      },
-      "pendingSourceArchive": {
+      "sourceArchive": {
         "name": "zLoader-0.8.2-source.zip",
         "size": 67397541,
         "sha256": "ecdde13ef53f9f425833345ce79b776161f5899bf2d8cfd0a2750b409bf5368f",
-        "chunks": [
-          {
-            "sha": "0f9cc37fc9d425fc69a07419de71e8ab2813bea0",
-            "size": 25000000
-          },
-          {
-            "sha": "a96d0ec6333376546d0964e9e3d6f2f929a73974",
-            "size": 25000000
-          },
-          {
-            "sha": "bb52a251b4d149426830c077d27448307f52577d",
-            "size": 17397541
-          }
-        ]
+        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.8.2-20261023T130621Z-8839ade0/zLoader-0.8.2-source.zip"
+      },
+      "releaseAsset": {
+        "size": 35872816,
+        "sha256": "8839ade0c2ee6fe1a0e8daa5ba812eebf9e1f0ab275b95ddab3549fcbfa13e30",
+        "updatedAt": "2026-10-23T13:09:27.910014+00:00"
       }
     }
   },
