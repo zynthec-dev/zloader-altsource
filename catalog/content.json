@@ -32,30 +32,16 @@
       "versionDescription": "zLoader 0.8.3 fixes UTM installation failures reported as MinimuxerError 36 / IXErrorDomain 8 with mismatched bundle IDs. ExtensionKit helpers under Extensions/*.appex now participate in per-component profile preparation, bundle-ID rewriting, entitlement selection, signing and extension inspection, alongside classic PlugIns extensions and Watch apps. The UTM iOSHelper is retained and receives the final parent app prefix. Its extension point protocol identifier is preserved. A pre-signing identity check rejects stale child IDs and duplicate IDs. Each component still requires its own Apple-authorized provisioning profile; no entitlement bypass is introduced. All 32 local regression scripts, metadata rewriting against the official UTM 5.0.8 IPA, actual CodeSignKit host/helper signatures verified with Apple codesign, clean dependency patch reproduction, the iPhoneOS Release build and strict resignable IPA checks passed. Reimport the original UTM IPA after updating so it is signed afresh. Actual Apple-portal profile issuance, UTM installation/helper execution/snapshots, JIT, iPhone refresh/self-update and physical-device lifecycle remain untested. The separate matching corresponding-source archive retains original authors, licenses and applied dependency patches. The UTM fixture, credentials, Apple profiles and private repository history are not distributed.",
       "screenshots": [],
       "marketingVersion": "0.8.3",
-      "releaseNotes": "zLoader 0.8.3 fixes UTM installation failures reported as MinimuxerError 36 / IXErrorDomain 8 with mismatched bundle IDs. ExtensionKit helpers under Extensions/*.appex now participate in per-component profile preparation, bundle-ID rewriting, entitlement selection, signing and extension inspection, alongside classic PlugIns extensions and Watch apps. The UTM iOSHelper is retained and receives the final parent app prefix. Its extension point protocol identifier is preserved. A pre-signing identity check rejects stale child IDs and duplicate IDs. Each component still requires its own Apple-authorized provisioning profile; no entitlement bypass is introduced. All 32 local regression scripts, metadata rewriting against the official UTM 5.0.8 IPA, actual CodeSignKit host/helper signatures verified with Apple codesign, clean dependency patch reproduction, the iPhoneOS Release build and strict resignable IPA checks passed. Reimport the original UTM IPA after updating so it is signed afresh. Actual Apple-portal profile issuance, UTM installation/helper execution/snapshots, JIT, iPhone refresh/self-update and physical-device lifecycle remain untested. The separate matching corresponding-source archive retains original authors, licenses and applied dependency patches. The UTM fixture, credentials, Apple profiles and private repository history are not distributed.",
-      "pendingUpload": {
-        "sha": "e28f0df74f04f45414210db54c15277ce66b9cf7",
-        "tag": "app-zloader-v0.8.3-20261023T143828Z-838646f8",
-        "size": 36041326
-      },
-      "pendingSourceArchive": {
+      "sourceArchive": {
         "name": "zLoader-0.8.3-source.zip",
         "size": 67405523,
         "sha256": "4f7e304b66410877c6bb57fbfd41231e464ccd7a12c4c2bdde638ab609cfb6f0",
-        "chunks": [
-          {
-            "sha": "41eb9bc9a0c7a72ca8e050fa7efed9bf7d5103cb",
-            "size": 25000000
-          },
-          {
-            "sha": "265753fcd69d4908efca66ec02ab6a479f2e4c50",
-            "size": 25000000
-          },
-          {
-            "sha": "cc583c34427f9c606b1b803514b1d171498c05e1",
-            "size": 17405523
-          }
-        ]
+        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.8.3-20261023T143828Z-838646f8/zLoader-0.8.3-source.zip"
+      },
+      "releaseAsset": {
+        "size": 35870244,
+        "sha256": "838646f8cb6e24a8fe025476922cb7a68203cd700a20728dce216aba69bf3c75",
+        "updatedAt": "2026-10-23T14:40:58.886966+00:00"
       }
     }
   },
