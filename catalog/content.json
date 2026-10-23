@@ -32,30 +32,16 @@
       "versionDescription": "zLoader 0.8.1 fixes virtual container windows whose view/controller hierarchy caused zLoader to abort. Window ownership, active-window selection, bookmark errors and early process-start callbacks are handled safely. Container Settings is in Advanced Settings; source management, manual certificate import/identity transfer, global JIT providers and the 32-bit emulator picker are removed. The active zLoader signing identity is synchronized automatically, with host-profile certificate/expiry validation. The long-press Start with JIT action uses the integrated device debugger and the actual LiveProcess PID with bounded startup waiting. Container settings use an inline title, and startup tab controls become accessible after the transition can accept input. User-facing runtime branding is Container; original authors and licenses remain credited. Browser callbacks target guest-owned scenes or the legacy guest AppDelegate, and reach Safari wrappers before dismissal; this addresses the routing and cancellation failures relevant to the supplied DHL app. The previously committed complete Watch companion signing, refresh and identifier-graph support is included. All 28 local regression scripts, seven Simulator UI tests, the iPhoneOS Release build and resignable package checks passed. Simulator fixtures cover modern/legacy OAuth callbacks, native scheme collision isolation and virtual windows. Real DHL-account sign-in, physical-device LiveProcess/JIT/PiP, Apple-portal renewal, Watch installation and iPhone install/refresh/self-update remain untested. The separate corresponding-source download preserves original credits and includes all applied dependency patches. No DHL binary, Apple profiles, private keys or credentials are distributed.",
       "screenshots": [],
       "marketingVersion": "0.8.1",
-      "releaseNotes": "zLoader 0.8.1 fixes virtual container windows whose view/controller hierarchy caused zLoader to abort. Window ownership, active-window selection, bookmark errors and early process-start callbacks are handled safely. Container Settings is in Advanced Settings; source management, manual certificate import/identity transfer, global JIT providers and the 32-bit emulator picker are removed. The active zLoader signing identity is synchronized automatically, with host-profile certificate/expiry validation. The long-press Start with JIT action uses the integrated device debugger and the actual LiveProcess PID with bounded startup waiting. Container settings use an inline title, and startup tab controls become accessible after the transition can accept input. User-facing runtime branding is Container; original authors and licenses remain credited. Browser callbacks target guest-owned scenes or the legacy guest AppDelegate, and reach Safari wrappers before dismissal; this addresses the routing and cancellation failures relevant to the supplied DHL app. The previously committed complete Watch companion signing, refresh and identifier-graph support is included. All 28 local regression scripts, seven Simulator UI tests, the iPhoneOS Release build and resignable package checks passed. Simulator fixtures cover modern/legacy OAuth callbacks, native scheme collision isolation and virtual windows. Real DHL-account sign-in, physical-device LiveProcess/JIT/PiP, Apple-portal renewal, Watch installation and iPhone install/refresh/self-update remain untested. The separate corresponding-source download preserves original credits and includes all applied dependency patches. No DHL binary, Apple profiles, private keys or credentials are distributed.",
-      "pendingUpload": {
-        "sha": "9c5baa9aa3d8702b02dbd1772e5a5cd5f9208438",
-        "tag": "app-zloader-v0.8.1-20261023T081716Z-5693bb68",
-        "size": 36034466
-      },
-      "pendingSourceArchive": {
+      "sourceArchive": {
         "name": "zLoader-0.8.1-source.zip",
         "size": 67383656,
         "sha256": "7ee4b923d9c17d13902e74275fc653c61f16e84e4d9a857900e03be93bc5d858",
-        "chunks": [
-          {
-            "sha": "17b6f379faf4b76e0559628b462fabda5930611b",
-            "size": 25000000
-          },
-          {
-            "sha": "4efba0af478dad8e950170a9334ec0510c516084",
-            "size": 25000000
-          },
-          {
-            "sha": "9444931aa446d92b9633d3972a107f3ef114998e",
-            "size": 17383656
-          }
-        ]
+        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.8.1-20261023T081716Z-5693bb68/zLoader-0.8.1-source.zip"
+      },
+      "releaseAsset": {
+        "size": 35863738,
+        "sha256": "5693bb6888410c4d85b7abd9899940997192c3eb53b35b8bdf8a4ef04d3807c9",
+        "updatedAt": "2026-10-23T08:21:55.272616+00:00"
       }
     }
   },
