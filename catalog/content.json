@@ -20,8 +20,8 @@
       }
     },
     "com.zynthec.zLoader": {
-      "ipaFile": "zLoader-0.8.4-resignable.ipa",
-      "releaseTag": "app-zloader-v0.8.4-20261023T172443Z-a1379329",
+      "ipaFile": "zLoader-0.8.5-resignable.ipa",
+      "releaseTag": "app-zloader-v0.8.5-20261026T101638Z-fbbc380d",
       "name": "zLoader",
       "developerName": "zynthec-dev",
       "subtitle": "Independent SideStore fork for iPhone and iPad.",
@@ -29,19 +29,33 @@
       "category": "utilities",
       "tintColor": "#147D60",
       "iconFile": "catalog/assets/zloader-icon.png",
-      "versionDescription": "zLoader 0.8.4 fixes duplicate back buttons in Container Settings. The embedded container settings and their detail pages now share one navigation bar, with one back action per page. Multiple LiveContainers is removed from the embedded settings. The main Settings order is Developer Options, Container Settings, User Customizations, then Experimental Features. Container Settings and User Customizations remain available when diagnostics are hidden. All 32 local regression scripts, the iPhone simulator navigation regression, the iPhoneOS Release build and strict resignable IPA checks passed. The UI regression checks row order, root and detail back navigation, Device Identity, JIT-less diagnostics and User Customizations. Physical-device installation, Apple signing, refresh and lifecycle remain untested for this release. The separate matching corresponding-source archive retains original authors, licenses and applied dependency patches. Credentials, Apple profiles and private repository history are not distributed.",
+      "versionDescription": "zLoader 0.8.5 makes Imported Certificate a permanent signing method alongside Apple Account, including before an identity is configured and without Apple login. Choose Certificate & Profiles opens a working editor for existing local material or PKCS#12/profile imports. Settings exposes Signing Identities without an account; Install & Refresh persists an explicit imported method and refuses missing identities rather than falling back to Apple login. Existing wildcard profile matching and Apple-authorized entitlements remain enforced. My Apps now places Add on the left and Sign on the right, with refreshed consistent tab icons. The Add menu, URL dialog and install confirmations are translated into German. All 33 local regression scripts, the iPhone simulator UI regression, the iPhoneOS Release build, bootstrap package check and strict resignable IPA checks passed. Store-selection fixtures cover persistence, missing identity rejection and legacy migration; existing signing checks cover wildcard expansion and entitlement authorization. Actual Apple-issued material signing, physical-device installation, refresh, JIT and cellular lifecycle remain untested for this release. Separate matching corresponding source retains original authors, licenses and dependency patches; credentials, profiles and private Git history are not distributed.",
       "screenshots": [],
-      "marketingVersion": "0.8.4",
-      "sourceArchive": {
-        "name": "zLoader-0.8.4-source.zip",
-        "size": 67408572,
-        "sha256": "fe7912b630b9dc77530b8b8daf4a3a9cbe419a193dfb5a24500658a0428fde13",
-        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.8.4-20261023T172443Z-a1379329/zLoader-0.8.4-source.zip"
+      "marketingVersion": "0.8.5",
+      "releaseNotes": "zLoader 0.8.5 makes Imported Certificate a permanent signing method alongside Apple Account, including before an identity is configured and without Apple login. Choose Certificate & Profiles opens a working editor for existing local material or PKCS#12/profile imports. Settings exposes Signing Identities without an account; Install & Refresh persists an explicit imported method and refuses missing identities rather than falling back to Apple login. Existing wildcard profile matching and Apple-authorized entitlements remain enforced. My Apps now places Add on the left and Sign on the right, with refreshed consistent tab icons. The Add menu, URL dialog and install confirmations are translated into German. All 33 local regression scripts, the iPhone simulator UI regression, the iPhoneOS Release build, bootstrap package check and strict resignable IPA checks passed. Store-selection fixtures cover persistence, missing identity rejection and legacy migration; existing signing checks cover wildcard expansion and entitlement authorization. Actual Apple-issued material signing, physical-device installation, refresh, JIT and cellular lifecycle remain untested for this release. Separate matching corresponding source retains original authors, licenses and dependency patches; credentials, profiles and private Git history are not distributed.",
+      "pendingUpload": {
+        "sha": "6b0b0b0f72f959d086f1b44c10dd0f8d8cd387a4",
+        "tag": "app-zloader-v0.8.5-20261026T101638Z-fbbc380d",
+        "size": 36080623
       },
-      "releaseAsset": {
-        "size": 35878165,
-        "sha256": "a13793299ea1e6b6d9d2ee32c9bdcd5d5481385e3d105dd23f0bb103632282da",
-        "updatedAt": "2026-10-23T17:26:48.345384+00:00"
+      "pendingSourceArchive": {
+        "name": "zLoader-0.8.5-source.zip",
+        "size": 67416348,
+        "sha256": "fad3ccbb5dfc5906127a4212d51d31697d36c460be592e45299d7269a2a3895b",
+        "chunks": [
+          {
+            "sha": "a0ee7ad40131239bf63641f2921100e84e50abf8",
+            "size": 25000000
+          },
+          {
+            "sha": "6ea367a31f1104154e722c79995695c38c76ba1e",
+            "size": 25000000
+          },
+          {
+            "sha": "70d450fb0c7c03cd0aead082cde59f633424f3a8",
+            "size": 17416348
+          }
+        ]
       }
     }
   },
