@@ -20,8 +20,8 @@
       }
     },
     "com.zynthec.zLoader": {
-      "ipaFile": "zLoader-0.8.5-resignable.ipa",
-      "releaseTag": "app-zloader-v0.8.5-20261026T101638Z-fbbc380d",
+      "ipaFile": "zLoader-0.8.6-resignable.ipa",
+      "releaseTag": "app-zloader-v0.8.6-20261030T180546Z-884b94eb",
       "name": "zLoader",
       "developerName": "zynthec-dev",
       "subtitle": "Independent SideStore fork for iPhone and iPad.",
@@ -29,19 +29,33 @@
       "category": "utilities",
       "tintColor": "#147D60",
       "iconFile": "catalog/assets/zloader-icon.png",
-      "versionDescription": "zLoader 0.8.5 makes Imported Certificate a permanent signing method alongside Apple Account, including before an identity is configured and without Apple login. Choose Certificate & Profiles opens a working editor for existing local material or PKCS#12/profile imports. Settings exposes Signing Identities without an account; Install & Refresh persists an explicit imported method and refuses missing identities rather than falling back to Apple login. Existing wildcard profile matching and Apple-authorized entitlements remain enforced. My Apps now places Add on the left and Sign on the right, with refreshed consistent tab icons. The Add menu, URL dialog and install confirmations are translated into German. All 33 local regression scripts, the iPhone simulator UI regression, the iPhoneOS Release build, bootstrap package check and strict resignable IPA checks passed. Store-selection fixtures cover persistence, missing identity rejection and legacy migration; existing signing checks cover wildcard expansion and entitlement authorization. Actual Apple-issued material signing, physical-device installation, refresh, JIT and cellular lifecycle remain untested for this release. Separate matching corresponding source retains original authors, licenses and dependency patches; credentials, profiles and private Git history are not distributed.",
+      "versionDescription": "zLoader 0.8.6 simplifies certificate management into one overview with direct Use/Active actions. Existing local certificates show their name, expiry and status once. Details, export and local deletion are grouped in a secondary row menu. One plus menu offers a local certificate signing request (CSR), Apple Developer certificate creation, file import and Apple Portal import with the Apple symbol. Apple account inventory and revocation remain available. Signing/profile configuration retains existing identity and profile selections without duplicate certificate cards or toolbars. Certificate surfaces use compact shared zynthec components with light/dark palettes and the fixed mint action accent. The obsolete synchronized layout metadata that prevented Xcode 27.2 from opening/building the project was corrected; actual localized layout resources and platform assignments are unchanged. All 33 local regression scripts, three simulator UI regressions, the iPhoneOS Release build, bootstrap package check and strict normalized IPA signature checks passed. UI checks use a generated test-only P12 and cover CSR creation/cancellation, import, direct activation, persisted selection, deactivation, details, local deletion and light/dark screenshots. The fixture and its keys are not distributed. Actual Apple portal issuance, CA response, physical-device signing, installation, refresh and cellular lifecycle remain untested for this release. Matching corresponding source is provided separately with original authors, licenses and dependency patches. Credentials, Apple profiles and private Git history are not distributed.",
       "screenshots": [],
-      "marketingVersion": "0.8.5",
-      "sourceArchive": {
-        "name": "zLoader-0.8.5-source.zip",
-        "size": 67416348,
-        "sha256": "fad3ccbb5dfc5906127a4212d51d31697d36c460be592e45299d7269a2a3895b",
-        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.8.5-20261026T101638Z-fbbc380d/zLoader-0.8.5-source.zip"
+      "marketingVersion": "0.8.6",
+      "releaseNotes": "zLoader 0.8.6 simplifies certificate management into one overview with direct Use/Active actions. Existing local certificates show their name, expiry and status once. Details, export and local deletion are grouped in a secondary row menu. One plus menu offers a local certificate signing request (CSR), Apple Developer certificate creation, file import and Apple Portal import with the Apple symbol. Apple account inventory and revocation remain available. Signing/profile configuration retains existing identity and profile selections without duplicate certificate cards or toolbars. Certificate surfaces use compact shared zynthec components with light/dark palettes and the fixed mint action accent. The obsolete synchronized layout metadata that prevented Xcode 27.2 from opening/building the project was corrected; actual localized layout resources and platform assignments are unchanged. All 33 local regression scripts, three simulator UI regressions, the iPhoneOS Release build, bootstrap package check and strict normalized IPA signature checks passed. UI checks use a generated test-only P12 and cover CSR creation/cancellation, import, direct activation, persisted selection, deactivation, details, local deletion and light/dark screenshots. The fixture and its keys are not distributed. Actual Apple portal issuance, CA response, physical-device signing, installation, refresh and cellular lifecycle remain untested for this release. Matching corresponding source is provided separately with original authors, licenses and dependency patches. Credentials, Apple profiles and private Git history are not distributed.",
+      "pendingUpload": {
+        "sha": "94dd0de4206f61d648c635aa57e5f491638605dd",
+        "tag": "app-zloader-v0.8.6-20261030T180546Z-884b94eb",
+        "size": 35862370
       },
-      "releaseAsset": {
-        "size": 35909211,
-        "sha256": "fbbc380dbbeef1a838a90c31f03b886e4093de9ed6898ef79349be2c76537b1c",
-        "updatedAt": "2026-10-26T10:19:29.058525+00:00"
+      "pendingSourceArchive": {
+        "name": "zLoader-0.8.6-source.zip",
+        "size": 67421472,
+        "sha256": "7de26cc240a7555b9366d274c18d88e0987fdb24da7e4da55a00f15ebdee2ee2",
+        "chunks": [
+          {
+            "sha": "37fc9549a9b1feef4e2b3854d110d51640d1d185",
+            "size": 25000000
+          },
+          {
+            "sha": "a091088e24ec65966124a16e7d676eaa02c94a0d",
+            "size": 25000000
+          },
+          {
+            "sha": "b96cd08dcfd5989507c788a749336aa088196e1f",
+            "size": 17421472
+          }
+        ]
       }
     }
   },
