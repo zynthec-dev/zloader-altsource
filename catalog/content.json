@@ -32,30 +32,16 @@
       "versionDescription": "zLoader 0.8.10 joins the upper bar and left stem of the ZL monogram at the requested top-left junction. The continuous foreground is used by every native Default, Dark, Clear and Tinted rendition, legacy alternate icon artwork, icon previews and the Source icons. Settings, credits, signing and installed-app data remain unchanged. All 33 required local regression scripts, six Icon Composer renders, the iPhoneOS Release build, bundled-resource checks and strict signature verification passed. The Settings UI and website interaction flows were validated in 0.8.9; this release changes only icon artwork and version metadata. Physical-device installation and Home Screen appearance remain untested. Matching source, original authors, licenses and dependency pins are supplied separately.",
       "screenshots": [],
       "marketingVersion": "0.8.10",
-      "releaseNotes": "zLoader 0.8.10 joins the upper bar and left stem of the ZL monogram at the requested top-left junction. The continuous foreground is used by every native Default, Dark, Clear and Tinted rendition, legacy alternate icon artwork, icon previews and the Source icons. Settings, credits, signing and installed-app data remain unchanged. All 33 required local regression scripts, six Icon Composer renders, the iPhoneOS Release build, bundled-resource checks and strict signature verification passed. The Settings UI and website interaction flows were validated in 0.8.9; this release changes only icon artwork and version metadata. Physical-device installation and Home Screen appearance remain untested. Matching source, original authors, licenses and dependency pins are supplied separately.",
-      "pendingUpload": {
-        "sha": "dc5a4b5450861f49efc355bac3b7f23fa14cf375",
-        "tag": "app-zloader-v0.8.10-20261109T184609Z-3543fa28",
-        "size": 31530701
-      },
-      "pendingSourceArchive": {
+      "sourceArchive": {
         "name": "zLoader-0.8.10-source.zip",
         "size": 65372590,
         "sha256": "170261eef6a0b70e11d9cc7f6a86ab173cad1caa72b2d3ce715d51bd9950a000",
-        "chunks": [
-          {
-            "sha": "4e52f700177efe483539af68ed0c635d155e978a",
-            "size": 25000000
-          },
-          {
-            "sha": "46f3a7c3ed8af579bc997ac377c4b0f1589e1d88",
-            "size": 25000000
-          },
-          {
-            "sha": "7d7613f4325126fd11eb66165d540b15ddee3896",
-            "size": 15372590
-          }
-        ]
+        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.8.10-20261109T184609Z-3543fa28/zLoader-0.8.10-source.zip"
+      },
+      "releaseAsset": {
+        "size": 31356535,
+        "sha256": "3543fa287be221e4bbc13715913814b51b4f8b7bd2c10898dc43bff5c0d5f8b8",
+        "updatedAt": "2026-11-09T18:52:18.848022+00:00"
       }
     }
   },
