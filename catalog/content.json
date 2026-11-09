@@ -20,8 +20,8 @@
       }
     },
     "com.zynthec.zLoader": {
-      "ipaFile": "zLoader-0.8.9-resignable.ipa",
-      "releaseTag": "app-zloader-v0.8.9-20261109T182155Z-318a49bb",
+      "ipaFile": "zLoader-0.8.10-resignable.ipa",
+      "releaseTag": "app-zloader-v0.8.10-20261109T184609Z-3543fa28",
       "name": "zLoader",
       "developerName": "zynthec-dev",
       "subtitle": "Independent SideStore fork for iPhone and iPad.",
@@ -29,19 +29,33 @@
       "category": "utilities",
       "tintColor": "#40B5AD",
       "iconFile": "catalog/assets/zloader-icon.png",
-      "versionDescription": "zLoader 0.8.9 replaces all expandable Settings sections with dedicated submenu screens. A separate Advanced group below the main list contains Advanced Settings, Diagnostics and Credits. Existing container, developer, diagnostic and signing routes remain available. Native switch layout is corrected so controls stay at the trailing edge and stored values are preserved. Credits now provides searchable project and library entries with original licenses and notices, including LiveContainer, SideStore/AltStore, SideSign, Minimuxer, CFastFind, litehook, ZSign/Feather, Swift packages, binary-library sources and locked Rust dependencies. The 432 notice records also retain historical attributions and platform/build dependency notices. The app receives a fused ZL monogram with a shared baseline and L corner in a native Icon Composer document: Default, Dark, Clear Light/Dark and Tinted Light/Dark follow iOS. Legacy alternate names and existing icon preferences are preserved. App and Source use the fixed #40B5AD accent and adaptive system surfaces; the Source homepage/admin, feed tint and icons are updated. All 33 local regression scripts, five focused simulator UI tests, native icon renders, browser light/dark/mobile/interaction tests, iPhoneOS Release build and package/signature checks passed. Apple-authorized signing and the affected physical-device layout remain untested. Existing pinned runtime minimum remains iOS 26.5. Matching source with original authors, notices, dependency pins and patches is distributed separately; signing credentials and build caches are excluded.",
+      "versionDescription": "zLoader 0.8.10 joins the upper bar and left stem of the ZL monogram at the requested top-left junction. The continuous foreground is used by every native Default, Dark, Clear and Tinted rendition, legacy alternate icon artwork, icon previews and the Source icons. Settings, credits, signing and installed-app data remain unchanged. All 33 required local regression scripts, six Icon Composer renders, the iPhoneOS Release build, bundled-resource checks and strict signature verification passed. The Settings UI and website interaction flows were validated in 0.8.9; this release changes only icon artwork and version metadata. Physical-device installation and Home Screen appearance remain untested. Matching source, original authors, licenses and dependency pins are supplied separately.",
       "screenshots": [],
-      "marketingVersion": "0.8.9",
-      "sourceArchive": {
-        "name": "zLoader-0.8.9-source.zip",
-        "size": 65422840,
-        "sha256": "dcf51ec6cead16fd88c78a2bf322b75905c229dbd8d5c301ff606fbd230a74ff",
-        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.8.9-20261109T182155Z-318a49bb/zLoader-0.8.9-source.zip"
+      "marketingVersion": "0.8.10",
+      "releaseNotes": "zLoader 0.8.10 joins the upper bar and left stem of the ZL monogram at the requested top-left junction. The continuous foreground is used by every native Default, Dark, Clear and Tinted rendition, legacy alternate icon artwork, icon previews and the Source icons. Settings, credits, signing and installed-app data remain unchanged. All 33 required local regression scripts, six Icon Composer renders, the iPhoneOS Release build, bundled-resource checks and strict signature verification passed. The Settings UI and website interaction flows were validated in 0.8.9; this release changes only icon artwork and version metadata. Physical-device installation and Home Screen appearance remain untested. Matching source, original authors, licenses and dependency pins are supplied separately.",
+      "pendingUpload": {
+        "sha": "dc5a4b5450861f49efc355bac3b7f23fa14cf375",
+        "tag": "app-zloader-v0.8.10-20261109T184609Z-3543fa28",
+        "size": 31530701
       },
-      "releaseAsset": {
-        "size": 31395866,
-        "sha256": "318a49bb90513c7cd70adbe0efbb4cd77c25de8888a872dbf1271586327c49b1",
-        "updatedAt": "2026-11-09T18:31:34.660182+00:00"
+      "pendingSourceArchive": {
+        "name": "zLoader-0.8.10-source.zip",
+        "size": 65372590,
+        "sha256": "170261eef6a0b70e11d9cc7f6a86ab173cad1caa72b2d3ce715d51bd9950a000",
+        "chunks": [
+          {
+            "sha": "4e52f700177efe483539af68ed0c635d155e978a",
+            "size": 25000000
+          },
+          {
+            "sha": "46f3a7c3ed8af579bc997ac377c4b0f1589e1d88",
+            "size": 25000000
+          },
+          {
+            "sha": "7d7613f4325126fd11eb66165d540b15ddee3896",
+            "size": 15372590
+          }
+        ]
       }
     }
   },
