@@ -20,28 +20,42 @@
       }
     },
     "com.zynthec.zLoader": {
-      "ipaFile": "zLoader-0.8.8-resignable.ipa",
-      "releaseTag": "app-zloader-v0.8.8-20261103T113602Z-76837fa5",
+      "ipaFile": "zLoader-0.8.9-resignable.ipa",
+      "releaseTag": "app-zloader-v0.8.9-20261109T182155Z-318a49bb",
       "name": "zLoader",
       "developerName": "zynthec-dev",
       "subtitle": "Independent SideStore fork for iPhone and iPad.",
       "localizedDescription": "Sideloading and manage apps, deveoloper profiles and much more in zynthec style.",
       "category": "utilities",
-      "tintColor": "#147D60",
+      "tintColor": "#40B5AD",
       "iconFile": "catalog/assets/zloader-icon.png",
-      "versionDescription": "zLoader 0.8.8 simplifies Settings into one continuous native list, beginning with User Customizations. Appearance contains display mode, language and the app-icon choice. Ordinary settings stay visible without intermediate section captions or explanatory footers. Advanced, Diagnostics and Credits are the only separate collapsible sections; all three start collapsed and remember later choices. Certificates appear once near the account area, remain accessible without Apple sign-in, and use the same neutral row styling as other settings. Sign Out moves to a red text action in the navigation bar. Native row layouts preserve existing switch values, actions and account fields, with consistent SF Symbols and adaptive spacing. The tab order is News, Sources, Apps, Browse, Settings, with News and Apps unchanged across languages. Existing signing identities, provisioning profiles, installed apps and unrelated localization edits are preserved. All 33 local regression scripts, eight focused simulator UI tests including large text, the iPhoneOS Release build and package/signature checks passed. Simulator and controlled tests do not prove physical-device app launches or Apple login/signing; the authenticated Sign Out presentation also remains untested with a real account. The existing pinned runtime dependency minimum remains iOS 26.5. Matching corresponding source, original authors, licenses and dependency patches are supplied separately; private repository history and credentials are excluded.",
+      "versionDescription": "zLoader 0.8.9 replaces all expandable Settings sections with dedicated submenu screens. A separate Advanced group below the main list contains Advanced Settings, Diagnostics and Credits. Existing container, developer, diagnostic and signing routes remain available. Native switch layout is corrected so controls stay at the trailing edge and stored values are preserved. Credits now provides searchable project and library entries with original licenses and notices, including LiveContainer, SideStore/AltStore, SideSign, Minimuxer, CFastFind, litehook, ZSign/Feather, Swift packages, binary-library sources and locked Rust dependencies. The 432 notice records also retain historical attributions and platform/build dependency notices. The app receives a fused ZL monogram with a shared baseline and L corner in a native Icon Composer document: Default, Dark, Clear Light/Dark and Tinted Light/Dark follow iOS. Legacy alternate names and existing icon preferences are preserved. App and Source use the fixed #40B5AD accent and adaptive system surfaces; the Source homepage/admin, feed tint and icons are updated. All 33 local regression scripts, five focused simulator UI tests, native icon renders, browser light/dark/mobile/interaction tests, iPhoneOS Release build and package/signature checks passed. Apple-authorized signing and the affected physical-device layout remain untested. Existing pinned runtime minimum remains iOS 26.5. Matching source with original authors, notices, dependency pins and patches is distributed separately; signing credentials and build caches are excluded.",
       "screenshots": [],
-      "marketingVersion": "0.8.8",
-      "sourceArchive": {
-        "name": "zLoader-0.8.8-source.zip",
-        "size": 67424608,
-        "sha256": "3aa80872d5bc0f1e86acab82dec3fb9295938ca5d429a03ac9855e0b89e9f22d",
-        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.8.8-20261103T113602Z-76837fa5/zLoader-0.8.8-source.zip"
+      "marketingVersion": "0.8.9",
+      "releaseNotes": "zLoader 0.8.9 replaces all expandable Settings sections with dedicated submenu screens. A separate Advanced group below the main list contains Advanced Settings, Diagnostics and Credits. Existing container, developer, diagnostic and signing routes remain available. Native switch layout is corrected so controls stay at the trailing edge and stored values are preserved. Credits now provides searchable project and library entries with original licenses and notices, including LiveContainer, SideStore/AltStore, SideSign, Minimuxer, CFastFind, litehook, ZSign/Feather, Swift packages, binary-library sources and locked Rust dependencies. The 432 notice records also retain historical attributions and platform/build dependency notices. The app receives a fused ZL monogram with a shared baseline and L corner in a native Icon Composer document: Default, Dark, Clear Light/Dark and Tinted Light/Dark follow iOS. Legacy alternate names and existing icon preferences are preserved. App and Source use the fixed #40B5AD accent and adaptive system surfaces; the Source homepage/admin, feed tint and icons are updated. All 33 local regression scripts, five focused simulator UI tests, native icon renders, browser light/dark/mobile/interaction tests, iPhoneOS Release build and package/signature checks passed. Apple-authorized signing and the affected physical-device layout remain untested. Existing pinned runtime minimum remains iOS 26.5. Matching source with original authors, notices, dependency pins and patches is distributed separately; signing credentials and build caches are excluded.",
+      "pendingUpload": {
+        "sha": "06c3330d383a8a2cfdb58560328180080ffceb3e",
+        "tag": "app-zloader-v0.8.9-20261109T182155Z-318a49bb",
+        "size": 31569678
       },
-      "releaseAsset": {
-        "size": 34992135,
-        "sha256": "76837fa5d3416ade8ff45942b452a8717b498f6f5bcafb36400293ccaa801252",
-        "updatedAt": "2026-11-03T11:38:37.683973+00:00"
+      "pendingSourceArchive": {
+        "name": "zLoader-0.8.9-source.zip",
+        "size": 65422840,
+        "sha256": "dcf51ec6cead16fd88c78a2bf322b75905c229dbd8d5c301ff606fbd230a74ff",
+        "chunks": [
+          {
+            "sha": "d6bc5bca32e486bc8d954a76e0145f485d38a072",
+            "size": 25000000
+          },
+          {
+            "sha": "5ac542ec8f81e5b12550d4b9c9c6d5058ba054f3",
+            "size": 25000000
+          },
+          {
+            "sha": "c2043d88b9a7e17eaa4fa5789e30eccfe048ea03",
+            "size": 15422840
+          }
+        ]
       }
     }
   },
@@ -53,7 +67,7 @@
       "title": "Willkommen bei der zLoader Source",
       "caption": "Apps über zLoader installieren und aktualisieren.",
       "date": "2026-09-19",
-      "tintColor": "#147D60",
+      "tintColor": "#40B5AD",
       "url": "https://zloader.de"
     }
   ],

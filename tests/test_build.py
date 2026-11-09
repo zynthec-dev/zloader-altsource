@@ -106,7 +106,7 @@ class BuildTests(unittest.TestCase):
 
     def test_landing_page_links_current_release_and_public_app_repo(self):
         page = (DIST / "zloader/index.html").read_text()
-        self.assertIn('https://github.com/zynthec-dev/zloader-app', page)
+        self.assertIn('https://github.com/zynthec-dev/zloader', page)
         self.assertNotIn('href="/zloader/source.json"', page)
         self.assertIn('value="https://source.zloader.de"', page)
         self.assertIn('src="/site.js"', page)

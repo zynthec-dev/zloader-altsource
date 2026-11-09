@@ -6,7 +6,7 @@
   "website": "https://zloader.de",
   "sourceURL": "https://source.zloader.de",
   "iconURL": "https://source.zloader.de/assets/source-icon.png",
-  "tintColor": "#147D60",
+  "tintColor": "#40B5AD",
   "githubRepository": "zynthec-dev/zloader-altsource",
   "releaseTag": "apps"
 }

@@ -33,7 +33,7 @@ try {
   page.on('console',message=>{if(message.type()==='error') errors.push(message.text());});
   await page.goto(base);
   await page.getByRole('heading',{name:'Deine Apps. Dein iPhone.'}).waitFor();
-  assert.equal(await page.getByRole('link',{name:'Auf GitHub',exact:true}).getAttribute('href'),'https://github.com/zynthec-dev/zloader-app');
+  assert.equal(await page.getByRole('link',{name:'Auf GitHub',exact:true}).getAttribute('href'),'https://github.com/zynthec-dev/zloader');
   assert.equal(await page.getByRole('link',{name:'Source',exact:true}).count(),0);
   assert.equal(await page.getByRole('navigation',{name:'Hauptnavigation'}).getByRole('link').count(),1);
   assert.equal(await page.locator('#source-url').inputValue(),'https://source.zloader.de');
@@ -43,7 +43,15 @@ try {
   assert.equal(await page.locator('#download').getAttribute('href'),app.versions[0].downloadURL);
   assert.ok(await page.locator('.app-icon').evaluate(image=>image.complete && image.naturalWidth>0));
   assert.ok(await page.locator('.footer').isVisible());
+  await page.emulateMedia({colorScheme:'light'});
+  const lightBackground = await page.locator('body').evaluate(element=>getComputedStyle(element).backgroundColor);
+  assert.equal(await page.locator('body').evaluate(element=>getComputedStyle(element).getPropertyValue('--accent').trim()),'#40B5AD');
   await page.screenshot({path:screenshots+'/desktop.png',fullPage:true});
+  await page.emulateMedia({colorScheme:'dark'});
+  assert.notEqual(await page.locator('body').evaluate(element=>getComputedStyle(element).backgroundColor),lightBackground);
+  assert.equal(await page.locator('body').evaluate(element=>getComputedStyle(element).getPropertyValue('--accent').trim()),'#40B5AD');
+  await page.screenshot({path:screenshots+'/desktop-dark.png',fullPage:true});
+  await page.emulateMedia({colorScheme:'light'});
   await page.getByRole('button',{name:'Kopieren',exact:true}).click();
   await page.getByRole('status').filter({hasText:'Source-Adresse kopiert.'}).waitFor();
   assert.equal(await page.evaluate(()=>navigator.clipboard.readText()),'https://source.zloader.de');
