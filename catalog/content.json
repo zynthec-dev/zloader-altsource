@@ -20,8 +20,8 @@
       }
     },
     "com.zynthec.zLoader": {
-      "ipaFile": "zLoader-0.8.11-resignable.ipa",
-      "releaseTag": "app-zloader-v0.8.11-20261110T072200Z-faa36adc",
+      "ipaFile": "zLoader-0.8.12-resignable.ipa",
+      "releaseTag": "app-zloader-v0.8.12-20261110T141319Z-c2362630",
       "name": "zLoader",
       "developerName": "zynthec-dev",
       "subtitle": "Independent SideStore fork for iPhone and iPad.",
@@ -29,19 +29,50 @@
       "category": "utilities",
       "tintColor": "#40B5AD",
       "iconFile": "catalog/assets/zloader-icon.png",
-      "versionDescription": "zLoader 0.8.11 adds a consented Mac Anisette (jkcoxson) recovery for on-device Apple sign-in rejected with -80045 before interactive authentication. Recovery retries once, stores the selected remote mode and preserves signing certificates. Incorrect credentials, rate limits, transport errors and failures after a verification prompt do not trigger a provider switch. Settings now separate Account & Signing from Settings, with User Customizations directly before Appearance. Alternate Home Screen icons use layered Icon Composer documents; the selector waits for the system result, and in-app icons no longer add black corner backgrounds or an extra shadow. Local regression checks, Simulator Settings and icon-switch checks, the iPhoneOS Release build, compiled-icon resource checks and strict ad-hoc signature verification passed. The user confirmed the remote-server login workaround on an iPhone; the new assisted recovery and cellular-only refresh still require physical-device validation. Matching source and original licenses are provided separately.",
+      "versionDescription": "zLoader 0.8.12 replaces Apple sign-in, verification-code entry and the post-login instructions with readable native forms and German localization. The completion screen has a visible Verstanden action. Splash and onboarding use the current ZL icon and semantic system colors. Selectable alternate app icons are removed; the single layered icon follows system appearance. The tab bar has four entries: News, Sources, Apps and Browse. Settings is now a gear button to the right of Sign on the Apps screen. Appearance starts with Language and includes a persistent option to hide tab labels. The Apps switch labels distinguish apps on the device from App Containers, with an accessible menu at large text sizes. Toasts, buttons, onboarding, app details and widgets use adaptive readable colors. Local regression checks, iPhone Simulator UI checks in light/dark and accessibility text, the iPhoneOS Release build and strict ad-hoc package checks passed. Authentication UI checks use synthetic data without contacting Apple; real-device sign-in, Home Screen icon migration, widget presentation and cellular-only refresh remain unverified. Matching source and original third-party licenses are provided separately.",
       "screenshots": [],
-      "marketingVersion": "0.8.11",
-      "sourceArchive": {
-        "name": "zLoader-0.8.11-source.zip",
-        "size": 65333875,
-        "sha256": "49ead0447c5b3e6660e2033c79469405a9dce96b41a200afe1b7adc8720e6db7",
-        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.8.11-20261110T072200Z-faa36adc/zLoader-0.8.11-source.zip"
+      "marketingVersion": "0.8.12",
+      "releaseNotes": "zLoader 0.8.12 replaces Apple sign-in, verification-code entry and the post-login instructions with readable native forms and German localization. The completion screen has a visible Verstanden action. Splash and onboarding use the current ZL icon and semantic system colors. Selectable alternate app icons are removed; the single layered icon follows system appearance. The tab bar has four entries: News, Sources, Apps and Browse. Settings is now a gear button to the right of Sign on the Apps screen. Appearance starts with Language and includes a persistent option to hide tab labels. The Apps switch labels distinguish apps on the device from App Containers, with an accessible menu at large text sizes. Toasts, buttons, onboarding, app details and widgets use adaptive readable colors. Local regression checks, iPhone Simulator UI checks in light/dark and accessibility text, the iPhoneOS Release build and strict ad-hoc package checks passed. Authentication UI checks use synthetic data without contacting Apple; real-device sign-in, Home Screen icon migration, widget presentation and cellular-only refresh remain unverified. Matching source and original third-party licenses are provided separately.",
+      "pendingUpload": {
+        "chunks": [
+          {
+            "sha": "d521bf4875731648bdd51134eb9ff21edcc12d2b",
+            "size": 8000000
+          },
+          {
+            "sha": "0208c7161979e276bbad4b045bd75bf04b485cb7",
+            "size": 8000000
+          },
+          {
+            "sha": "37881b64dc16017eab80581dbc7c37b7d606f797",
+            "size": 8000000
+          },
+          {
+            "sha": "58ac538fc920b41236618e80e82910636318a988",
+            "size": 6153900
+          }
+        ],
+        "tag": "app-zloader-v0.8.12-20261110T141319Z-c2362630",
+        "size": 30153900
       },
-      "releaseAsset": {
-        "size": 43009337,
-        "sha256": "faa36adc8dbd63d7ddd00b6f19eb46602409b36d6c03db44e271497f99bbc6a5",
-        "updatedAt": "2026-11-10T07:35:39.363311+00:00"
+      "pendingSourceArchive": {
+        "name": "zLoader-0.8.12-source.zip",
+        "size": 60033413,
+        "sha256": "d7b16f02b7deec8a9dd2991993b6aae367ba9e223e9339f530cac7efb1f25887",
+        "chunks": [
+          {
+            "sha": "a24a74b3c42a28543ede88a53c7b9a8f5eb2da4f",
+            "size": 25000000
+          },
+          {
+            "sha": "db1893ffa21c6e133f513e46fb13a584d4032d84",
+            "size": 25000000
+          },
+          {
+            "sha": "6ad7122e0fc4a6fc958936244b7998e7b3818c04",
+            "size": 10033413
+          }
+        ]
       }
     }
   },
