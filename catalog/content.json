@@ -32,47 +32,16 @@
       "versionDescription": "zLoader 0.8.14 fixes tab labels reappearing after restarting the app with Show Tab Labels turned off. Home and Apps now set their navigation titles independently, and the tab controller reconciles actual native item titles with the saved preference during layout. VoiceOver names and update badges are preserved. A Simulator UI regression test checks hidden labels, a full relaunch, every tab, restored labels and another relaunch. Native settings/project checks, Release build and package validation passed. Physical-device behavior was not retested. The IPA needs Apple-authorized signing; matching source with original licenses is provided separately.",
       "screenshots": [],
       "marketingVersion": "0.8.14",
-      "releaseNotes": "zLoader 0.8.14 fixes tab labels reappearing after restarting the app with Show Tab Labels turned off. Home and Apps now set their navigation titles independently, and the tab controller reconciles actual native item titles with the saved preference during layout. VoiceOver names and update badges are preserved. A Simulator UI regression test checks hidden labels, a full relaunch, every tab, restored labels and another relaunch. Native settings/project checks, Release build and package validation passed. Physical-device behavior was not retested. The IPA needs Apple-authorized signing; matching source with original licenses is provided separately.",
-      "pendingUpload": {
-        "chunks": [
-          {
-            "sha": "f161869b89b58123048fac05c7ddf7fee40d7769",
-            "size": 8000000
-          },
-          {
-            "sha": "79040fda4e384330ec376a0cdbb48be9af49fed2",
-            "size": 8000000
-          },
-          {
-            "sha": "c5715cdde56b58a71df008eaa1e5641af89ace4a",
-            "size": 8000000
-          },
-          {
-            "sha": "119d72886424be9e6f2ac9ee4b5eb0d2fee61c3d",
-            "size": 6244165
-          }
-        ],
-        "tag": "app-zloader-v0.8.14-20261110T174355Z-ae3f7786",
-        "size": 30244165
-      },
-      "pendingSourceArchive": {
+      "sourceArchive": {
         "name": "zLoader-0.8.14-source.zip",
         "size": 60053984,
         "sha256": "57d14f4c15f0e650cb47c67fca94d0e6843c95fdc2871476eaf6647e02701e70",
-        "chunks": [
-          {
-            "sha": "378ef913aec42d96a2b35df3a9cee0644333f475",
-            "size": 25000000
-          },
-          {
-            "sha": "33860b2a42fb11035fce7c0d0b1957baa48f5404",
-            "size": 25000000
-          },
-          {
-            "sha": "5fb8905379885dd9859961d263ca749fb5c29de2",
-            "size": 10053984
-          }
-        ]
+        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.8.14-20261110T174355Z-ae3f7786/zLoader-0.8.14-source.zip"
+      },
+      "releaseAsset": {
+        "size": 30071151,
+        "sha256": "ae3f77860360dafcd220c57f820f72f72f6768da880a86fa306557a808e7606d",
+        "updatedAt": "2026-11-10T17:47:45.334822+00:00"
       }
     }
   },
