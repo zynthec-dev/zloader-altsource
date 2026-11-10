@@ -101,3 +101,13 @@ Der isolierte Browsertest `tests/admin-ui.mjs` benötigt Playwright und Chrome. 
 Der Website-Test `tests/landing-ui.mjs` prüft Download-/GitHub-/Source-Links, Kopieren mit Berechtigungs-Fallback, echte Icons und responsive Layouts. `LANDING_TEST_ROOT` bedient isoliert den Build über den echten Worker; ohne diese Option prüft `LANDING_TEST_URL` (standardmäßig die Live-Website) rein lesend. `LANDING_SCREENSHOTS` wählt den Screenshot-Ordner.
 
 Apps werden mit angehefteten Einträgen zuerst, ansonsten alphabetisch aufgeführt. Alte IPA-Dateien im lokalen Projektordner oder in historischen Releases erscheinen nicht erneut, solange sie nicht im Katalog ausgewählt sind.
+
+## Local signed-IPA installation manifests
+
+`GET /install/manifest.plist` on `source.zloader.de` builds an uncached Apple OTA
+manifest from `url`, `bundleid`, `version`, and `name`. The payload URL must be a
+tokenized `http://127.0.0.1:<port>/<UUID>/app.ipa` address. The worker never fetches
+that URL or accepts an IPA, signing certificate, private key or provisioning profile.
+IPA delivery remains on the device; Apple signing/profile requirements remain.
+The independent protocol follows Feather's semi-local installation approach.
+`tests/cloudflare-routing.mjs` verifies the endpoint's validation and host isolation.

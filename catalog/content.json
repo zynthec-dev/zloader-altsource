@@ -20,8 +20,8 @@
       }
     },
     "com.zynthec.zLoader": {
-      "ipaFile": "zLoader-0.8.12-resignable.ipa",
-      "releaseTag": "app-zloader-v0.8.12-20261110T141319Z-c2362630",
+      "ipaFile": "zLoader-0.8.13-resignable.ipa",
+      "releaseTag": "app-zloader-v0.8.13-20261110T165635Z-1552a170",
       "name": "zLoader",
       "developerName": "zynthec-dev",
       "subtitle": "Independent SideStore fork for iPhone and iPad.",
@@ -29,19 +29,50 @@
       "category": "utilities",
       "tintColor": "#40B5AD",
       "iconFile": "catalog/assets/zloader-icon.png",
-      "versionDescription": "zLoader 0.8.12 replaces Apple sign-in, verification-code entry and the post-login instructions with readable native forms and German localization. The completion screen has a visible Verstanden action. Splash and onboarding use the current ZL icon and semantic system colors. Selectable alternate app icons are removed; the single layered icon follows system appearance. The tab bar has four entries: News, Sources, Apps and Browse. Settings is now a gear button to the right of Sign on the Apps screen. Appearance starts with Language and includes a persistent option to hide tab labels. The Apps switch labels distinguish apps on the device from App Containers, with an accessible menu at large text sizes. Toasts, buttons, onboarding, app details and widgets use adaptive readable colors. Local regression checks, iPhone Simulator UI checks in light/dark and accessibility text, the iPhoneOS Release build and strict ad-hoc package checks passed. Authentication UI checks use synthetic data without contacting Apple; real-device sign-in, Home Screen icon migration, widget presentation and cellular-only refresh remain unverified. Matching source and original third-party licenses are provided separately.",
+      "versionDescription": "zLoader 0.8.13 reorganizes the four tabs as Home, Sources, Apps and Settings, removes the News tab and returns Settings to the right with the existing gear symbol. Home has a Library text button. The library keeps downloaded and imported IPAs as unsigned inputs alongside zLoader-signed outputs, defaults to date added and offers status filters, search and sorting. Its plus imports without installation; signing is in the upper-left toolbar. Apps > plus > Choose from Library shows unsigned IPAs only and continues to the device/container installation choice. Files export is available from each IPA context menu. Signed IPAs offer Install first and Install on Another Device second, using the iOS system installer. This-device installation follows Feather semi-local principle: the IPA stays on a loopback HTTP server, and source.zloader.de generates the trusted HTTPS manifest from name, bundle ID, version and local URL, without uploading IPA bytes or signing secrets. No manual HTTPS trust profile is required for this-device installation. The existing cross-device HTTPS installer still uses its trust profile. Apple signing and provisioning are required, and an iOS background-task lease supports the system handoff. The empty container-help action is removed. Native scalable fonts, wrapping labels, growing fields, scrollable legacy dialogs and width-aware app-list measurement improve iPhone/iPad layouts. Local regression, persistent-library, TLS transport, Simulator and release-package checks passed; see the matching source for test scope. Actual iOS OTA installation, physical display-zoom combinations, real Apple login and cellular-only refresh remain unverified. The IPA is resignable and matching source with original licenses is supplied separately.",
       "screenshots": [],
-      "marketingVersion": "0.8.12",
-      "sourceArchive": {
-        "name": "zLoader-0.8.12-source.zip",
-        "size": 60033413,
-        "sha256": "d7b16f02b7deec8a9dd2991993b6aae367ba9e223e9339f530cac7efb1f25887",
-        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.8.12-20261110T141319Z-c2362630/zLoader-0.8.12-source.zip"
+      "marketingVersion": "0.8.13",
+      "releaseNotes": "zLoader 0.8.13 reorganizes the four tabs as Home, Sources, Apps and Settings, removes the News tab and returns Settings to the right with the existing gear symbol. Home has a Library text button. The library keeps downloaded and imported IPAs as unsigned inputs alongside zLoader-signed outputs, defaults to date added and offers status filters, search and sorting. Its plus imports without installation; signing is in the upper-left toolbar. Apps > plus > Choose from Library shows unsigned IPAs only and continues to the device/container installation choice. Files export is available from each IPA context menu. Signed IPAs offer Install first and Install on Another Device second, using the iOS system installer. This-device installation follows Feather semi-local principle: the IPA stays on a loopback HTTP server, and source.zloader.de generates the trusted HTTPS manifest from name, bundle ID, version and local URL, without uploading IPA bytes or signing secrets. No manual HTTPS trust profile is required for this-device installation. The existing cross-device HTTPS installer still uses its trust profile. Apple signing and provisioning are required, and an iOS background-task lease supports the system handoff. The empty container-help action is removed. Native scalable fonts, wrapping labels, growing fields, scrollable legacy dialogs and width-aware app-list measurement improve iPhone/iPad layouts. Local regression, persistent-library, TLS transport, Simulator and release-package checks passed; see the matching source for test scope. Actual iOS OTA installation, physical display-zoom combinations, real Apple login and cellular-only refresh remain unverified. The IPA is resignable and matching source with original licenses is supplied separately.",
+      "pendingUpload": {
+        "chunks": [
+          {
+            "sha": "ca09c7c1886db8d458dd7bc346cc1d61aafe9ef5",
+            "size": 8000000
+          },
+          {
+            "sha": "42b8116f743cf1177872694c8f2a1d56c6593f2c",
+            "size": 8000000
+          },
+          {
+            "sha": "fc6ec6a8e664fb3b226369d0051207be04a42258",
+            "size": 8000000
+          },
+          {
+            "sha": "2ba22ad5bf5251eb7c090a45b16841fb825f1756",
+            "size": 6244007
+          }
+        ],
+        "tag": "app-zloader-v0.8.13-20261110T165635Z-1552a170",
+        "size": 30244007
       },
-      "releaseAsset": {
-        "size": 29980482,
-        "sha256": "c2362630e9808f20c2a317381389d033ac1bea0ad6e81796dc8d4fa6f07cf076",
-        "updatedAt": "2026-11-10T14:16:55.574968+00:00"
+      "pendingSourceArchive": {
+        "name": "zLoader-0.8.13-source.zip",
+        "size": 60052626,
+        "sha256": "9195b93e0e02152e681686700edaa3d456dc6b3d85f190a302a50557463b608a",
+        "chunks": [
+          {
+            "sha": "ab5f8ed3e4028d14f021ef5a9f3025c607a12d59",
+            "size": 25000000
+          },
+          {
+            "sha": "8eca8f828cebb345ab583eef7dc8e0c2e7f750ce",
+            "size": 25000000
+          },
+          {
+            "sha": "d35be3d68ad8618bd526c15e264c5d6b630c72b0",
+            "size": 10052626
+          }
+        ]
       }
     }
   },
