@@ -20,8 +20,8 @@
       }
     },
     "com.zynthec.zLoader": {
-      "ipaFile": "zLoader-0.8.10-resignable.ipa",
-      "releaseTag": "app-zloader-v0.8.10-20261109T184609Z-3543fa28",
+      "ipaFile": "zLoader-0.8.11-resignable.ipa",
+      "releaseTag": "app-zloader-v0.8.11-20261110T072200Z-faa36adc",
       "name": "zLoader",
       "developerName": "zynthec-dev",
       "subtitle": "Independent SideStore fork for iPhone and iPad.",
@@ -29,19 +29,58 @@
       "category": "utilities",
       "tintColor": "#40B5AD",
       "iconFile": "catalog/assets/zloader-icon.png",
-      "versionDescription": "zLoader 0.8.10 joins the upper bar and left stem of the ZL monogram at the requested top-left junction. The continuous foreground is used by every native Default, Dark, Clear and Tinted rendition, legacy alternate icon artwork, icon previews and the Source icons. Settings, credits, signing and installed-app data remain unchanged. All 33 required local regression scripts, six Icon Composer renders, the iPhoneOS Release build, bundled-resource checks and strict signature verification passed. The Settings UI and website interaction flows were validated in 0.8.9; this release changes only icon artwork and version metadata. Physical-device installation and Home Screen appearance remain untested. Matching source, original authors, licenses and dependency pins are supplied separately.",
+      "versionDescription": "zLoader 0.8.11 adds a consented Mac Anisette (jkcoxson) recovery for on-device Apple sign-in rejected with -80045 before interactive authentication. Recovery retries once, stores the selected remote mode and preserves signing certificates. Incorrect credentials, rate limits, transport errors and failures after a verification prompt do not trigger a provider switch. Settings now separate Account & Signing from Settings, with User Customizations directly before Appearance. Alternate Home Screen icons use layered Icon Composer documents; the selector waits for the system result, and in-app icons no longer add black corner backgrounds or an extra shadow. Local regression checks, Simulator Settings and icon-switch checks, the iPhoneOS Release build, compiled-icon resource checks and strict ad-hoc signature verification passed. The user confirmed the remote-server login workaround on an iPhone; the new assisted recovery and cellular-only refresh still require physical-device validation. Matching source and original licenses are provided separately.",
       "screenshots": [],
-      "marketingVersion": "0.8.10",
-      "sourceArchive": {
-        "name": "zLoader-0.8.10-source.zip",
-        "size": 65372590,
-        "sha256": "170261eef6a0b70e11d9cc7f6a86ab173cad1caa72b2d3ce715d51bd9950a000",
-        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.8.10-20261109T184609Z-3543fa28/zLoader-0.8.10-source.zip"
+      "marketingVersion": "0.8.11",
+      "releaseNotes": "zLoader 0.8.11 adds a consented Mac Anisette (jkcoxson) recovery for on-device Apple sign-in rejected with -80045 before interactive authentication. Recovery retries once, stores the selected remote mode and preserves signing certificates. Incorrect credentials, rate limits, transport errors and failures after a verification prompt do not trigger a provider switch. Settings now separate Account & Signing from Settings, with User Customizations directly before Appearance. Alternate Home Screen icons use layered Icon Composer documents; the selector waits for the system result, and in-app icons no longer add black corner backgrounds or an extra shadow. Local regression checks, Simulator Settings and icon-switch checks, the iPhoneOS Release build, compiled-icon resource checks and strict ad-hoc signature verification passed. The user confirmed the remote-server login workaround on an iPhone; the new assisted recovery and cellular-only refresh still require physical-device validation. Matching source and original licenses are provided separately.",
+      "pendingUpload": {
+        "chunks": [
+          {
+            "sha": "44b986734c061ae72c89e0eb5cd6eb56a56bdd7f",
+            "size": 8000000
+          },
+          {
+            "sha": "46cbccc43b5096a70bd3400dc7bb98896c806379",
+            "size": 8000000
+          },
+          {
+            "sha": "cf00b62c53e9e01105dee01b41315b28fe34db34",
+            "size": 8000000
+          },
+          {
+            "sha": "661712376720e6d0c7d4da70902fe529154330c8",
+            "size": 8000000
+          },
+          {
+            "sha": "49a9832e64ef92642a4521cb62e37d620d102c9a",
+            "size": 8000000
+          },
+          {
+            "sha": "9dd30900bf5ec59545de4f8c7637d471d2596947",
+            "size": 3183503
+          }
+        ],
+        "tag": "app-zloader-v0.8.11-20261110T072200Z-faa36adc",
+        "size": 43183503
       },
-      "releaseAsset": {
-        "size": 31356535,
-        "sha256": "3543fa287be221e4bbc13715913814b51b4f8b7bd2c10898dc43bff5c0d5f8b8",
-        "updatedAt": "2026-11-09T18:52:18.848022+00:00"
+      "pendingSourceArchive": {
+        "name": "zLoader-0.8.11-source.zip",
+        "size": 65333875,
+        "sha256": "49ead0447c5b3e6660e2033c79469405a9dce96b41a200afe1b7adc8720e6db7",
+        "chunks": [
+          {
+            "sha": "109ca82ec8962d72c47cfd43ac90391d1eee1822",
+            "size": 25000000
+          },
+          {
+            "sha": "26bad2f3e2bbed4b6632a9089afb5ce03af174fa",
+            "size": 25000000
+          },
+          {
+            "sha": "8b5c54c884eee2e2a9185322cc52a437aac3f2c7",
+            "size": 15333875
+          }
+        ]
       }
     }
   },
