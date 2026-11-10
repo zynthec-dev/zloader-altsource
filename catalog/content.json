@@ -32,55 +32,16 @@
       "versionDescription": "zLoader 0.8.11 adds a consented Mac Anisette (jkcoxson) recovery for on-device Apple sign-in rejected with -80045 before interactive authentication. Recovery retries once, stores the selected remote mode and preserves signing certificates. Incorrect credentials, rate limits, transport errors and failures after a verification prompt do not trigger a provider switch. Settings now separate Account & Signing from Settings, with User Customizations directly before Appearance. Alternate Home Screen icons use layered Icon Composer documents; the selector waits for the system result, and in-app icons no longer add black corner backgrounds or an extra shadow. Local regression checks, Simulator Settings and icon-switch checks, the iPhoneOS Release build, compiled-icon resource checks and strict ad-hoc signature verification passed. The user confirmed the remote-server login workaround on an iPhone; the new assisted recovery and cellular-only refresh still require physical-device validation. Matching source and original licenses are provided separately.",
       "screenshots": [],
       "marketingVersion": "0.8.11",
-      "releaseNotes": "zLoader 0.8.11 adds a consented Mac Anisette (jkcoxson) recovery for on-device Apple sign-in rejected with -80045 before interactive authentication. Recovery retries once, stores the selected remote mode and preserves signing certificates. Incorrect credentials, rate limits, transport errors and failures after a verification prompt do not trigger a provider switch. Settings now separate Account & Signing from Settings, with User Customizations directly before Appearance. Alternate Home Screen icons use layered Icon Composer documents; the selector waits for the system result, and in-app icons no longer add black corner backgrounds or an extra shadow. Local regression checks, Simulator Settings and icon-switch checks, the iPhoneOS Release build, compiled-icon resource checks and strict ad-hoc signature verification passed. The user confirmed the remote-server login workaround on an iPhone; the new assisted recovery and cellular-only refresh still require physical-device validation. Matching source and original licenses are provided separately.",
-      "pendingUpload": {
-        "chunks": [
-          {
-            "sha": "44b986734c061ae72c89e0eb5cd6eb56a56bdd7f",
-            "size": 8000000
-          },
-          {
-            "sha": "46cbccc43b5096a70bd3400dc7bb98896c806379",
-            "size": 8000000
-          },
-          {
-            "sha": "cf00b62c53e9e01105dee01b41315b28fe34db34",
-            "size": 8000000
-          },
-          {
-            "sha": "661712376720e6d0c7d4da70902fe529154330c8",
-            "size": 8000000
-          },
-          {
-            "sha": "49a9832e64ef92642a4521cb62e37d620d102c9a",
-            "size": 8000000
-          },
-          {
-            "sha": "9dd30900bf5ec59545de4f8c7637d471d2596947",
-            "size": 3183503
-          }
-        ],
-        "tag": "app-zloader-v0.8.11-20261110T072200Z-faa36adc",
-        "size": 43183503
-      },
-      "pendingSourceArchive": {
+      "sourceArchive": {
         "name": "zLoader-0.8.11-source.zip",
         "size": 65333875,
         "sha256": "49ead0447c5b3e6660e2033c79469405a9dce96b41a200afe1b7adc8720e6db7",
-        "chunks": [
-          {
-            "sha": "109ca82ec8962d72c47cfd43ac90391d1eee1822",
-            "size": 25000000
-          },
-          {
-            "sha": "26bad2f3e2bbed4b6632a9089afb5ce03af174fa",
-            "size": 25000000
-          },
-          {
-            "sha": "8b5c54c884eee2e2a9185322cc52a437aac3f2c7",
-            "size": 15333875
-          }
-        ]
+        "downloadURL": "https://github.com/zynthec-dev/zloader-altsource/releases/download/app-zloader-v0.8.11-20261110T072200Z-faa36adc/zLoader-0.8.11-source.zip"
+      },
+      "releaseAsset": {
+        "size": 43009337,
+        "sha256": "faa36adc8dbd63d7ddd00b6f19eb46602409b36d6c03db44e271497f99bbc6a5",
+        "updatedAt": "2026-11-10T07:35:39.363311+00:00"
       }
     }
   },
