@@ -1,24 +1,5 @@
 {
   "localApps": {
-    "de.renewitt.mipet": {
-      "ipaFile": "miPet-0.1.0-resignable.ipa",
-      "releaseTag": "app-mipet-v0.1.0-20261018T132603Z-237de269",
-      "name": "miPet",
-      "developerName": "zynthec",
-      "subtitle": "Dein kleiner Begleiter für iPhone und iPad.",
-      "localizedDescription": "miPet bringt einen liebevoll animierten Begleiter auf dein Gerät. Diese Beta wird direkt von zynthec veröffentlicht.",
-      "category": "lifestyle",
-      "tintColor": "#00C7B7",
-      "iconFile": "catalog/assets/mipet-icon.png",
-      "versionDescription": "Optimierte Speicherung: zusammengehörige Änderungen werden gebündelt und außerhalb des Main Actors atomar gespeichert. Offene Änderungen werden beim Verlassen des Vordergrunds gesichert. Wiederherstellung und Zurücksetzen sind gegen ältere Schreibvorgänge abgesichert. Pet-Oberfläche und Sprachdienst wurden in kleinere Komponenten aufgeteilt. Release-Build und 46 lokale Tests erfolgreich; vier Live-API-Tests wurden im Simulator übersprungen. Resignierbare IPA für iPhone und iPad ab iOS 17. Die eingebettete App-Version bleibt 0.1.0 (Build 1); für bereits installierte Builds mit derselben Versionsnummer ist gegebenenfalls eine erneute Installation erforderlich.",
-      "screenshots": [],
-      "marketingVersion": "0.1.0",
-      "releaseAsset": {
-        "size": 15284786,
-        "sha256": "237de269ece6060e0c2115f8e18b2014462d3f08dfd91ed337f41b9c7cc40941",
-        "updatedAt": "2026-10-18T13:26:18.988283+00:00"
-      }
-    },
     "com.zynthec.zLoader": {
       "ipaFile": "zLoader-0.8.14-resignable.ipa",
       "releaseTag": "app-zloader-v0.8.14-20261110T174355Z-ae3f7786",

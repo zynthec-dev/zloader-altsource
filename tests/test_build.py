@@ -39,12 +39,6 @@ class BuildTests(unittest.TestCase):
             self.assertTrue(app["versions"][0]["downloadURL"].endswith(".ipa"))
             self.assertGreater(app["versions"][0]["size"], 0)
 
-    @unittest.skipUnless((ROOT / "miPet-0.3-beta.ipa").exists(), "miPet release asset is not available")
-    def test_mipet_metadata(self):
-        app = next(app for app in self.source["apps"] if app["bundleIdentifier"] == "de.renewitt.mipet")
-        self.assertEqual(app["versions"][0]["version"], "0.1.0")
-        self.assertEqual(app["versions"][0]["marketingVersion"], "0.3-beta")
-
     def test_catalog_selected_ipa_and_release_tag_are_published(self):
         for app in self.source["apps"]:
             metadata = self.content.get("localApps", {}).get(app["bundleIdentifier"])
