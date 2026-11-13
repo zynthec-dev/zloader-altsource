@@ -1,12 +1,12 @@
 {
-  "name": "zLoader Source",
+  "name": "zynthecLoader Source",
   "identifier": "com.zynthec.source",
   "subtitle": "Apps direkt über zLoader installieren und aktualisieren.",
   "description": "Die zLoader Source für AltStore, SideStore und zLoader.",
   "website": "https://zloader.de",
   "sourceURL": "https://source.zloader.de",
   "iconURL": "https://source.zloader.de/assets/source-icon.png",
-  "tintColor": "#40B5AD",
+  "tintColor": "#40b5ad",
   "githubRepository": "zynthec-dev/zloader-altsource",
   "releaseTag": "apps"
 }
